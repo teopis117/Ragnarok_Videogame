@@ -1,0 +1,28 @@
+;-------------------------------------------------------------------------------
+[Info]
+name = "Jeanne"
+displayname = "Jeanne D'arc"
+versiondate = ;12/05/2019
+mugenversion = 1.0
+author = "LautyCarp"
+pal.defaults = 1,2,3,4
+;-------------------------------------------------------------------------------
+[Files]
+sprite = Jeanne.sff
+anim = Jeanne.air
+sound = Jeanne.snd
+cmd = Jeanne.cmd
+cns = Jeanne.cns
+stcommon = common1.cns
+st = Jeanne.cns
+st1 = AI.cns
+st2 = Especiales.cns
+st3 = Super.cns
+pal1 = 1.act
+pal2 = 2.act
+pal3 = Alter.act
+pal4 = Pucelle.act
+;-------------------------------------------------------------------------------
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 

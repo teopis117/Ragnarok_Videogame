@@ -1,0 +1,28 @@
+
+A - Punch
+
+B - Kick
+
+Down + B - Ki Cannon
+
+C - Ki Blast
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Soaring Fist (Hold)
+
+D,DB,B,a - Mastered Blast
+
+D,DF,F,b - Meteor Crash
+
+D,DB,B,b - Invisible Blows
+
+D,DF,F,c - Kamehameha
+
+D,DB,B,c - Mastered Punch
+
+SUPER: 
+
+D,DF,F,D,DF,F,a+b - Godly Display

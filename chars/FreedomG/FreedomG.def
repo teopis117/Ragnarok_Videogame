@@ -1,0 +1,32 @@
+; ‚±‚±‚ÉƒLƒƒƒ‰î•ñ‚ğ‘‚¢‚Ä‚­‚¾‚³‚¢
+[Info]
+name ="Freedom Gundam"
+displayname ="Freedom Gundam"
+versiondate =07,01,2007
+mugenversion =11,22,2000
+author ="hyuga"
+pal.defaults =6,3,4,2
+
+; Files for the player
+[Files]
+cmd     =F-G.cmd
+cns     =F-G.cns
+st      =F-G.cns
+stcommon =F-common.cns 
+sprite  = F-G.sff
+anim    = F-G.air
+sound   = F-G.snd
+pal1=ACT/01-FG-Defult.act
+pal2=ACT/02-FG-Red.act
+pal3=ACT/03-FG-Meteor.act
+pal4=ACT/04-FG-JusticeG.act
+pal5=ACT/05-FG-Dark.act
+pal6=ACT/06-FG-AkatukiG.act
+st1=-3.cns
+st2=waza.cns
+st3=effect.cns
+st4=airmoves.cns
+st5=super.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

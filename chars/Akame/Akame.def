@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Akame"
+displayname ="Akame"
+versiondate =12/05/2018
+mugenversion = 1.0
+author ="BlackJudai" ;Base char, Inseph/Trafalgarlawzz/Arcutomory/KDsR for help and extra additions, literally one Mikel code I used: RemapPal from Gohan Adult
+revamp = "PackManMUGEN"
+pal.defaults =1,2
+
+[Files]
+sprite =Akame.sff
+anim =Akame.air
+sound =Akame.snd
+cmd =Akame.cmd
+cns =Akame.cns
+stcommon =common1.cns
+st =Akame.cns
+pal1=1.act
+pal2=2.act
+st1=IA.cns
+st2=Specials.cns
+st3=Supers.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

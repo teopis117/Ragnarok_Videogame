@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Medusa"
+displayname ="Medusa"
+versiondate =13/04/2021
+mugenversion =1.0
+author ="Protozoark"
+pal.defaults =1
+
+[Files]
+sprite =Rider.sff
+anim =Rider.air
+sound =Rider.snd
+cmd =Rider.cmd
+cns =Rider.cns
+stcommon =common1.cns
+st =Rider.cns
+pal1=1.act
+pal2=1.act
+st1=IA.cns
+st2=Specials.cns
+st3=Supers.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

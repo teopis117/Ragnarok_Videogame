@@ -1,0 +1,29 @@
+
+A - Combo 1
+
+B - Combo 2
+
+C - combo 3
+
+S - Power Charge
+
+
+
+SPECIALS:
+
+D,DF,F,a 
+
+D,DB,B,a 
+
+D,DF,F,b 
+
+D,DB,B,b 
+
+D,DF,F,c 
+
+D,DB,B,c 
+
+
+SUPERS: 
+
+x

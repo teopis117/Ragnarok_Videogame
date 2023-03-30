@@ -1,0 +1,21 @@
+[Info]
+name ="Obito"
+displayname ="Obito"
+versiondate =2015.06.14
+mugenversion =1.0
+author ="JC55"
+pal.defaults =1
+
+[Files]
+cmd     =Madara.cmd
+cns     =Madara.cns
+st      =Madara.cns
+stcommon =common1.cns
+sprite  =Madara.sff
+anim    =Madara.air
+sound   =Madara.snd
+pal1=1.act
+st1=others.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

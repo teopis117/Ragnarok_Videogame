@@ -1,0 +1,25 @@
+[Info]
+name="Gilgamesh"
+displayname="Gilgamesh"
+versiondate=02/07/2021
+mugenversion=1.0
+author="InSeph"
+pal.defaults=1
+
+[files]
+anim=.src/anim.air   
+cmd=.src/cmd.cmd
+cns=.src/cns.cns
+sound=.src/snd.snd
+sprite=Gilgamesh.sff
+stcommon=.src/common.cns
+st=.src/cns.cns
+
+;;;Credits;;;
+; Kamui
+; Planeptune
+; Knightmare404
+; MugenN5
+; BlueStone
+; GreenMaurice
+; DryMugen

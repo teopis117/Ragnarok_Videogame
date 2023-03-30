@@ -1,0 +1,40 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Artoria"
+displayname ="Artoria"
+versiondate =05/06/2018
+mugenversion =1.0
+author ="Mikel8888"
+pal.defaults =1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite =Saber.sff
+anim =Saber.air
+sound =Saber.snd
+cmd =Saber.cmd
+cns =Saber.cns
+stcommon =common1.cns
+st =Saber.cns
+pal1=1.act
+pal2=1.act
+pal3=1.act
+pal4=1.act
+pal5=1.act
+pal6=1.act
+pal7=1.act
+pal8=1.act
+pal9=2.act
+pal10=3.act
+pal11=4.act
+pal12=5.act
+st1=IA.cns
+st2=Specials.cns
+st3=Supers.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

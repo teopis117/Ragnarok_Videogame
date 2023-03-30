@@ -1,0 +1,3133 @@
+;--------------------------------------------------------
+;（超必殺ハイマットフルバースト・ストレート
+;バラエーナ・収束ビーム砲
+;-------------------------------------------------------------------------------------
+;ビームライフル１
+[Statedef 3004]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 710
+sprpriority = 8
+
+[State 3004, 3]
+type = ScreenBound
+trigger1 = 1
+value = 0
+
+[State 3004, 1]
+type = Velset
+trigger1 = AnimElem = 2
+x = 30
+y = 0
+
+[State 3004, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 3004,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3004, 2]
+type = HitDef
+trigger1 = time = 0
+attr = A, NA
+damage    = 18,6
+guardflag = HA
+priority = 3
+pausetime = 0,3
+sparkno = S720
+guard.sparkno = S720
+sparkxy = -20,0
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -2,-3
+air.velocity = -2,2
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+fall = 1
+fall.recover = 0
+
+[State 3004, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -2
+
+[State 3004, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------------------
+;クスィフィアス・レール砲
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3005]
+type = S
+movetype = A
+physics = N
+anim = 790
+sprpriority = 8
+ctrl = 0
+
+[State 3005, 3]
+type = BindToParent
+trigger1 = 1
+time = 80
+pos = 30,-14
+
+[State 3005, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 3005,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3005, 2]
+type = HitDef
+trigger1 = time = 0
+attr = A, NP
+damage    = 30, 10
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -2.5,-3
+air.velocity = -2,-3
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+fall = 1
+fall.recover = 0
+
+[State 3005, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -6
+
+[State 3005, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3000
+
+[State 3005, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;----------------------------------------------------------------------------------------------------------------
+;バラエーナ・収束ビーム砲
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3006]
+type = S
+movetype = A
+physics = N
+anim = 21000
+sprpriority = 5
+ctrl = 0
+
+[State 3006, 3]
+type = BindToParent
+trigger1 = 1
+time = 80
+pos = 25,-48
+
+[State 3006, 1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 370, 4
+
+[State 3006, 3]
+type = SprPriority
+trigger1 = 1
+value = 5
+
+[State 3006,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+
+[State 3006, 2]
+type = HitDef
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 7
+trigger5 = AnimElem = 9
+trigger6 = AnimElem = 11
+trigger7 = AnimElem = 13
+trigger8 = AnimElem = 15
+trigger9 = AnimElem = 17
+trigger10 = AnimElem = 19
+trigger11 = AnimElem = 21
+attr = A, NP
+damage    = 5,2
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 3006, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 6
+trigger4 = AnimElem = 8
+trigger5 = AnimElem = 10
+trigger6 = AnimElem = 12
+trigger7 = AnimElem = 14
+trigger8 = AnimElem = 16
+trigger9 = AnimElem = 18
+trigger10 = AnimElem = 20
+trigger11 = AnimElem = 22
+attr = A, NP
+damage    = 4,1
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = -1
+guardsound = -1
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 3006, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -4
+
+
+[State 3006, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3000
+
+[State 3006 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3007]
+type = S
+movetype = A
+physics = N
+anim = 21000
+sprpriority = 5
+ctrl = 0
+
+[State 3007, 3]
+type = BindToParent
+trigger1 = 1
+time = 80
+pos = 40,-44
+
+[State 3007, 1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 370, 4
+
+[State 21200, 3]
+type = SprPriority
+trigger1 = 1
+value = 5
+
+[State 3007,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+
+[State 3007, 2]
+type = HitDef
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 7
+trigger5 = AnimElem = 9
+trigger6 = AnimElem = 11
+trigger7 = AnimElem = 13
+trigger8 = AnimElem = 15
+trigger9 = AnimElem = 17
+trigger10 = AnimElem = 19
+trigger11 = AnimElem = 21
+attr = A, NP
+damage    = 5,2
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 3007, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 6
+trigger4 = AnimElem = 8
+trigger5 = AnimElem = 10
+trigger6 = AnimElem = 12
+trigger7 = AnimElem = 14
+trigger8 = AnimElem = 16
+trigger9 = AnimElem = 18
+trigger10 = AnimElem = 20
+trigger11 = AnimElem = 22
+attr = A, NP
+damage    = 4,1
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = -1
+guardsound = -1
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 21200, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -4
+
+
+[State 3007, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3000
+
+[State 3007, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;--------------------------------------------------------
+;（超必殺
+;ミーティア
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3210]
+type = S
+movetype = A
+physics = N
+anim = 3210
+sprpriority = -2
+ctrl = 0
+
+[State 3210,0]
+type = Palfx
+trigger1 = Time = 1
+add = 150,150,150
+sinadd = 10, 10, 10
+time = 10
+
+[State 3210, 3]
+type = BindToParent
+trigger1 = 1
+time = 1000
+pos = 0,0
+
+[State 3210, 3]
+type = SprPriority
+trigger1 = 1
+value = -2
+
+[State 3210,***]
+type = Explod
+trigger1 = Animelem = 6
+anim = 3240
+id = 3240
+pos = 0,0;-40
+vel = 0, 0
+postype = p1
+sprpriority = -1
+supermovetime =680
+pausemovetime = 680
+bindtime = 250
+removetime = 250
+ownpal = 1
+
+[State 3210,***]
+type = Explod
+trigger1 = Animelem = 6
+anim = 3245
+id = 3245
+pos = 0,0;-40
+vel = 0, 0
+postype = p1
+sprpriority = -1
+supermovetime =680
+pausemovetime = 680
+bindtime = 250
+removetime = 250
+ownpal = 1
+
+[State 3210]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3210, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+
+[State 3210, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3220]
+type = S
+movetype = A
+physics = N
+anim = 3220
+sprpriority = 2
+ctrl = 0
+
+[State 3220,0]
+type = Palfx
+trigger1 = Time = 1
+add = 150,150,150
+sinadd = 10, 10, 10
+time = 10
+
+[State 3220, 3]
+type = BindToParent
+trigger1 = 1
+time = 1000
+pos = 0,0
+
+[State 3220, 3]
+type = SprPriority
+trigger1 = 1
+value = 2
+
+[State 3220]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3220,***]
+type = Explod
+trigger1 = Animelem = 7
+anim = 3221
+id = 3221
+pos = 0,0;-40
+vel = 0, 0
+postype = p1
+sprpriority = 5
+supermovetime =680
+pausemovetime = 680
+bindtime = 30
+removetime = 30
+ownpal = 1
+
+[State 3220, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+
+[State 3220, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3230]
+type = S
+movetype = A
+physics = N
+anim = 3230
+sprpriority = 0
+ctrl = 0
+
+[State 3230,0]
+type = Palfx
+trigger1 = Time = 1
+add = 150,150,150
+sinadd = 10, 10, 10
+time = 10
+
+[State 3230, 3]
+type = BindToParent
+trigger1 = 1
+time = 1000
+pos = 0,0
+
+[State 3230, 3]
+type = SprPriority
+trigger1 = 1
+value = 0
+
+[State 3220,***]
+type = Explod
+trigger1 = Animelem = 5
+anim = 3231
+id = 3231
+pos = 0,0;-40
+vel = 0, 0
+postype = p1
+sprpriority = 4
+supermovetime =680
+pausemovetime = 680
+bindtime = 60
+removetime = 60
+ownpal = 1
+
+[State 3230]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3230, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+
+[State 3230, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+
+;----------------------------------------------------------------------------------------------------------------
+;ビーム砲
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3246]
+type = S
+movetype = A
+physics = N
+anim = 3246
+sprpriority = 5
+ctrl = 0
+
+[State 3246, 3]
+type = BindToParent
+trigger1 = 1
+time = 200
+pos = 0,0
+
+[State 3246, 3]
+type = SprPriority
+trigger1 = 1
+value = 4
+
+[State 3246,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3246, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3247]
+type = S
+movetype = A
+physics = N
+anim = 3247
+sprpriority = 5
+ctrl = 0
+
+[State 3247, 3]
+type = BindToParent
+trigger1 = 1
+time = 200
+pos = 0,0
+
+[State 3247, 3]
+type = SprPriority
+trigger1 = 1
+value = 4
+
+[State 3247,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3247, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3248]
+type = S
+movetype = A
+physics = N
+anim = 3248
+sprpriority = -1
+ctrl = 0
+
+[State 3248, 3]
+type = BindToParent
+trigger1 = 1
+time = 200
+pos = 0,0
+
+[State 3248, 3]
+type = SprPriority
+trigger1 = 1
+value = -1
+
+[State 3248,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3248, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+
+
+
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3249]
+type = S
+movetype = A
+physics = N
+anim = 3249
+sprpriority = -1
+ctrl = 0
+
+[State 3249, 3]
+type = BindToParent
+trigger1 = 1
+time = 200
+pos = 0,0
+
+[State 3249, 3]
+type = SprPriority
+trigger1 = 1
+value = -1
+
+[State 3249,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3249, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3250]
+type = S
+movetype = A
+physics = N
+anim = 3250
+sprpriority = 3
+ctrl = 0
+
+[State 3250, 3]
+type = BindToParent
+trigger1 = 1
+time = 200
+pos = 0,0
+
+[State 3250, 3]
+type = SprPriority
+trigger1 = 1
+value = 3
+
+[State 3250,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3250, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3251]
+type = S
+movetype = A
+physics = N
+anim = 3251
+sprpriority = 3
+ctrl = 0
+
+[State 3251, 3]
+type = BindToParent
+trigger1 = 1
+time = 200
+pos = 0,0
+
+[State 3251, 3]
+type = SprPriority
+trigger1 = 1
+value = 3
+
+[State 3251,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3251, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+
+
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3252]
+type = S
+movetype = A
+physics = N
+anim = 3252
+sprpriority = 3
+ctrl = 0
+
+[State 3252, 3]
+type = BindToParent
+trigger1 = 1
+time = 200
+pos = 0,0
+
+[State 3252, 3]
+type = SprPriority
+trigger1 = 1
+value = 3
+
+[State 3252,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3252, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3253]
+type = S
+movetype = A
+physics = N
+anim = 3253
+sprpriority = 3
+ctrl = 0
+
+[State 3253, 3]
+type = BindToParent
+trigger1 = 1
+time = 200
+pos = 0,0
+
+[State 3253, 3]
+type = SprPriority
+trigger1 = 1
+value = 3
+
+[State 3253,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3253, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3200
+
+;--------------------------------------------------------
+;（超必殺ハイマットフルバースト・マルチロック
+;バラエーナ・収束ビーム砲
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 40000]
+type = S
+movetype = A
+physics = N
+anim = 1350
+sprpriority = 5
+ctrl = 0
+
+[State 40000, 3]
+type = BindToParent
+trigger1 = 1
+time = 150
+pos = 0,3
+
+[State 40000, 3]
+type = SprPriority
+trigger1 = 1
+value = 4
+
+[State 40000,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 40000, 2]
+type = HitDef
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 7
+trigger5 = AnimElem = 9
+trigger6 = AnimElem = 11
+trigger7 = AnimElem = 13
+trigger8 = AnimElem = 15
+trigger9 = AnimElem = 17
+trigger10 = AnimElem = 19
+trigger11 = AnimElem = 21
+trigger12 = AnimElem = 23
+trigger13 = AnimElem = 25
+trigger14 = AnimElem = 27
+trigger15 = AnimElem = 29
+trigger16 = AnimElem = 31
+trigger17 = AnimElem = 33
+trigger18 = AnimElem = 35
+trigger19 = AnimElem = 37
+trigger20 = AnimElem = 39
+trigger21 = AnimElem = 41
+trigger22 = AnimElem = 43
+trigger23 = AnimElem = 45
+trigger24 = AnimElem = 47
+trigger25 = AnimElem = 49
+trigger26 = AnimElem = 51
+trigger27 = AnimElem = 53
+trigger28 = AnimElem = 55
+attr = A, NP
+damage    = 5,1
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 40000, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 6
+trigger4 = AnimElem = 8
+trigger5 = AnimElem = 10
+trigger6 = AnimElem = 12
+trigger7 = AnimElem = 14
+trigger8 = AnimElem = 16
+trigger9 = AnimElem = 18
+trigger10 = AnimElem = 20
+trigger11 = AnimElem = 22
+trigger12 = AnimElem = 24
+trigger13 = AnimElem = 26
+trigger14 = AnimElem = 28
+trigger15 = AnimElem = 30
+trigger16 = AnimElem = 32
+trigger17 = AnimElem = 34
+trigger18 = AnimElem = 36
+trigger19 = AnimElem = 38
+trigger20 = AnimElem = 40
+trigger21 = AnimElem = 42
+trigger22 = AnimElem = 44
+trigger23 = AnimElem = 46
+trigger24 = AnimElem = 48
+trigger25 = AnimElem = 50
+trigger26 = AnimElem = 52
+trigger27 = AnimElem = 54
+trigger28 = AnimElem = 56
+attr = A, NP
+damage    = 6,1
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = -1
+guardsound = -1
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+
+[State 40000, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 10
+freq = 70
+ampl = -6
+
+[State 40000, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3100
+
+[State 40000, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 40001]
+type = S
+movetype = A
+physics = N
+anim = 1360
+sprpriority = 5
+ctrl = 0
+
+[State 40001, 3]
+type = BindToParent
+trigger1 = 1
+time = 150
+pos = -3,3
+
+[State 40001, 3]
+type = SprPriority
+trigger1 = 1
+value = 4
+
+[State 40001,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 40001, 2]
+type = HitDef
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 7
+trigger5 = AnimElem = 9
+trigger6 = AnimElem = 11
+trigger7 = AnimElem = 13
+trigger8 = AnimElem = 15
+trigger9 = AnimElem = 17
+trigger10 = AnimElem = 19
+trigger11 = AnimElem = 21
+trigger12 = AnimElem = 23
+trigger13 = AnimElem = 25
+trigger14 = AnimElem = 27
+trigger15 = AnimElem = 29
+trigger16 = AnimElem = 31
+trigger17 = AnimElem = 33
+trigger18 = AnimElem = 35
+trigger19 = AnimElem = 37
+trigger20 = AnimElem = 39
+trigger21 = AnimElem = 41
+trigger22 = AnimElem = 43
+trigger23 = AnimElem = 45
+trigger24 = AnimElem = 47
+trigger25 = AnimElem = 49
+trigger26 = AnimElem = 51
+trigger27 = AnimElem = 53
+trigger28 = AnimElem = 55
+attr = A, NP
+damage    = 5,2
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 40001, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 6
+trigger4 = AnimElem = 8
+trigger5 = AnimElem = 10
+trigger6 = AnimElem = 12
+trigger7 = AnimElem = 14
+trigger8 = AnimElem = 16
+trigger9 = AnimElem = 18
+trigger10 = AnimElem = 20
+trigger11 = AnimElem = 22
+trigger12 = AnimElem = 24
+trigger13 = AnimElem = 26
+trigger14 = AnimElem = 28
+trigger15 = AnimElem = 30
+trigger16 = AnimElem = 32
+trigger17 = AnimElem = 34
+trigger18 = AnimElem = 36
+trigger19 = AnimElem = 38
+trigger20 = AnimElem = 40
+trigger21 = AnimElem = 42
+trigger22 = AnimElem = 44
+trigger23 = AnimElem = 46
+trigger24 = AnimElem = 48
+trigger25 = AnimElem = 50
+trigger26 = AnimElem = 52
+trigger27 = AnimElem = 54
+trigger28 = AnimElem = 56
+attr = A, NP
+damage    = 4,1
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = -1
+guardsound = -1
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 40001, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 10
+freq = 70
+ampl = -6
+
+[State 40001, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3100
+
+[State 40001, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 40002]
+type = S
+movetype = A
+physics = N
+anim = 1370
+sprpriority = 5
+ctrl = 0
+
+[State 40002, 3]
+type = BindToParent
+trigger1 = 1
+time = 150
+pos = 0,0
+
+[State 40002, 3]
+type = SprPriority
+trigger1 = 1
+value = 5
+
+[State 40002,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 40002, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -4
+
+[State 40002, 2]
+type = HitDef
+trigger1 = time = 0
+attr = A, NP
+damage    = 15, 5
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -6.5,-10
+air.velocity = -6,-10
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+fall = 1
+fall.recover = 0
+
+[State 40002, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 10
+freq = 70
+ampl = -6
+
+[State 40002, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3100
+
+[State 40002, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 40003]
+type = S
+movetype = A
+physics = N
+anim = 1380
+sprpriority = 5
+ctrl = 0
+
+[State 40003, 3]
+type = BindToParent
+trigger1 = 1
+time = 150
+pos = 0,0
+
+[State 40003, 3]
+type = SprPriority
+trigger1 = 1
+value = 5
+
+[State 40003,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 40003, 2]
+type = HitDef
+trigger1 = time = 0
+attr = A, NP
+damage    = 15, 5
+guardflag = HA
+priority = 3
+pausetime = 0,0
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -6.5,-10
+air.velocity = -6,-10
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+fall = 1
+fall.recover = 0
+
+[State 40003, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 10
+freq = 70
+ampl = -6
+
+[State 40003, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3100
+
+[State 40003, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 40004]
+type = S
+movetype = A
+physics = N
+anim = 1390
+sprpriority = 5
+ctrl = 0
+
+[State 40004, 3]
+type = BindToParent
+trigger1 = 1
+time = 150
+pos = 0,0
+
+[State 40004, 3]
+type = SprPriority
+trigger1 = 1
+value = 5
+
+[State 40004,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+
+[State 40004, 2]
+type = HitDef
+trigger1 = time = 0
+attr = A, NP
+damage    = 12, 3
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -6.5,-10
+air.velocity = -6,-10
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+fall = 1
+fall.recover = 0
+
+[State 40004, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 10
+freq = 70
+ampl = -6
+
+[State 40004, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3100
+
+[State 40004, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;-----------------------------------------------------------------
+
+;ビームサーベルエフェクト
+;--------------------------------------------------------------------------
+;ビームサーベル垂直斬り
+[Statedef 26000]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 26000
+sprpriority = 8
+
+[State 26000, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 26000, 3]
+type = BindToParent
+trigger1 = 1
+time = 60
+pos = 0,0
+
+[State 26000,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 26000, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 5, 0
+
+[State 26000, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 26000, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 210
+;---------------------------------------------------------------------
+;ビームサーベル縦斬り
+[Statedef 26100]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 26100
+sprpriority = 8
+
+[State 26100, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 26100, 3]
+type = BindToParent
+trigger1 = 1
+time = 60
+pos = 0,0
+
+[State 26100,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 26100, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 5, 0
+
+[State 26100, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 26100, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 220
+;---------------------------------------------------------------------------------------------------------------
+;屈みビームサーベル垂直斬り
+[Statedef 26300]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 26300
+sprpriority = 8
+
+[State 26300, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 26300, 3]
+type = BindToParent
+trigger1 = 1
+time = 60
+pos = 0,0
+
+[State 26300,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 26300, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 5, 0
+
+[State 26300, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 26300, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 300
+;---------------------------------------------------------------------------------------------------------------
+;空中斬り
+[Statedef 26400]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 26400
+sprpriority = 8
+
+[State 26400, 3]
+type = SprPriority
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 2
+trigger3 = AnimElem = 3
+trigger4 = AnimElem = 6
+value = 8
+
+[State 26400, 3]
+type = SprPriority
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 5
+value = -1
+
+[State 26400, 3]
+type = BindToParent
+trigger1 = 1
+time = 50
+pos = 0,0
+
+[State 26400,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 26400, 1]
+type = PlaySnd
+trigger1 = Time = 1
+trigger2 = AnimElem = 5
+value = 5, 0
+
+[State 26400, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 26400, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 310
+;---------------------------------------------------------------------------------------------------------------
+;空中ビームサーベル縦斬り
+[Statedef 26500]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 26500
+sprpriority = 8
+
+[State 26500, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 26500, 3]
+type = BindToParent
+trigger1 = 1
+time = 99
+pos = 0,0
+
+[State 26500,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 26500, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 5, 0
+
+[State 26500, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 26500, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 410
+;---------------------------------------------------------------------------------------------------------------
+;空中ビームサーベル垂直斬り
+[Statedef 26600]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 26600
+sprpriority = 8
+
+[State 26600, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 26600, 3]
+type = BindToParent
+trigger1 = 1
+time = 43
+pos = 0,0
+
+[State 26600,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 26600, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 5, 0
+
+[State 26600, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 26600, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 400
+;---------------------------------------------------------------------------------------------------------------
+;爆熱ゴッドスラッシュ１
+[Statedef 27000]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 27000
+sprpriority = 8
+
+[State 27000, 3]
+type = SprPriority
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 4
+trigger4 = AnimElem = 5
+value = 8
+
+[State 27000, 3]
+type = SprPriority
+trigger1 = AnimElem = 1
+value = 1
+
+[State 27000, 3]
+type = BindToParent
+trigger1 = 1
+time = 60
+pos = 0,0
+
+[State 27000,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 27000, 1]
+type = PlaySnd
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 9
+trigger3 = AnimElem = 12
+trigger4 = AnimElem = 18
+trigger5 = AnimElem = 22
+value = 5, 0
+
+[State 27000, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 27000, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1005
+;---------------------------------------------------------------------------------------------------------------
+;爆熱ゴッドスラッシュ２
+[Statedef 27100]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 790
+sprpriority = 8
+
+[State 27100, 3]
+type = SprPriority
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 2
+trigger3 = AnimElem = 3
+trigger4 = AnimElem = 4
+trigger5 = AnimElem = 5
+trigger6 = AnimElem = 6
+trigger7 = AnimElem = 7
+trigger8 = AnimElem = 11
+trigger9 = AnimElem = 13
+value = 8
+
+[State 27100, 3]
+type = SprPriority
+trigger1 = AnimElem = 8
+trigger2 = AnimElem = 9
+trigger3 = AnimElem = 10
+trigger4 = AnimElem = 11
+value = -1
+
+
+[State 27100, 3]
+type = BindToParent
+trigger1 = 1
+time = 60
+pos = 0,0
+
+[State 27100,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 27100, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 27100, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 730
+;---------------------------------------------------------------------------------------------------------------
+;ゴッドスラッシュタイフーン
+[Statedef 27105]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 1110
+sprpriority = 8
+
+[State 27105, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 27105, 3]
+type = BindToParent
+trigger1 = 1
+time = 60
+pos = 0,0
+
+[State 27105,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 27105, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 5, 0
+
+[State 27105, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 27105, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1100
+;---------------------------------------------------------------------------------------------------------------
+
+
+;-----------------------------------------------------------------------
+
+;ZeroSystem用1（超技
+[Statedef 27400]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 27400
+sprpriority = 8
+
+[State 27400, 3]
+type = SprPriority
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 6
+trigger5 = AnimElem = 10
+trigger6 = AnimElem = 11
+trigger7 = AnimElem = 12
+trigger8 = AnimElem = 13
+value = 8
+
+[State 27400, 3]
+type = SprPriority
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 7
+trigger4 = AnimElem = 8
+trigger5 = AnimElem = 9
+trigger6 = AnimElem = 14
+trigger7 = AnimElem = 15
+trigger8 = AnimElem = 16
+value = -1
+
+[State 27400, 3]
+type = BindToParent
+trigger1 = 1
+time = 134
+pos = 0,0
+
+[State 27400,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 27400, 1]
+type = PlaySnd
+trigger1 = Time = 1
+trigger2 = Time = 87
+trigger3 = Time = 112
+value = 5, 0
+
+[State 27400, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 27400, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1010
+;---------------------------------------------------------------------------------------------------------------
+;ZeroSystem用2（超技
+[Statedef 27410]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 27410
+sprpriority = 8
+
+[State 27410, 3]
+type = SprPriority
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 4
+trigger4 = AnimElem = 5
+trigger5 = AnimElem = 6
+trigger6 = AnimElem = 7
+trigger7 = AnimElem = 8
+trigger8 = AnimElem = 9
+trigger9 = AnimElem = 10
+trigger10 = AnimElem = 15
+trigger11 = AnimElem = 16
+trigger12 = AnimElem = 17
+trigger13 = AnimElem = 18
+trigger14 = AnimElem = 19
+trigger15 = AnimElem = 22
+trigger16 = AnimElem = 23
+trigger17 = AnimElem = 24
+trigger18 = AnimElem = 25
+trigger19 = AnimElem = 26
+trigger20 = AnimElem = 27
+trigger21 = AnimElem = 28
+trigger22 = AnimElem = 29
+trigger23 = AnimElem = 30
+trigger24 = AnimElem = 31
+trigger25 = AnimElem = 32
+trigger26 = AnimElem = 37
+trigger27 = AnimElem = 38
+trigger28 = AnimElem = 39
+trigger29 = AnimElem = 40
+trigger30 = AnimElem = 41
+trigger31 = AnimElem = 42
+trigger32 = AnimElem = 43
+trigger33 = AnimElem = 54
+trigger34 = AnimElem = 55
+trigger35 = AnimElem = 56
+trigger36 = AnimElem = 57
+value = 8
+
+[State 27410, 3]
+type = SprPriority
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 11
+trigger3 = AnimElem = 12
+trigger4 = AnimElem = 13
+trigger5 = AnimElem = 14
+trigger6 = AnimElem = 20
+trigger7 = AnimElem = 21
+trigger8 = AnimElem = 33
+trigger9 = AnimElem = 34
+trigger10 = AnimElem = 35
+trigger11 = AnimElem = 36
+trigger12 = AnimElem = 44
+trigger13 = AnimElem = 45
+trigger14 = AnimElem = 46
+trigger15 = AnimElem = 47
+trigger16 = AnimElem = 48
+trigger17 = AnimElem = 49
+trigger18 = AnimElem = 50
+trigger19 = AnimElem = 51
+trigger20 = AnimElem = 52
+trigger21 = AnimElem = 53
+trigger22 = AnimElem = 58
+trigger23 = AnimElem = 59
+trigger24 = AnimElem = 60
+trigger25 = AnimElem = 61
+value = -1
+
+[State 27410, 3]
+type = BindToParent
+trigger1 = 1
+time = 194
+pos = 0,0
+
+[State 27410,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 27410, 1]
+type = PlaySnd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 15
+trigger3 = AnimElem = 21
+trigger4 = AnimElem = 37
+trigger5 = AnimElem = 54
+value = 5, 0
+
+[State 1020, 4];←成功したときの残像
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 194
+trans = add
+timegap = 1
+framegap = 2
+length = 20
+palbright = 12,12,12
+palcontrast = 200,200,200
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 1,1,1
+
+
+[State 27410, 5]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 26999
+ctrl = 0
+
+[State 27410, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1020
+trigger1 = Parent,StateNo != 1030
+trigger1 = Parent,StateNo != 1040
+;==========================================================================
+[Statedef 26999]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+
+[State 26999, 3]
+type = destroyself
+trigger1 = 1
+;----------------------------------------------------------------------------------------------------------------
+;クスィフィアス・レール砲
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 21000]
+type = S
+movetype = A
+physics = N
+anim = 790
+sprpriority = 8
+ctrl = 0
+
+[State 21000, 3]
+type = BindToParent
+trigger1 = 1
+time = 80
+pos = 26,-13
+
+[State 21000, 1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 370, 4
+
+[State 21000, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 21000,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 21000, 2]
+type = HitDef
+trigger1 = time = 0
+attr = A, NP
+damage    = 50, 15
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -6.5,-10
+air.velocity = -6,-10
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+fall = 1
+fall.recover = 0
+
+[State 21000, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -6
+
+[State 21000, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 750
+
+[State 21000, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;----------------------------------------------------------------------------------------------------------------
+;バラエーナ・収束ビーム砲
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 21100]
+type = S
+movetype = A
+physics = N
+anim = 21000
+sprpriority = 5
+ctrl = 0
+
+[State 21100, 3]
+type = BindToParent
+trigger1 = 1
+time = 80
+pos = 25,-46
+
+[State 21100, 1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 370, 4
+
+[State 21100, 3]
+type = SprPriority
+trigger1 = 1
+value = 5
+
+[State 21100,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+
+[State 21100, 2]
+type = HitDef
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 7
+trigger5 = AnimElem = 9
+trigger6 = AnimElem = 11
+trigger7 = AnimElem = 13
+trigger8 = AnimElem = 15
+trigger9 = AnimElem = 17
+trigger10 = AnimElem = 19
+trigger11 = AnimElem = 21
+attr = A, NP
+damage    = 4,1
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -2,-2.5
+air.velocity = -3,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 21100, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 6
+trigger4 = AnimElem = 8
+trigger5 = AnimElem = 10
+trigger6 = AnimElem = 12
+trigger7 = AnimElem = 14
+trigger8 = AnimElem = 16
+trigger9 = AnimElem = 18
+trigger10 = AnimElem = 20
+trigger11 = AnimElem = 22
+attr = A, NP
+damage    = 5,2
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = -1
+guardsound = -1
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -1,-1
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 21100, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -4
+
+
+[State 21100, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1100
+
+[State 21100, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 21200]
+type = S
+movetype = A
+physics = N
+anim = 21000
+sprpriority = 5
+ctrl = 0
+
+[State 21200, 3]
+type = BindToParent
+trigger1 = 1
+time = 80
+pos = 45,-40
+
+[State 21200, 1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 370, 4
+
+[State 21200, 3]
+type = SprPriority
+trigger1 = 1
+value = 5
+
+[State 21200,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+
+[State 21200, 2]
+type = HitDef
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 7
+trigger5 = AnimElem = 9
+trigger6 = AnimElem = 11
+trigger7 = AnimElem = 13
+trigger8 = AnimElem = 15
+trigger9 = AnimElem = 17
+trigger10 = AnimElem = 19
+trigger11 = AnimElem = 21
+attr = A, NP
+damage    = 3,1
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 21200, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 6
+trigger4 = AnimElem = 8
+trigger5 = AnimElem = 10
+trigger6 = AnimElem = 12
+trigger7 = AnimElem = 14
+trigger8 = AnimElem = 16
+trigger9 = AnimElem = 18
+trigger10 = AnimElem = 20
+trigger11 = AnimElem = 22
+attr = A, NP
+damage    = 4,1
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = -1;s30000
+sparkxy = 0,5
+hitsound   = -1
+guardsound = -1
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.4,0
+air.velocity = -0.6,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 21200, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -4
+
+
+[State 21200, 3]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1100
+
+[State 21200, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;------------------------------------------------------------------------------------
+;マシンキャノンエフェクト
+;-------------------------------------------------------------------------------------
+[Statedef 28000]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 28000
+sprpriority = 8
+
+[State 28000, Override]
+type = HitOverride
+triggerall = alive
+trigger1 = 1
+attr = SCA,AP,AA
+slot = 7
+stateno = 28301
+time = -1
+
+[State 28000, NotHitby]
+type = NotHitBy
+trigger1 = 1
+value = ,AT
+
+
+[State 28000, 1]
+type = Velset
+trigger1 = 1
+x = 15
+y = -1
+
+[State 28000, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 28000,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 28000, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NA
+damage    = 5
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = s30000
+sparkxy = -20,-7
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.8,0
+air.velocity = -1.2,-0.4
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 28000, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -2
+
+[State 28000, 5]
+type = ChangeState
+trigger1 = MoveContact = 1
+value = 28200
+ctrl = 0
+
+[State 28000, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------
+[Statedef 28100]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 28100
+sprpriority = 8
+
+[State 28100, Override]
+type = HitOverride
+triggerall = alive
+trigger1 = 1
+attr = SCA,AP,AA
+slot = 7
+stateno = 28301
+time = -1
+
+[State 28100, NotHitby]
+type = NotHitBy
+trigger1 = 1
+value = ,AT
+
+
+[State 28100, 1]
+type = Velset
+trigger1 = 1
+x = 15
+y = 0.8
+
+[State 28100, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 28100,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 28100, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NP
+damage    = 5
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.8,0
+air.velocity = -1.2,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 28100, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -2
+
+[State 28100, 5]
+type = ChangeState
+trigger1 = MoveContact = 1
+value = 28300
+ctrl = 0
+
+[State 28100, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;-----------------------------------------------------------
+[Statedef 28001]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 28000
+sprpriority = 8
+
+[State 28001, Override]
+type = HitOverride
+triggerall = alive
+trigger1 = 1
+attr = SCA,AP,AA
+slot = 7
+stateno = 28301
+time = -1
+
+[State 28001, NotHitby]
+type = NotHitBy
+trigger1 = 1
+value = ,AT
+
+[State 28001, 1]
+type = Velset
+trigger1 = 1
+x = 15
+y = -1
+
+[State 28001, 3]
+type = SprPriority
+trigger1 = 1
+value = -1
+
+[State 28001,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 28001, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NA
+damage    = 5
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = s30000
+sparkxy = -20,-7
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.8,0
+air.velocity = -1.2,-0.4
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 28001, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -2
+
+[State 28001, 5]
+type = ChangeState
+trigger1 = MoveContact = 1
+value = 28200
+ctrl = 0
+
+[State 28001, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;----------------------------------------------------------------------------
+[Statedef 28101]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 28100
+sprpriority = 8
+
+[State 28101, Override]
+type = HitOverride
+triggerall = alive
+trigger1 = 1
+attr = SCA,AP,AA
+slot = 7
+stateno = 28301
+time = -1
+
+[State 28101, NotHitby]
+type = NotHitBy
+trigger1 = 1
+value = ,AT
+
+
+[State 28101, 1]
+type = Velset
+trigger1 = 1
+x = 15
+y = 0.8
+
+[State 28101, 3]
+type = SprPriority
+trigger1 = 1
+value = -1
+
+[State 28101,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 28101, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NP
+damage    = 5
+guardflag = HA
+priority = 3
+pausetime = 0,1
+sparkno = s30000
+sparkxy = 0,5
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -0.8,0
+air.velocity = -1.2,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+
+[State 28101, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -2
+
+[State 28101, 5]
+type = ChangeState
+trigger1 = MoveContact = 1
+value = 28300
+ctrl = 0
+
+[State 28101, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;==========================================================================
+[Statedef 28200]
+type = S
+movetype = I
+physics = N
+anim = 28200
+sprpriority = 8
+ctrl = 0
+
+[State 28200, 1]
+type = Velset
+trigger1 = 1
+x = 1.3
+y = -3
+
+[State 28200, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 28200,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 28200, 3]
+type = destroyself
+trigger1 = time = 80
+;---------------------------------------------------------------------------
+[Statedef 28300]
+type = S
+movetype = I
+physics = N
+anim = 28300
+sprpriority = 8
+ctrl = 0
+
+[State 28300, 1]
+type = Velset
+trigger1 = 1
+x = 1.3
+y = 3
+
+[State 28300, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 28300,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 28300, 3]
+type = destroyself
+trigger1 = time = 80
+;-------------------------------------------------------------------------------------
+;マシンキャノン消滅
+[Statedef 28301]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 17001
+sprpriority = 8
+
+[State 28301, 1]
+type = Velset
+trigger1 = 1
+x = 0
+y = 0
+
+[State 28301, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 100, 0
+
+[State 28301, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 28301,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 28301, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -2
+
+[State 28301, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;-------------------------------------------------------------------------------------
+;ビームライフル１
+[Statedef 29000]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 710
+sprpriority = 8
+
+[State 29000, 3]
+type = ScreenBound
+trigger1 = 1
+value = 0
+
+[State 29000, 1]
+type = Velset
+trigger1 = AnimElem = 2
+x = 30
+y = 0
+
+[State 29000, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 29000,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 29000, 2]
+type = HitDef
+trigger1 = time = 0
+attr = A, NA
+damage    = 30,5
+guardflag = HA
+priority = 3
+pausetime = 0,3
+sparkno = S720
+guard.sparkno = S720
+sparkxy = -20,0
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4,-6
+air.velocity = -4.5,-4.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+fall = 1
+fall.recover = 0
+
+[State 29000, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 3
+freq = 70
+ampl = -2
+
+[State 29000, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------------------
+;石破（超必殺
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 3660]
+type = S
+movetype = A
+physics = N
+anim = 3660
+sprpriority = 4
+ctrl = 0
+
+[State 3660, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 3660, 1]
+type = PlaySnd
+trigger1 = time = 1
+value = 370, 4
+
+[State 3660, 1]
+type = Velset
+trigger1 = time = 1
+x = 15
+
+[State 3660,***]
+type = Explod
+trigger1 = time = 1
+anim = 3670
+id = 3670
+pos = 0, 0
+vel = 0, 0
+postype = p1
+sprpriority = 5
+removetime = 80
+supermovetime = 714
+pausemovetime = 714
+bindtime = 714
+ownpal = 1
+
+
+[State 3660, 3]
+type = SprPriority
+trigger1 = 1
+value = 4
+
+[State 3660,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3660,***]
+type = Explod
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 7
+trigger5 = AnimElem = 9
+trigger6 = AnimElem = 11
+trigger7 = AnimElem = 13
+trigger8 = AnimElem = 15
+trigger9 = AnimElem = 17
+trigger10 = AnimElem = 19
+anim = 13400
+id = 13400
+pos = 10,0
+postype = p1
+sprpriority = 8
+bindtime = 1
+removetime = 22
+ownpal = 1
+
+[State 3660, 2]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = A, NP
+damage    = 20,8
+guardflag = HA
+priority = 3
+pausetime = 5,8
+sparkno = s27504+(Random%4)  
+sparkxy = -15,-30
+hitsound   = S300,2
+guardsound = S100,0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -15,0
+air.velocity = -12,-0.5
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+fall = 1
+fall.recover =  0
+
+[State 3660, 3]
+type = EnvShake
+trigger1 = MoveContact = 1
+time = 10
+freq = 70
+ampl = -15
+
+
+[State 3660, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+
+[State 3660, 5]
+type = ChangeState
+trigger1 = MoveContact = 1
+value = 3680
+ctrl = 0
+
+;----------------------------------------------------------------------------------------------------------------
+;雷・ランダムエフェクト
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 24000]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 24000
+sprpriority = 8
+
+[State 24000, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 24000, 3]
+type = BindToParent
+trigger1 = 1
+time = 28
+pos = 0,0
+
+
+[State 24000, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 24000]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 24000
+sprpriority = 8
+
+[State 24000, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 110, 0
+
+[State 24000, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 24000, 3]
+type = BindToParent
+trigger1 = 1
+time = 28
+pos = 0,-25
+
+[State 24000, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 24001]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 24001
+sprpriority = 8
+
+[State 24001, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 110, 0
+
+[State 24001, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 24001, 3]
+type = BindToParent
+trigger1 = 1
+time = 28
+pos = 0,-25
+
+[State 24001, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;----------------------------------------------------------------------------------------------------------------
+[Statedef 24002]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 24002
+sprpriority = 8
+
+[State 24002, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 110, 0
+
+[State 24002, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 24002, 3]
+type = BindToParent
+trigger1 = 1
+time = 30
+pos = 0,-30
+
+[State 24002, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;-------------------------------------------------------------------------------------------------
+;爆発エフェクト
+;-------------------------------------------------------------------------------------------------
+[Statedef 50000]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 50000
+sprpriority = 10
+
+[State 50000,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 50000, 3]
+type = SprPriority
+trigger1 = 1
+value = 10
+
+[State 50000, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 110, 1
+
+[State 50000, 3]
+type = EnvShake
+trigger1 = Time = 1
+time = 20
+freq = 100
+ampl = -30
+
+[State 50000,0]
+type = AllPalfx
+trigger1 = Time = 1
+add = 150,150,150
+sinadd = 10, 10, 10
+time = 1
+
+[State 50000, 4];←成功したときの残像
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 50
+trans = add
+timegap = 1
+framegap = 2
+length = 10
+palbright = 2,2,2
+palcontrast = 5,5,5
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 0,0,0
+
+[State 50000, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;-------------------------------------------------------------------------------------------------
+[Statedef 50001]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 50000
+sprpriority = 10
+
+[State 50001,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 50001, 3]
+type = SprPriority
+trigger1 = 1
+value = 10
+
+[State 50001, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 110, 1
+
+[State 50001, 3]
+type = EnvShake
+trigger1 = Time = 1
+time = 20
+freq = 110
+ampl = -35
+
+[State 50001,0]
+type = AllPalfx
+trigger1 = Time = 1
+trigger2 = Time = 5
+trigger3 = Time = 10
+add = 150,150,150
+sinadd = 10, 10, 10
+time = 1
+
+[State 50001, 4];←成功したときの残像
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 50
+trans = add
+timegap = 1
+framegap = 2
+length = 10
+palbright = 2,2,2
+palcontrast = 5,5,5
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 0,0,0
+
+[State 50001, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;-------------------------------------------------------------------------------------------------
+[Statedef 50010]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 50010
+sprpriority = 10
+
+[State 50010, 2]
+type = HitDef
+trigger1 = time = 0
+attr = A, NA
+damage    = 10
+animtype =up 
+hitflag = MAFD  
+guardflag = HA
+pausetime = 0,6
+sparkno = -1
+sparkxy = -30,-50
+hitsound   = -1
+guardsound = -1
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0.8,-8
+air.velocity = 1,-10
+fall = 1
+fall.recover = 0
+palfx.time		= 25
+palfx.mul		= 200,200,200
+palfx.add		= 200,50,50
+palfx.sinadd 	= 175,25,5,4
+fall = 1
+fall.recover =  0
+
+
+[State 50010,0]
+type = AllPalfx
+trigger1 = Time = 1
+add = 150,150,150
+sinadd = 10, 10, 10
+time = 1
+
+[State 50010,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 50010, 3]
+type = SprPriority
+trigger1 = 1
+value = 10
+
+[State 50010, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 110, 1
+
+[State 50010, 3]
+type = EnvShake
+trigger1 = Time = 1
+time = 20
+freq = 100
+ampl = -30
+
+[State 50010,0]
+type = AllPalfx
+trigger1 = Time = 1
+add = 150,150,150
+sinadd = 10, 10, 10
+time = 1
+
+[State 50010, 4];←成功したときの残像
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 50
+trans = add
+timegap = 1
+framegap = 2
+length = 10
+palbright = 2,2,2
+palcontrast = 5,5,5
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 0,0,0
+
+[State 50010, 3]
+type = destroyself
+trigger1 = Animtime = 0
+;-------------------------------------------------------------------------------------------------
+[Statedef 50020]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 50020
+sprpriority = 10
+
+[State 50020,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 50020, 3]
+type = SprPriority
+trigger1 = 1
+value = 10
+
+[State 50020, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 110, 1
+
+
+[State 50020,0]
+type = AllPalfx
+trigger1 = Time = 1
+add = 150,150,150
+sinadd = 10, 10, 10
+time = 1
+
+[State 50020, 4];←成功したときの残像
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 50
+trans = add
+timegap = 1
+framegap = 2
+length = 10
+palbright = 2,2,2
+palcontrast = 5,5,5
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 0,0,0
+
+[State 50020, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;-------------------------------------------------------------------------------------------------
+[Statedef 32000]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 32000
+sprpriority = 8
+
+[State 32000,4]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 32000, 3]
+type = SprPriority
+trigger1 = 1
+value = 8
+
+[State 32000, 3]
+type = destroyself
+trigger1 = Animtime = 0
+
+;----------------------------------------------------------------------------------------------------

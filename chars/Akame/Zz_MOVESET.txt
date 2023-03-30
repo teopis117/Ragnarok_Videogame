@@ -1,0 +1,41 @@
+Basics:
+
+a,a - Slashes
+
+b,b - Slash Upward
+
+Down,b - Crouching Slash
+
+c - Slice of Souls (-200)
+
+a (air) - Air Slash 1
+
+b (air) - Air Slash 2
+
+c (air) - Air Slash Down
+
+a,a,b,down b,b,up,a,b,c - the whole shebang combo
+
+Specials:
+
+D,DF,F,a - Slash Cuts (-1000)
+
+D,DB,B,a - Deadly Counter (-500 for counter, -500 for connect)
+
+D,DF,F,b - Killer Dance (-1000)
+
+D,DB,B,b - Cursed Blade (-1000) [Seals enemy meter] [Can hold "b" for delay and/or back to move back]
+
+D,DF,F,b - Deadly Slash (-2000)
+
+D,DB,B,b - Giga Slice of Souls (-1000)
+
+D,c - Maximum Concentration (-1000) [Slows down enemy movement and evades physical attacks if in range] [Changes properties of Deadly Counter, Killer Dance and Curse Blade]
+
+D,s - True Curse (-1500) [Attack Up/Meter Regen/All special property changes at the cost of all your health drained] [Guaranteed last resort move]
+
+Super:
+
+x - Akame Ga Kill (-3000)
+
+

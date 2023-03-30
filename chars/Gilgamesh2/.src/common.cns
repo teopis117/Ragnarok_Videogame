@@ -1,0 +1,3596 @@
+[statedef 0]
+type=s
+physics=s
+sprpriority=2
+
+[state 0]
+type=removeexplod
+trigger1=numexplod(510)=1
+id=510
+[state 0]
+type=removeexplod
+trigger1=numexplod(511)=1
+id=511
+
+[State 0]
+type=stopsnd
+trigger1=stateno!=500
+channel=2
+[State 0]
+type=stopsnd
+trigger1=stateno!=500
+channel=3
+
+[state 0]
+type=destroyself
+trigger1=ishelper
+
+[state 0]
+type=changeanim
+trigger1=(var(2)=0)&&(anim!=0)
+value=0
+
+[state 0]
+type=changeanim
+trigger1=(var(2)>0)&&(anim!=2000)
+value=2000
+
+[state 0]
+type=turn
+trigger1=p2bodydist x<=-20
+
+[state 0]
+type=velset
+trigger1=!time
+y=0
+
+[state 0]
+type=velset
+trigger1=(time=4)||(abs(vel x)<2)
+x=0
+
+[state 0]
+type=changestate
+trigger1=!alive
+value=5050
+
+[statedef 10]
+type=c
+physics=c
+anim=10+var(11)
+sprpriority=2
+
+[state 0]
+type=velmul
+trigger1=!time
+x=.75
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=11
+
+[statedef 11]
+type=c
+physics=c
+anim=11+var(11)
+sprpriority=2
+
+[state 0]
+type=changeanim
+trigger1=anim=6
+value=6+var(11)
+
+[state 0, 1]
+type=changeanim
+trigger1=(anim!=11)&&(anim!=6)&&(anim!=11011)&&(anim!=11006)
+trigger2=(anim=6)||(anim=11006)&&!animtime
+value=11+var(11)
+
+[statedef 12]
+type=s
+physics=s
+anim=12+var(11)
+sprpriority=2
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+
+[statedef 20]
+type=s
+physics=s
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=(animelem=3)||(animelem=7)
+value=s120,0
+
+[state 0]
+type=velset
+trigger1=command="holdfwd"
+x=cond(var(2)>0,(const(velocity.walk.fwd.x)*1.2),const(velocity.walk.fwd.x))
+
+[state 0]
+type=velset
+trigger1=command="holdback"
+x=cond(var(2)>0,(const(velocity.walk.back.x)*1.2),const(velocity.walk.back.x))
+
+[state 0, 1]
+type=changeanim
+triggerall=vel x>0
+trigger1=(anim!=20)&&(anim!=5)&&(anim!=2020)&&(anim!=2005)
+trigger2=(anim=5)||(anim=2005)&&!animtime
+value=20+var(11)
+
+[state 0, 1]
+type=changeanim
+triggerall=vel x<0
+trigger1=(anim!=21)&&(anim!=5)&&(anim!=2021)&&(anim!=2005)
+trigger2=(anim=5)||(anim=2005)&&!animtime
+value=21+var(11)
+
+[statedef 40]
+type=s
+physics=s
+anim=40+var(11)
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=!animtime
+value=s140,0
+
+[state 0]
+type=explod
+trigger1=!animtime
+anim=cond((command="holdfwd"||command="holdback")=1,8111,8110)
+id=8110
+pos=0,3
+postype=p1
+facing=cond(command="holdback"=1,-1,1)
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.35,.35
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=varset
+trigger1=!time
+sysvar(1)=0
+
+[state 0]
+type=varset
+trigger1=command="holdfwd"
+sysvar(1)=1
+
+[state 0]
+type=varset
+trigger1=command="holdback"
+sysvar(1)=-1
+
+[state 0]
+type=velset
+trigger1=!animtime
+x=cond(sysvar(1)=0,0,cond(sysvar(1)=1,const(velocity.jump.fwd.x),const(velocity.jump.back.x)))
+y=const(velocity.jump.y)
+
+[state 0]
+type=veladd
+trigger1=prevstateno=100
+x=cond(vel x>0,1,-1)
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=50
+ctrl=1
+
+[statedef 50]
+type=a
+physics=a
+sprpriority=2
+
+[state 0]
+type=varset
+trigger1=!time
+sysvar(1)=0
+
+[state 0]
+type=changeanim
+trigger1=time=0
+value=41+var(11)
+
+[state 0]
+type=changeanim
+trigger1=vel y>-2
+value=44+var(11)
+persistent=0
+
+[statedef 51]
+type=a
+physics=a
+
+[state 0]
+type=null
+trigger1=1
+
+[statedef 52]
+type=s
+physics=s
+anim=10+var(11)
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s152,2
+
+[state 0]
+type=explod
+trigger1=animelem=1
+anim=8115
+id=8115
+pos=0,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.3,.3
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=velset
+trigger1=!time
+y=0
+
+[state 0]
+type=posset
+trigger1=!time
+y=0
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=11
+ctrl=1
+
+[statedef 80]
+type=a
+movetype=i
+anim=50+var(11)
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=envshake
+trigger1=(!time)&&(!movecontact)
+time=5
+ampl=-5
+freq=25
+
+[state 0]
+type=nothitby
+trigger1=time=[0,15]
+value=sca,na,sa,ha,np,sp,hp
+time=15
+ignorehitpause=1
+
+[state 0]
+type=playerpush
+trigger1=time=[0,15]
+value=0
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s140,0
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s140,1
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s140,2
+
+[state 0]
+type=explod
+trigger1=animelem=1
+anim=8100
+id=8100
+pos=-3,-30
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.4,.15
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=animelem=1
+anim=8120
+id=8120
+pos=-5,5
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.2,.25
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+vel=-1,0
+
+[state 0]
+type=explod
+trigger1=animelem=1
+anim=8120
+id=8120
+pos=5,5
+postype=p1
+facing=-1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.2,.25
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+vel=1,0
+
+[state 0]
+type=ctrlset
+trigger1=time>=10
+value=1
+
+[state 0]
+type=velset
+trigger1=!time
+y=const(velocity.jump.y)
+
+[state 0]
+type=velset
+trigger1=command="holdfwd"
+x=const(velocity.jump.fwd.x)
+
+[state 0]
+type=velset
+trigger1=command="holdback"
+x=const(velocity.jump.back.x)
+
+[state 0]
+type=veladd
+trigger1=time>=10
+y=const(movement.yaccel)
+
+[state 0]
+type=changestate
+trigger1=(time>1)&&(pos y>=-1)
+value=52
+
+[statedef 100]
+type=s
+movetype=i
+physics=n
+anim=100+var(11)
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=3
+value=s160,1
+
+[state 0]
+type=helper
+trigger1=animelem=3
+stateno=8100
+id=8100
+postype=p1
+
+[state 0]
+type=explod
+trigger1=(vel x>0)&&(time%5=0)
+anim=8100
+id=8100
+pos=0,(-35+random%30)
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=cond(random<500,3,0)
+scale=.25,.1
+angle=90
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+vel=-1,0
+
+[state 0]
+type=explod
+trigger1=(vel x>0)&&(time%10=0)
+anim=8120
+id=8120
+pos=0,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.2,.25
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+vel=-1,0
+
+;[state 0]
+;type=playsnd
+;trigger1=(animelem=5)||(animelem=10)
+;value=s120,0
+
+[state 0]
+type=velset
+trigger1=animelemtime(3)>=0
+x=cond(var(2)>0,(const(velocity.run.fwd.x)*1.2),const(velocity.run.fwd.x))
+
+[state 0]
+type=posset
+trigger1=pos y>0
+y=0
+
+[state 0]
+type=changestate
+triggerall=(pos y=0)&&(roundstate=2)&&(animelemtime(4)>=0)
+trigger1=((!ailevel)&&(command="up"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=30)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=L)||(enemynear,p2stateno!=5120)))&&(var(58)=1))
+value=40
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(3)>=0)
+trigger1=((!ailevel)&&(command="BB"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=30)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=L)||(enemynear,p2stateno!=5120)))&&(var(58)=2))
+value=105
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(4)>=0)
+trigger1=((!ailevel)&&(command="a"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=30)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=L)||(enemynear,p2stateno!=5120)))&&(var(58)=3))
+value=200
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(4)>=0)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=150)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=L)||(enemynear,p2stateno!=5120)))&&(var(58)=4))
+value=300
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(4)>=0)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=150)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=L)||(enemynear,p2stateno!=5120)))&&(var(58)=5))
+value=400
+
+[state 0]
+type=changestate
+triggerall=animelemtime(6)>=0
+trigger1=(ailevel=0)&&(command!="holdfwd")
+trigger2=(ailevel>0)&&(time=100+random%200)
+trigger3=(ailevel>0)&&(enemynear,p2bodydist x<30)
+value=101
+
+[statedef 101]
+type=s
+movetype=i
+physics=s
+anim=101+var(11)
+ctrl=0
+sprpriority=2
+velset=4,0
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s160,2
+
+[state 0]
+type=explod
+trigger1=(animelem=1)&&(pos y=0)
+anim=8120
+id=8120
+pos=10,0
+postype=p1
+facing=1
+bindtime=5
+removetime=-2
+sprpriority=3
+scale=.15,.2
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=ctrlset
+trigger1=animelemtime(2)>=0
+value=1
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 105]
+type=a
+movetype=i
+physics=n
+anim=105+var(11)
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=envshake
+trigger1=(!time)&&(!movecontact)
+time=5
+ampl=-5
+freq=25
+
+[state 0]
+type=nothitby
+trigger1=time=[0,15]
+value=sca,na,sa,ha,np,sp,hp
+time=15
+ignorehitpause=1
+
+[state 0]
+type=playerpush
+trigger1=time=[0,15]
+value=0
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s160,0
+
+[state 0]
+type=envshake
+trigger1=(animelem=1)&&(!movecontact)
+time=5
+ampl=-5
+freq=25
+
+[state 0]
+type=explod
+trigger1=animelem=1
+anim=8100
+id=8100
+pos=0,-27
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.6,.1
+angle=70
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=animelem=1
+anim=8120
+id=8120
+pos=0,0
+postype=p1
+facing=-1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.15,.2
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=velset
+trigger1=!time
+x=const(velocity.run.back.x)
+y=const(velocity.run.back.y)
+
+[state 0]
+type=statetypeset
+trigger1=!time
+statetype=a
+movetype=i
+physics=a
+
+[state 0]
+type=changestate
+triggerall=!time
+trigger1=(roundstate=2)&&(ailevel>0)&&(enemynear,p2bodydist x<=60)&&(enemy,movetype=a)&&(random<(ailevel*100))
+value=cond((random%2),115,cond((random%2),110,cond((random%2),120,cond((random%2),132,80))))
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=50
+ctrl=1
+
+[statedef 110]
+type=a
+movetype=i
+physics=n
+anim=110+var(11)
+ctrl=0
+sprpriority=2
+velset=0,0
+
+[state 0]
+type=envshake
+trigger1=(!time)&&(!movecontact)
+time=5
+ampl=-5
+freq=25
+
+[state 0]
+type=nothitby
+trigger1=time=[0,15]
+value=sca,na,sa,ha,np,sp,hp
+time=15
+ignorehitpause=1
+
+[state 0]
+type=playerpush
+trigger1=time=[0,15]
+value=0
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s160,0
+
+[state 0]
+type=envshake
+trigger1=(animelem=1)&&(!movecontact)
+time=5
+ampl=-5
+freq=25
+
+[state 0]
+type=explod
+trigger1=animelem=1
+anim=8100
+id=8100
+pos=10,-20
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.5,.15
+angle=90
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=velset
+trigger1=animelem=1
+x=const(velocity.run.fwd.x)*2.5
+
+[state 0]
+type=statetypeset
+trigger1=animelem=2
+statetype=a
+movetype=i
+physics=a
+
+[state 0]
+type=velset
+trigger1=animelem=2
+x=4
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(1)>=0)
+trigger1=((!ailevel)&&(command="a"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=30)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=L)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)))
+value=600
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(1)>=0)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=L)||(enemynear,p2stateno!=5120)))&&((var(58)=3)||(var(58)=4)))
+value=610
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(1)>=0)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=L)||(enemynear,p2stateno!=5120)))&&((var(58)=5)||(var(58)=6)))
+value=620
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=50
+ctrl=1
+
+[statedef 115]
+type=a
+movetype=i
+physics=n
+anim=115+var(11)
+ctrl=0
+sprpriority=2
+velset=0,0
+
+[state 0]
+type=envshake
+trigger1=(!time)&&(!movecontact)
+time=5
+ampl=-5
+freq=25
+
+[state 0]
+type=nothitby
+trigger1=time=[0,15]
+value=sca,na,sa,ha,np,sp,hp
+time=15
+ignorehitpause=1
+
+[state 0]
+type=playerpush
+trigger1=time=[0,15]
+value=0
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s160,0
+
+[state 0]
+type=envshake
+trigger1=(animelem=1)&&(!movecontact)
+time=5
+ampl=-5
+freq=25
+
+[state 0]
+type=explod
+trigger1=animelem=1
+anim=8100
+id=8100
+pos=-10,-20
+postype=p1
+facing=-1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.5,.15
+angle=90
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=velset
+trigger1=animelem=1
+x=-(const(velocity.run.fwd.x)*2.5)
+
+[state 0]
+type=statetypeset
+trigger1=animelem=2
+statetype=a
+movetype=i
+physics=a
+
+[state 0]
+type=velset
+trigger1=animelem=2
+x=-4
+
+[state 0]
+type=changestate
+triggerall=!time
+trigger1=(roundstate=2)&&(ailevel>0)&&(enemynear,p2bodydist x<=60)&&(enemy,movetype=a)&&(random<(ailevel*100))
+value=cond((random%2),105,cond((random%2),110,cond((random%2),120,cond((random%2),132,80))))
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=50
+ctrl=1
+
+[statedef 120]
+type=u
+physics=u
+sprpriority=2
+
+[state 0]
+type=changeanim
+trigger1=!time
+value=120+(statetype=c)+(statetype=a)*2+var(11)
+
+[state 0]
+type=statetypeset
+trigger1=(!time)&&(statetype=s)
+physics=s
+
+[state 0]
+type=statetypeset
+trigger1=(!time)&&(statetype=c)
+physics=c
+
+[state 0]
+type=statetypeset
+trigger1=(!time)&&(statetype=a)
+physics=a
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=s)&&(command="holddown")
+statetype=c
+physics=c
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=c)&&(command!="holddown")
+statetype=s
+physics=s
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=130+(statetype=c)+(statetype=a)*2
+
+[state 0]
+type=changestate
+trigger1=command!="holdback"
+trigger2=!inguarddist
+value=140
+
+[statedef 130]
+type=s
+physics=s
+sprpriority=2
+
+[state 0]
+type=changeanim
+trigger1=anim!=130+var(11)
+value=130+var(11)
+
+[state 0]
+type=changestate
+trigger1=command="holddown"
+value=131
+
+[state 0]
+type=changestate
+trigger1=(!ailevel)&&(command!="holdback")
+trigger2=(ailevel)&&(enemynear,p2bodydist y>-50)&&(!inguarddist)
+trigger3=!inguarddist
+value=140
+
+[statedef 131]
+type=c
+physics=c
+sprpriority=2
+
+[state 0]
+type=changeanim
+trigger1=anim!=131+var(11)
+value=131+var(11)
+
+[state 0]
+type=changestate
+trigger1=command!="holddown"
+value=130
+
+[state 0]
+type=changestate
+trigger1=(!ailevel)&&(command!="holdback")
+trigger2=(ailevel)&&(enemynear,p2bodydist y>-50)&&(!inguarddist)
+trigger3=!inguarddist
+value=140
+
+[statedef 132]
+type=a
+physics=n
+sprpriority=2
+
+[state 0]
+type=changeanim
+trigger1=anim!=132+var(11)
+value=132+var(11)
+
+[state 0]
+type=veladd
+trigger1=1
+y=const(movement.yaccel)
+
+[state 0]
+type=varset
+trigger1=1
+sysvar(0)=(pos y>=0)&&(vel y>0)
+
+[state 0]
+type=velset
+trigger1=sysvar(0)
+y=0
+
+[state 0]
+type=posset
+trigger1=sysvar(0)
+y=0
+
+[state 0]
+type=changestate
+trigger1=sysvar(0)
+value=52
+
+[state 0]
+type=changestate
+trigger1=sysvar(0)
+trigger1=command="holdback"
+trigger1=inguarddist
+value=130
+
+[state 0]
+type=changestate
+trigger1=(!ailevel)&&(command!="holdback")
+trigger2=(ailevel)&&(enemynear,p2bodydist y>-50)&&(!inguarddist)
+trigger3=!inguarddist
+value=140
+
+[statedef 140]
+type=u
+physics=u
+ctrl=1
+sprpriority=2
+
+[state 0]
+type=changeanim
+trigger1=time=0
+value=140+(statetype=c)+(statetype=a)*2+var(11)
+
+[state 0]
+type=statetypeset
+trigger1=(!time)&&(statetype=s)
+physics=s
+
+[state 0]
+type=statetypeset
+trigger1=(!time)&&(statetype=c)
+physics=c
+
+[state 0]
+type=statetypeset
+trigger1=(!time)&&(statetype=a)
+physics=a
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=s)&&(command="holddown")
+statetype=c
+physics=c
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=c)&&(command!="holddown")
+statetype=s
+physics=s
+
+[statedef 150]
+type=s
+movetype=h
+physics=n
+velset=0,0
+sprpriority=2
+
+[state 0]
+type=palfx
+trigger1=!time
+time=10
+add=10,10,10
+mul=256,256,256
+sinadd=20,20,20,20
+color=256
+ignorehitpause=1
+
+[state 0]
+type=changeanim
+trigger1=1
+value=150+var(11)
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+value=151+2*(command="holddown")
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=s)&&(command="holddown")
+statetype=c
+physics=c
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=c)&&(command!="holddown")
+statetype=s
+physics=s
+
+[state 0]
+type=forcefeedback
+trigger1=time=0
+waveform=square
+time=3
+
+[statedef 151]
+type=s
+movetype=h
+physics=s
+anim=150+var(11)
+sprpriority=2
+
+[state 0]
+type=hitvelset
+trigger1=time=0
+x=1
+
+[state 0]
+type=velset
+trigger1=time=gethitvar(slidetime)
+trigger2=hitover
+x=0
+
+[state 0]
+type=ctrlset
+trigger1=time=gethitvar(ctrltime)
+value=1
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=s)&&(command="holddown")
+statetype=c
+physics=c
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=c)&&(command!="holddown")
+statetype=s
+physics=s
+
+[state 0]
+type=changestate
+trigger1=hitover
+value=130
+ctrl=1
+
+[statedef 152]
+type=c
+movetype=h
+physics=n
+velset=0,0
+sprpriority=2
+
+[state 0]
+type=palfx
+trigger1=!time
+time=10
+add=10,10,10
+mul=256,256,256
+sinadd=20,20,20,20
+color=256
+ignorehitpause=1
+
+[state 0]
+type=changeanim
+trigger1=1
+value=151+var(11)
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+value=151+2*(command="holddown")
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=s)&&(command="holddown")
+statetype=c
+physics=c
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=c)&&(command!="holddown")
+statetype=s
+physics=s
+
+[state 0]
+type=forcefeedback
+trigger1=time=0
+waveform=square
+time=4
+
+[statedef 153]
+type=c
+movetype=h
+physics=c
+anim=151+var(11)
+sprpriority=2
+
+[state 0]
+type=hitvelset
+trigger1=time=0
+x=1
+
+[state 0]
+type=velset
+trigger1=time=gethitvar(slidetime)
+trigger2=hitover
+x=0
+
+[state 0]
+type=ctrlset
+trigger1=time=gethitvar(ctrltime)
+value=1
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=s)&&(command="holddown")
+statetype=c
+physics=c
+
+[state 0]
+type=statetypeset
+trigger1=(statetype=c)&&(command!="holddown")
+statetype=s
+physics=s
+
+[state 0]
+type=changestate
+trigger1=hitover
+value=131
+ctrl=1
+
+[statedef 154]
+type=a
+movetype=h
+physics=n
+velset=0,0
+sprpriority=2
+
+[state 0]
+type=palfx
+trigger1=!time
+time=10
+add=10,10,10
+mul=256,256,256
+sinadd=20,20,20,20
+color=256
+ignorehitpause=1
+
+[state 0]
+type=changeanim
+trigger1=1
+value=152+var(11)
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+value=155
+
+[state 0]
+type=forcefeedback
+trigger1=time=0
+waveform=square
+time=4
+
+[statedef 155]
+type=a
+movetype=h
+physics=n
+anim=152+var(11)
+sprpriority=2
+
+[state 0]
+type=hitvelset
+trigger1=time=0
+x=1
+y=1
+
+[state 0]
+type=veladd
+trigger1=1
+y=const(movement.yaccel)
+
+[state 0]
+type=ctrlset
+trigger1=time=gethitvar(ctrltime)
+value=1
+
+[state 0]
+type=varset
+trigger1=1
+sysvar(0)=(pos y>=0)&&(vel y>0)
+
+[state 0]
+type=velset
+trigger1=sysvar(0)
+y=0
+
+[state 0]
+type=posset
+trigger1=sysvar(0)
+y=0
+
+[state 0]
+type=changestate
+trigger1=sysvar(0)
+trigger1=command="holdback"
+trigger1=inguarddist
+value=130
+
+[state 0]
+type=changestate
+trigger1=sysvar(0)
+value=52
+
+[statedef 175]
+type=s
+ctrl=0
+velset=0,0
+
+[state 0]
+type=changestate
+trigger1=time=0
+trigger1=!selfanimexist(175)
+value=170
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca
+time=1
+
+[statedef 5000]
+type=s
+movetype=h
+physics=n
+velset=0,0
+sprpriority=1
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=gethitvar(animtype)!=[3,5]
+value=cond((gethitvar(groundtype)=1),5000+var(10),5010+var(10))+gethitvar(animtype)
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=gethitvar(animtype)=[3,5]
+value=5030+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=(gethitvar(animtype)=[4,5])&&(selfanimexist(5047+var(10)+gethitvar(animtype)))
+value=5047+var(10)+gethitvar(animtype)
+
+[state 0]
+type=changeanim
+trigger1=time>0
+value=anim
+
+[state 0]
+type=statetypeset
+trigger1=time=0
+trigger1=gethitvar(yvel)!=0||gethitvar(fall)
+trigger2=pos y!=0
+statetype=a
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+trigger1=gethitvar(yvel)=0&&!gethitvar(fall)
+value=5001
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+value=5030
+
+[state 0]
+type=forcefeedback
+trigger1=anim=5000+var(10)
+trigger2=anim=5010+var(10)
+persistent=0
+time=6
+waveform=square
+
+[state 0]
+type=forcefeedback
+trigger1=anim=5001+var(10)
+trigger2=anim=5011+var(10)
+persistent=0
+time=8
+waveform=sinesquare
+ampl=110,-1,-.3
+
+[state 0]
+type=forcefeedback
+trigger1=anim=5012+var(10)
+trigger2=anim=5002+var(10)
+trigger3=anim=5030+var(10)
+persistent=0
+time=15
+waveform=sinesquare
+ampl=140
+
+[statedef 5001]
+type=s
+movetype=h
+physics=s
+sprpriority=1
+
+[state 0]
+type=hitvelset
+trigger1=time=0
+x=1
+
+[state 0]
+type=changeanim
+trigger1=!animtime
+value=5005+var(10)
+
+[state 0]
+type=velmul
+trigger1=time>=gethitvar(slidetime)
+x=.6
+
+[state 0]
+type=velset
+trigger1=hitover
+x=0
+
+[state 0]
+type=defencemulset
+trigger1=hitover
+value=1
+
+[state 0]
+type=changestate
+trigger1=hitover
+value=0
+ctrl=1
+
+[statedef 5010]
+type=c
+movetype=h
+physics=n
+velset=0,0
+sprpriority=1
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=gethitvar(animtype)!=[3,5]
+value=(5020+gethitvar(animtype))+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=gethitvar(animtype)=[3,5]
+value=5030+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=(gethitvar(animtype)=[4,5])&&(selfanimexist(5047+var(10)+gethitvar(animtype)))
+value=(5047+gethitvar(animtype))+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time>0
+value=anim
+
+[state 0]
+type=statetypeset
+triggerall=time=0
+trigger1=gethitvar(yvel)!=0||gethitvar(fall)
+trigger2=pos y!=0
+statetype=a
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+trigger1=(gethitvar(yvel)=0)&&(!gethitvar(fall))
+value=5011
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+value=5030
+
+[state 0]
+type=forcefeedback
+trigger1=anim=5020+var(10)
+persistent=0
+time=6
+waveform=square
+
+[state 0]
+type=forcefeedback
+trigger1=anim=5021+var(10)
+persistent=0
+time=8
+waveform=sinesquare
+ampl=110,-1,-.3
+
+[state 0]
+type=forcefeedback
+trigger1=anim=5022+var(10)
+persistent=0
+time=15
+waveform=sinesquare
+ampl=140
+
+[statedef 5011]
+type=c
+movetype=h
+physics=c
+sprpriority=1
+
+[state 0]
+type=hitvelset
+trigger1=time=0
+x=1
+
+[state 0]
+type=changeanim
+trigger1=!animtime
+value=(5025+gethitvar(animtype))+var(10)
+
+[state 0]
+type=velmul
+trigger1=time>=gethitvar(slidetime)
+x=.6
+
+[state 0]
+type=velset
+trigger1=hitover
+x=0
+
+[state 0]
+type=defencemulset
+trigger1=hitover
+value=1
+
+[state 0]
+type=changestate
+trigger1=hitover
+value=11
+ctrl=1
+
+[statedef 5020]
+type=a
+movetype=h
+physics=n
+velset=0,0
+sprpriority=1
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=gethitvar(animtype)!=[3,5]
+value=(cond((gethitvar(airtype)=1),5000,5010)+gethitvar(animtype))+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=gethitvar(animtype)=[3,5]
+value=5030+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=(gethitvar(animtype)=[4,5])&&(selfanimexist(5047+gethitvar(animtype)))
+value=(5047+gethitvar(animtype))+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time>0
+value=anim
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+value=5030
+
+[state 0]
+type=forcefeedback
+trigger1=anim=5000+var(10)
+trigger2=anim=5010+var(10)
+persistent=0
+time=6
+waveform=square
+
+[state 0]
+type=forcefeedback
+trigger1=anim=5001+var(10)
+trigger2=anim=5011+var(10)
+persistent=0
+time=8
+waveform=sinesquare
+ampl=110,-1,-.3
+
+[state 0]
+type=forcefeedback
+trigger1=anim=5012+var(10)
+trigger2=anim=5002+var(10)
+trigger3=anim=5030+var(10)
+trigger4=(anim=[5051,5059])+var(10)
+persistent=0
+time=15
+waveform=sinesquare
+ampl=140
+
+[statedef 5030]
+type=a
+movetype=h
+physics=n
+ctrl=0
+sprpriority=1
+
+[state 0]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+
+[state 0]
+type=hitvelset
+trigger1=time=0
+x=1
+y=1
+
+[state 0]
+type=changestate
+triggerall=!hitfall
+trigger1=hitover
+trigger2=vel y>0
+trigger2=pos y>=10
+value=5040
+
+[state 0]
+type=changestate
+triggerall=hitfall
+trigger1=hitover
+trigger2=vel y>0
+trigger2=pos y>=10
+value=5050
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=5035
+
+[statedef 5035]
+type=a
+movetype=h
+physics=n
+sprpriority=1
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=selfanimexist(5035)
+trigger1=(anim!=[5051,5059])+var(10)
+trigger1=anim!=5090+var(10)
+value=5035+var(10)
+
+[state 0]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+
+[state 0]
+type=changestate
+triggerall=!hitfall
+trigger1=hitover
+trigger2=!animtime
+trigger3=vel y>0
+trigger3=pos y>=10
+trigger4=time=0
+trigger4=anim!=5035+var(10)
+value=5040
+
+[state 0]
+type=changestate
+triggerall=hitfall
+trigger1=hitover
+trigger2=!animtime
+trigger3=vel y>0
+trigger3=pos y>=10
+trigger4=time=0
+trigger4=anim!=5035+var(10)
+value=5050
+
+[statedef 5040]
+type=a
+movetype=h
+physics=n
+sprpriority=1
+
+[state 0]
+type=changestate
+trigger1=!alive
+value=5050
+
+[state 0]
+type=changeanim
+trigger1=!animtime
+trigger1=anim!=5040+var(10)
+trigger2=time=0
+trigger2=anim!=5035+var(10)
+value=5040+var(10)
+
+[state 0]
+type=ctrlset
+trigger1=hitover
+value=1
+
+[state 0]
+type=statetypeset
+trigger1=hitover
+movetype=i
+
+[state 0]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+
+[state 0]
+type=changestate
+trigger1=vel y>0
+trigger1=pos y>=0
+value=52
+
+[statedef 5050]
+type=a
+movetype=h
+physics=n
+sprpriority=1
+
+[state 0]
+type=changeanim
+trigger1=!animtime
+trigger1=anim=5035+var(10)
+trigger2=time=0
+trigger2=anim!=5035+var(10)
+trigger2=(anim!=[5051, 5059])+var(10)&&(anim!=[5061, 5069])+var(10)
+trigger2=anim!=5090+var(10)
+value=5050+var(10)
+
+[state 0]
+type=changeanim
+trigger1=(anim=[5050,5059])+var(10)
+trigger1=vel y>=cond(anim=5050+var(10), 1, -2)
+trigger1=selfanimexist(anim+10)
+value=(anim+10)+var(10)
+persistent=0
+
+[state 0]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+
+[state 0]
+type=changestate
+triggerall=vel y>0
+triggerall=pos y>=-20
+triggerall=alive
+triggerall=canrecover
+trigger1=command="recovery"
+value=5200
+
+[state 0]
+type=changestate
+triggerall=vel y>-1
+triggerall=alive
+triggerall=canrecover
+trigger1=command="recovery"
+value=5210
+
+[state 0]
+type=changestate
+trigger1=vel y>0
+trigger1=pos y>=cond((anim=[5051,5059])+var(10)||(anim=[5061,5069])+var(10),0,25)
+value=5100
+
+[statedef 5070]
+type=a
+movetype=h
+physics=n
+velset=0,0
+sprpriority=1
+
+[state 0]
+type=changeanim
+trigger1=1
+value=5070+var(10)
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+value=5071
+
+[state 0]
+type=forcefeedback
+trigger1=time=0
+time=12
+waveform=sinesquare
+ampl=140
+
+[statedef 5071]
+type=a
+movetype=h
+physics=n
+sprpriority=1
+
+[state 0]
+type=hitvelset
+trigger1=time=0
+x=1
+y=1
+
+[state 0]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+
+[state 0]
+trigger1=vel y>0
+trigger1=pos y>=5
+type=changestate
+value=5110
+
+[statedef 5080]
+type=l
+movetype=h
+physics=n
+velset=0,0
+sprpriority=1
+
+[state 0]
+type=varset
+trigger1=time=0
+sysvar(2)=cond(gethitvar(yvel)=0, 5080+var(10), 5090+var(10))
+
+[state 0]
+type=varadd
+trigger1=time=0
+trigger1=(anim=[5081,5089])+var(10)||(anim=[5111,5119])+var(10)
+trigger1=selfanimexist(sysvar(2)+(anim % 10))
+sysvar(2)=anim % 10
+
+[state 0]
+type=varset
+trigger1=time=0
+trigger1=sysvar(2)=5090+var(10)
+trigger1=!selfanimexist(5090)
+sysvar(2)=5030+var(10)
+
+[state 0]
+type=changeanim
+trigger1=1
+value=sysvar(2)
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+trigger1=gethitvar(yvel)=0
+value=5081
+
+[state 0]
+type=changestate
+trigger1=hitshakeover
+trigger1=gethitvar(yvel)!=0
+value=5030 
+
+[statedef 5081]
+type=l
+movetype=h
+physics=c
+sprpriority=1
+
+[state 0]
+type=hitvelset
+trigger1=time=0
+x=1
+
+[state 0]
+type=velset
+trigger1=hitover
+x=0
+
+[state 0] 
+type=varset
+trigger1=time=0
+sysvar(0)=1
+
+[state 0]
+type=changestate
+trigger1=hitover
+value=5110
+
+[statedef 5100]
+type=l
+movetype=h
+physics=n
+sprpriority=1
+
+[state 0]
+type=velset
+trigger1=(!time)&&(gethitvar(fall.yvel)=0)&&(vel x>1)
+x=1
+
+[state 0]
+type=fallenvshake
+trigger1=!time
+
+[state 0]
+type=varset
+trigger1=!time
+sysvar(1)=floor(vel y)
+
+[state 0]
+type=changeanim
+triggerall=!time
+trigger1=(anim!=[5051,5059])+var(10)&&(anim!=[5061,5069])+var(10)
+trigger2=!selfanimexist(5100+(anim % 10))
+value=5100+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=(anim=[5051,5059])+var(10)||(anim=[5061,5069])+var(10)
+trigger1=selfanimexist(5100+(anim % 10))
+value=(5100+var(10))+(anim % 10)
+
+[state 0]
+type=posset
+trigger1=time=0
+y=0
+
+[state 0]
+type=velset
+trigger1=time=0
+y=0
+
+[state 0]
+type=velmul
+trigger1=time=0
+x=0.75
+
+[state 0]
+type=changestate
+trigger1=time=0
+trigger1=gethitvar(fall.yvel)=0
+value=5110
+
+[state 0]
+type=hitfalldamage
+trigger1=time=0
+
+[state 0]
+type=posfreeze
+trigger1=1
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=5101
+
+[state 0]
+type=forcefeedback
+trigger1=time=0
+waveform=sinesquare
+ampl=128,-3,-.2,.005
+time=20
+
+[statedef 5101]
+type=l
+movetype=h
+physics=n
+sprpriority=1
+
+[state 0]
+type=changeanim
+triggerall=time=0
+trigger1=(anim!=[5101,5109])+var(10)
+trigger2=!selfanimexist(5160+(anim % 10))
+value=5160+var(10)
+
+[state 0]
+type=changeanim
+triggerall=time=0
+trigger1=(anim=[5101,5109])+var(10)
+trigger1=selfanimexist(5160+(anim % 10))
+value=(5160+var(10))+(anim % 10)
+
+[state 0]
+type=hitfallvel
+trigger1=time=0
+
+[state 0]
+type=posset
+trigger1=time=0
+y=20
+
+[state 0]
+type=veladd
+trigger1=1
+y=.4
+
+[state 0]
+trigger1=vel y>0
+trigger1=pos y>=12
+type=changestate
+value=5110
+
+[statedef 5110]
+type=l
+movetype=h
+physics=n
+sprpriority=1
+
+[state 0]
+type=fallenvshake
+trigger1=!time
+
+[state 0]
+type=changeanim
+persistent=0
+trigger1=selfanimexist(5110+(anim % 10))
+trigger1=(anim=[5081,5089])+var(10)
+value=(5110+var(10))+(anim % 10)
+
+[state 0]
+type=changeanim
+triggerall=!time
+triggerall=(anim!=[5110,5119])+var(10)
+trigger1=(anim!=[5161,5169])+var(10)
+trigger2=!selfanimexist(5170+(anim % 10))
+value=5170+var(10)
+
+[state 0]
+type=changeanim
+triggerall=!time
+triggerall=(anim!=[5110,5119])+var(10)
+trigger1=(anim=[5161,5169])+var(10)
+trigger1=selfanimexist(5170+(anim % 10))
+value=(5170+var(10))+(anim % 10)
+
+[state 0]
+type=hitfalldamage
+trigger1=!time
+
+[state 0]
+type=posset
+trigger1=!time
+y=0
+
+[state 0]
+type=varset
+trigger1=!time
+trigger1=gethitvar(fall.yvel)!=0
+sysvar(1)=floor(vel y)
+
+[state 0]
+type=velset
+trigger1=!time
+y=0
+
+[state 0]
+type=changeanim
+persistent=0
+triggerall=(anim=[5171,5179])+var(10)
+triggerall=selfanimexist(5110+(anim % 10))
+trigger1=!animtime
+trigger2=sysvar(0)
+value=(5110+var(10))+(anim % 10)
+
+[state 0]
+type=changeanim
+persistent=0
+triggerall=(anim!=[5111,5119])+var(10)
+trigger1=!animtime
+trigger2=sysvar(0)
+value=5110+var(10)
+
+[state 5110, 11]
+type=changestate
+triggerall=!alive
+trigger1=!animtime
+trigger2=sysvar(0)
+trigger3=(anim=[5110,5119])+var(10)
+value=5150
+
+[state 0]
+type=varset
+trigger1=sysvar(0)
+trigger1=time=0
+sysvar(0)=0
+
+[state 0]
+type=velmul
+trigger1=1
+x=0.85
+
+[state 0]
+type=forcefeedback
+trigger1=alive
+trigger1=time=0
+time=8
+ampl=240
+waveform=sine
+
+[state 0]
+type=forcefeedback
+trigger1=!alive
+trigger1=time=0
+ampl=200, 7, -.467
+time=30
+waveform=sine
+
+[statedef 5120]
+type=l
+movetype=i
+physics=n
+sprpriority=1
+
+[state 0]
+type=varset
+trigger1=!time
+v=1
+value=random%2
+[state 0]
+type=playsnd
+trigger1=!time
+value=s0,82+var(1)
+[state 0]
+type=playsnd
+trigger1=!time
+value=s0,82+var(1)
+
+[state 0]
+type=changeanim
+triggerall=time=0
+triggerall=life>0
+trigger1=(anim!=[5111,5119])+var(10)
+trigger2=!selfanimexist(5120+(anim % 10))
+value=5120+var(10)
+
+[state 0]
+type=changeanim
+triggerall=time=0
+triggerall=life>0
+trigger1=(anim=[5111,5119])+var(10)
+trigger1=selfanimexist(5120+(anim % 10))
+value=(5120+var(10))+(anim % 10)
+
+[state 0]
+type=velset
+trigger1=time=0
+x=0
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca
+time=1
+
+[state 0]
+type=hitfallset
+trigger1=!animtime
+value=1
+
+[state 0]
+type=nothitby
+trigger1=!animtime
+value=, nt,st,ht
+time=12
+
+[state 0]
+type=nothitby
+trigger1=!animtime
+value2=sca
+time=3
+
+[state 0]
+type=changestate
+trigger1=(command="b")||((ailevel)&&((enemynear,p2bodydist x<10)&&(enemynear,p2bodydist y=[-30,30]))&&((enemynear,p2statetype!=L)||(enemynear,p2stateno!=5120)))
+value=cond(var(2)>0,2301,301)
+ctrl=1
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 5150]
+type=l
+movetype=h
+physics=n
+sprpriority=1
+
+[state 0]
+type=assertspecial
+trigger1=prevstateno=4090
+flag=invisible
+
+[state 0]
+type=changeanim
+triggerall=time=0
+triggerall=selfanimexist(5140)
+triggerall=life>0
+trigger1=(anim!=[5111,5119])+var(10)&&(anim!=[5171,5179])+var(10)
+trigger2=!selfanimexist(5140+(anim % 10))
+value=5140+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=(anim=[5111,5119])+var(10)||(anim=[5171,5179])+var(10)
+trigger1=selfanimexist(5140+(anim % 10))
+value=(5140+var(10))+(anim % 10)
+
+[state 0]
+type=changeanim
+persistent=0
+trigger1=time=0
+trigger1=matchover=1
+trigger1=(anim=[5140,5149])+var(10)
+trigger1=selfanimexist(anim+10)
+value=(anim+10)+var(10)
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=(anim!=[5140,5159])+var(10)
+trigger1=(anim!=[5110,5119])+var(10)
+value=5110+var(10)
+
+[state 0]
+type=velmul
+trigger1=1
+x=0.85
+
+[state 0]
+type=velset
+trigger1=vel x<.05
+persistent=0
+x=0
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca
+time=1
+
+[statedef 5200]
+type=a
+movetype=h
+physics=n
+sprpriority=1
+
+[state 0]
+type=changeanim
+trigger1=anim=5035+var(10)
+trigger1=!animtime
+value=5050+var(10)
+
+[state 0]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+
+[state 0]
+type=selfstate
+trigger1=vel y>0
+trigger1=pos y>=10
+value=5201
+
+[statedef 5201]
+type=a
+movetype=h
+physics=a
+anim=5200+var(10)
+sprpriority=1
+
+[state 0]
+type=turn
+trigger1=time=0
+trigger1=p2dist x<-5
+
+[state 0]
+type=velset
+trigger1=time=0
+x=-.15
+y=-3.5
+
+[state 0]
+type=posset
+trigger1=time=0
+y=0
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca
+time=1
+
+[state 0]
+type=palfx
+trigger1=time=0
+time=3
+add=128,128,128
+
+[statedef 5210]
+type=a
+movetype=i
+physics=n
+anim=5210+var(10)
+ctrl=0
+sprpriority=1
+
+[state 0]
+type=palfx
+trigger1=time=0
+time=3
+add=128,128,128
+
+[state 0]
+type=posfreeze
+trigger1=time=0
+value=4
+
+[state 0]
+type=turn
+trigger1=time=0
+trigger1=p2dist x<-20
+
+[state 0]
+type=velmul
+trigger1=time=4
+x=.8
+y=.8
+
+[state 0]
+type=veladd
+trigger1=time=4
+y=-4.5
+
+[state 0]
+type=velmul
+trigger1=time=4
+trigger1=vel y>0
+y=.5
+
+[state 0]
+type=veladd
+trigger1=time=4
+trigger1=vel y>-3
+y=-2
+
+[state 0]
+type=veladd
+trigger1=time=4
+trigger1=vel y>-2
+y=-1
+
+[state 0]
+type=veladd
+trigger1=time=4
+trigger1=command="holdup"
+y=-2
+
+[state 0]
+type=veladd
+trigger1=time=4
+trigger1=command="holddown"
+y=1.5
+
+[state 0]
+type=velmul
+trigger1=time=4
+trigger1=command="holdfwd"
+x=1
+
+[state 0]
+type=veladd
+trigger1=time=4
+trigger1=command="holdback"
+x=-1
+
+[state 0]
+type=nothitby
+trigger1=time=0
+value=sca
+time=15
+
+[state 0]
+type=ctrlset
+trigger1=time=20
+value=1
+
+[state 0]
+type=veladd
+trigger1=time>=4
+y=.35
+
+[state 0]
+type=changestate
+trigger1=vel y>0
+trigger1=pos y>=0
+value=52
+ctrl=1
+
+[statedef 5300]
+type=s
+ctrl=0
+anim=5300+var(10)
+velset=0,0
+sprpriority=1
+
+[state 0]
+type=changestate
+trigger1=time=100
+value=0
+ctrl=1
+
+[statedef 5500]
+type=s
+ctrl=0
+anim=5300+var(10)
+velset=0,0
+
+[state 0]
+type=changeanim
+trigger1=time=0
+trigger1=selfanimexist(5500)
+value=5500+var(10)
+
+[statedef 5900]
+type=s
+
+[state 0]
+type=varrangeset
+trigger1=roundsexisted=0
+value=0
+first=0
+last=1
+
+[state 0]
+type=varrangeset
+trigger1=roundsexisted=0
+value=0
+first=3
+last=59
+
+[state 0]
+type=varrangeset
+trigger1=roundsexisted=0
+fvalue=0
+
+[state 0]
+type=varset
+trigger1=roundno=1
+var(55)=palno
+
+[state 0]
+type=varset
+trigger1=1
+fvar(35)=0
+
+[state 0]
+type=varset
+trigger1=authorname="InSeph"
+sysfvar(4)=1
+
+[state 0]
+type=changestate
+triggerall=time>1
+trigger1=roundno=1
+value=190
+
+[state 0]
+type=changestate
+triggerall=time>1
+trigger1=1
+value=0
+
+[statedef 8001]
+type=u
+anim=8001
+sprpriority=3
+
+[state 0]
+type=remappal
+trigger1=(parent,stateno=[8005,8019])||(parent,stateno=[8030,8039])
+source=3,0
+dest=3,11
+
+[state 0]
+type=remappal
+trigger1=parent,stateno=[8020,8029]
+source=3,0
+dest=3,12
+
+[state 0]
+type=varset
+trigger1=!Time
+v=1
+value=random%360
+
+[state 0]
+type=angledraw
+trigger1=1
+value=var(1)
+scale=1+time*.1,1+time*.1
+
+[state 0]
+type=destroyself
+trigger1=!animtime
+
+[statedef 8002]
+type=u
+anim=8002
+sprpriority=4
+
+[state 0]
+type=remappal
+trigger1=parent,stateno=[8005,8019]
+source=3,0
+dest=3,11
+
+[state 0]
+type=remappal
+trigger1=parent,stateno=[8020,8029]
+source=3,0
+dest=3,12
+
+[state 0]
+type=varset
+trigger1=!Time
+v=1
+value=random%360
+
+[state 0]
+type=angledraw
+trigger1=1
+value=var(1)
+scale=1+time*.1,1+time*.1
+
+[state 0]
+type=destroyself
+trigger1=!animtime
+
+[statedef 8003]
+type=u
+anim=8003
+sprpriority=4
+
+[state 0]
+type=remappal
+trigger1=parent,stateno=[8005,8019]
+source=3,0
+dest=3,11
+
+[state 0]
+type=remappal
+trigger1=parent,stateno=[8020,8029]
+source=3,0
+dest=3,12
+
+[state 0]
+type=varset
+trigger1=!Time
+v=1
+value=random%360
+
+[state 0]
+type=angledraw
+trigger1=1
+value=var(1)
+scale=1+time*.1,1+time*.1
+
+[state 0]
+type=destroyself
+trigger1=!animtime
+
+[statedef 8004]
+type=u
+anim=8004
+sprpriority=5
+
+[state 0]
+type=remappal
+trigger1=parent,stateno=[8005,8019]
+source=3,0
+dest=3,11
+
+[state 0]
+type=remappal
+trigger1=parent,stateno=[8020,8029]
+source=3,0
+dest=3,12
+
+[state 0]
+type=varset
+trigger1=!Time
+v=1
+value=random%360
+
+[state 0]
+type=angledraw
+trigger1=1
+value=var(1)
+scale=.1+time*.05,.1+time*.05
+
+[state 0]
+type=destroyself
+trigger1=!animtime
+
+[Statedef 8005]
+type=u
+anim=9999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8001
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8002
+
+[state 0]
+type=destroyself
+trigger1=time=30
+
+[Statedef 8006]
+type=u
+anim=9999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8001
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8002
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8004
+
+[state 0]
+type=destroyself
+trigger1=time=30
+
+[Statedef 8010]
+type=u
+anim=9999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8001
+pausemovetime=999
+supermovetime=999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8003
+pausemovetime=999
+supermovetime=999
+
+[state 0]
+type=destroyself
+trigger1=time=30
+
+[Statedef 8011]
+type=u
+anim=9999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8001
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8003
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8004
+
+[state 0]
+type=destroyself
+trigger1=time=30
+
+[Statedef 8020]
+type=u
+anim=9999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8001
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8003
+
+[state 0]
+type=destroyself
+trigger1=time=30
+
+[Statedef 8021]
+type=u
+anim=9999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8001
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8003
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8004
+
+[state 0]
+type=destroyself
+trigger1=time=30
+
+[Statedef 8030]
+type=u
+anim=9999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8001
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8002
+
+[state 0]
+type=destroyself
+trigger1=time=30
+
+[statedef 8050]
+type=u
+velset=0,0
+anim=9999
+
+[state 0]
+type=null
+trigger1=(root,stateno=700)&&(var(1):=2)
+trigger2=(root,stateno=1600)&&(cond(root,var(20)=2000,var(1):=5,cond(root,var(20)=2100,var(1):=2,cond(root,var(20)=2200,var(1):=6,cond(root,var(20)=2400,var(1):=8,var(1):=4)))))
+
+[state 0]
+type=null
+trigger1=(root,stateno=[1000,1600])
+trigger1=(var(1):=4)
+
+[state 0]
+type=bindtoroot
+trigger1=1
+pos=var(2),var(3)
+
+[state 0]
+type=null
+trigger1=root,stateno=1000
+trigger1=(var(2):=0||1)
+trigger1=(var(3):=-25)
+trigger2=root,stateno=1100
+trigger2=(var(2):=-2)
+trigger2=(var(3):=-25)
+trigger3=root,stateno=1200
+trigger3=(var(2):=-2)
+trigger3=(var(3):=-25)
+trigger4=root,stateno=1300
+trigger4=(var(2):=-2)
+trigger4=(var(3):=-25)
+trigger5=root,stateno=1400
+trigger5=(var(2):=-2)
+trigger5=(var(3):=-25)
+trigger6=root,stateno=1500
+trigger6=(var(2):=-2)
+trigger6=(var(3):=-25)
+
+[state 0]
+type=envshake
+trigger1=!time
+time=10
+ampl=-5
+freq=25
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s104,1
+[state 0]
+type=playsnd
+trigger1=!time
+value=s104,1
+[state 0]
+type=playsnd
+trigger1=!time
+value=s104,1
+
+[state 0]
+type=explod
+trigger1=!time
+anim=8050
+id=8050
+pos=0,0
+scale=.2,.2
+postype=p1
+facing=1
+vfacing=1
+bindtime=-1
+removetime=-2
+sprpriority=10
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+ownpal=1
+remappal=3,var(1)
+
+[state 0]
+type=destroyself
+trigger1=(time>20)||(root,movetype=h)
+
+[statedef 8060]
+type=u
+sprpriority=5
+
+[state 0]
+type=changeanim
+trigger1=1
+value=root,anim
+elem=root,animelemno(0)
+ignorehitpause=1
+
+[state 0]
+type=bindtoroot
+trigger1=1
+time=-1
+ignorehitpause=1
+
+[state 0]
+type=playerpush
+trigger1=1
+value=1
+ignorehitpause=1
+
+[state 0]
+type=turn
+trigger1=facing!=root,facing
+ignorehitpause=1
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca,na,sa,ha,np,sp,hp,nt,st,ht
+time=-1
+ignorehitpause=1
+
+[state 0]
+type=angledraw
+trigger1=1
+scale=.97+(time*.02),.97+(time*.02)
+value=0
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=125-(time*10),256
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=destroyself
+trigger1=time=20
+
+[statedef 8100]
+type=u
+anim=9999
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s160,0
+
+[state 0]
+type=envshake
+trigger1=(!time)&&(!movecontact)
+time=5
+ampl=-5
+freq=25
+
+[state 0]
+type=explod
+trigger1=!time
+anim=8100
+id=8100
+pos=5,-25
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+scale=.5,.15
+sprpriority=3
+removeongethit=1
+ignorehitpause=1
+ownpal=1
+angle=90
+
+[state 0]
+type=explod
+trigger1=(!time)&&(pos y=0)
+anim=8120
+id=8120
+pos=5,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+scale=.2,.25
+sprpriority=3
+removeongethit=1
+ignorehitpause=1
+ownpal=1
+
+[state 0]
+type=destroyself
+trigger1=time=15
+
+[statedef 8500]
+type=u
+anim=9999
+
+[state 0]
+type=envshake
+trigger1=!time
+time=10
+ampl=-6
+freq=25
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s8500,0
+[state 0]
+type=playsnd
+trigger1=!time
+value=s8500,0
+[state 0]
+type=playsnd
+trigger1=!time
+value=s8500,0
+[state 0]
+type=playsnd
+trigger1=!time
+value=s8500,1
+[state 0]
+type=playsnd
+trigger1=!time
+value=s8500,1
+[state 0]
+type=playsnd
+trigger1=!time
+value=s8500,2
+[state 0]
+type=playsnd
+trigger1=!time
+value=s8500,2
+
+[state 0]
+type=explod
+trigger1=!time
+anim=8500
+id=8500
+pos=160,90
+postype=back
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=0
+scale=.5,.375
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=!time
+anim=8500
+id=8500
+pos=160,90
+postype=back
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.5,.375
+angle=0
+ownpal=1
+remappal=3,4
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=!time
+anim=8501
+id=8501
+pos=1,-25
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=0
+scale=.2,.6
+angle=90
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=!time
+anim=8501
+id=8501
+pos=1,-25
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.2,.6
+angle=90
+ownpal=1
+remappal=3,4
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=!time
+anim=8502
+id=8502
+pos=-3,-25
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=0
+scale=.4,.4
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=!time
+anim=8502
+id=8502
+pos=-3,-25
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.4,.4
+angle=0
+ownpal=1
+remappal=3,4
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=!time
+anim=8510
+postype=back
+pos=0,floor((1.33*gameheight/gamewidth)*120)
+scale=.4,.4
+bindtime=-1
+sprpriority=-8
+ownpal=1 
+removetime=-2
+pausemovetime=99999
+supermovetime=99999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8510
+id=8510
+postype=p1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=destroyself
+trigger1=time=50
+
+[statedef 8510]
+type=u
+anim=9999
+
+[state 0]
+type=explod
+triggerall=(root,stateno!=[1300,1599])
+trigger1=!time
+anim=8503
+id=8503
+pos=160,floor((1.33*gameheight/gamewidth)*120)
+postype=back
+facing=1
+bindtime=1
+removetime=-1
+scale=.7,.65
+sprpriority=-1
+ownpal=1
+remappal=3,0
+removeongethit=1
+pausemovetime=99999
+supermovetime=99999
+trans=sub
+[state 0]
+type=explod
+triggerall=(root,stateno!=[1300,1599])
+trigger1=!time
+anim=8503
+id=8503
+pos=160,floor((1.33*gameheight/gamewidth)*120)
+postype=back
+facing=1
+bindtime=1
+removetime=-1
+scale=.7,.65
+sprpriority=0
+ownpal=1
+remappal=3,4
+removeongethit=1
+pausemovetime=99999
+supermovetime=99999
+
+[state 0]
+type=varadd
+trigger1=var(5)>-50
+v=5
+value=-10
+
+[state 0]
+type=bgpalfx
+trigger1=1
+time=2
+add=var(5),var(5),var(5)
+
+[state 0]
+type=removeexplod
+trigger1=root,stateno!=[4000,5999]
+id=8503
+
+[state 0]
+type=changestate
+trigger1=root,stateno!=[4000,5999]
+trigger1=root,stateno!=[1300,1599]
+value=8511
+
+[Statedef 8511]
+type=u
+
+[state 0]
+type=varadd
+trigger1=var(5)<0
+v=5
+value=5
+
+[state 0]
+type=bgpalfx
+trigger1=1
+time=2
+add=var(5),var(5),var(5)
+
+[state 0]
+type=destroyself
+trigger1=time=10
+
+[statedef 9050]
+type=s
+movetype=h
+physics=n
+anim=5050
+ctrl=0
+sprpriority=1
+
+[state 0]
+type=velset
+trigger1=1
+x=-20
+y=0
+ignorehitpause=1
+
+[state 0]
+type=posset
+trigger1=pos y>=0
+y=0
+
+[state 0]
+type=playerpush
+trigger1=1
+value=0
+
+[state 0]
+type=turn
+trigger1=p2dist x<=0
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca,na,sa,ha,np,sp,hp,nt,st,ht
+time=5
+
+[state 0]
+type=changestate
+trigger1=backedgebodydist<=5
+value=9051
+
+[statedef 9051]
+type=a
+movetype=h
+physics=a
+anim=9999
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=lifeadd
+trigger1=!time
+value=-15
+
+[state 0]
+type=velset
+trigger1=!time
+y=-1
+x=-1
+
+[state 0]
+type=selfstate
+trigger1=time=1
+value=5050
+
+[statedef 9055]
+type=s
+movetype=i
+physics=n
+anim=9999
+ctrl=0
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s160,1
+[state 0]
+type=playsnd
+trigger1=!time
+value=s160,1
+[state 0]
+type=playsnd
+trigger1=!time
+value=s160,1
+
+[state 0]
+type=posset
+trigger1=1
+y=0
+
+[state 0]
+type=explod
+trigger1=(!time)||(timemod=2,0)
+anim=8100
+id=8100
+pos=(60-random%40),(-10-random%30)
+vel=5,0
+facing=1
+vfacing=1
+bindtime=1
+removetime=-2
+scale=.25,.1
+sprpriority=3
+ownpal=1
+removeongethit=1
+ignorehitpause=1
+trans=sub
+postype=p2
+angle=90
+
+[state 0]
+type=explod
+trigger1=(!time)||(timemod=5,0)
+anim=8120
+id=8120
+pos=0,0
+vel=-1.5,0
+ownpal=1
+facing=-1
+scale=.15,.2
+bindtime=1
+removetime=-2
+sprpriority=10
+ignorehitpause=1
+removeongethit=1
+postype=p2
+
+[state 0]
+type=destroyself
+trigger1=enemy,stateno!=9050
+
+[statedef 9056]
+type=a
+movetype=a
+physics=s
+anim=9999
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s103,4
+[state 0]
+type=playsnd
+trigger1=!time
+value=s103,4
+
+[state 0]
+type=explod
+trigger1=!time
+anim=9050
+id=9050
+pos=135,60
+postype=p1
+vel=-2,-2
+facing=1
+vfacing=1
+bindtime=1
+removetime=-2
+scale=.5,.5
+sprpriority=2
+ontop=1
+ownpal=1
+removeongethit=0
+ignorehitpause=0
+
+[state 0]
+type=explod
+trigger1=!time
+anim=9060
+id=9060
+postype=p1
+pos=-20,-5
+facing=-1
+sprpriority=4
+removetime=-2
+bindtime=1
+ownpal=1
+scale=.3,.3
+angle=90
+removeongethit=1
+ontop=1
+ignorehitpause=1
+remappal=3,11
+
+[state 0]
+type=destroyself
+trigger1=time=1
+
+[statedef 9060]
+type=s
+movetype=h
+physics=n
+anim=9999
+ctrl=0
+sprpriority=1
+facep2=1
+
+[state 0]
+type=playerpush
+trigger1=1
+value=0
+ignorehitpause=1
+
+[state 0]
+type=velset
+trigger1=!time
+x=-6
+y=8
+
+[state 0]
+type=changeanim
+trigger1=1
+value=5100
+elem=1
+
+[state 0]
+type=changestate
+trigger1=pos y>0
+value=9061
+
+[statedef 9061]
+type=s
+movetype=h
+physics=n
+ctrl=0
+sprpriority=1
+facep2=1
+
+[state 0]
+type=removeexplod
+trigger1=!time
+id=8100
+
+[state 0]
+type=lifeadd
+trigger1=time<=15
+value=-1
+kill=1
+
+[state 0]
+type=posset
+trigger1=!time
+y=0
+
+[state 0]
+type=velset
+trigger1=!time
+x=-6
+y=0
+
+[state 0]
+type=velset
+trigger1=time>=15
+x=0
+y=0
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noautoturn
+
+[state 0]
+type=changeanim
+trigger1=time<=15
+value=5101
+elem=1
+
+[state 0]
+type=changeanim
+trigger1=time>=15
+value=5110
+elem=1
+
+[state 0]
+type=selfstate
+triggerall=alive
+trigger1=time=70
+value=5120
+
+[state 0]
+type=selfstate
+triggerall=!alive
+trigger1=time=70
+value=5150
+
+[state 0]
+type=changestate
+trigger1=backedgebodydist<=0
+value=9050
+
+[statedef 9065]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=9999
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s160,1
+[state 0]
+type=playsnd
+trigger1=!time
+value=s160,1
+
+[state 0]
+type=explod
+trigger1=(time%2=0)&&(time<=10)
+anim=8100
+id=8100
+pos=10-(random%30),-5-(random%20)
+postype=p2
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=cond(random<500,0,3)
+scale=.3,.1
+angle=-75
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=destroyself
+trigger1=time=50
+
+[statedef 9066]
+type=s
+movetype=i
+physics=n
+anim=9999
+ctrl=0
+
+[state 0]
+type=posadd
+trigger1=1
+x=p2dist x
+
+[state 0]
+type=posset
+trigger1=1
+y=0
+
+[state 0]
+type=explod
+trigger1=((pos y=0)&&(time%4=0))&&(time<=12)
+anim=8120
+id=8120
+pos=-15,3
+postype=p1
+facing=-1
+bindtime=1
+removetime=-2
+sprpriority=5
+scale=.15,.2
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+vel=2,0
+
+[state 0]
+type=destroyself
+trigger1=enemy,stateno!=9061
+
+[statedef 9999]
+type=u
+
+[state 0]
+type=destroyself
+trigger1=(time=15)||(root,time<5)

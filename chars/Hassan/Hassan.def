@@ -1,0 +1,28 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Hassan"
+displayname ="Hassan"
+versiondate = 
+mugenversion =1.0
+author ="JOAN QUIÑONES"
+pal.defaults =1,2
+
+[Files]
+sprite =Hassan of the Cursed Arm.sff
+anim =Hassan of the Cursed Arm.air
+sound =Hassan of the Cursed Arm.snd
+cmd =Hassan of the Cursed Arm.cmd
+cns =Hassan of the Cursed Arm.cns
+stcommon =common1.cns
+st =Hassan of the Cursed Arm.cns
+pal1=1.act
+pal2=
+st1=IA.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

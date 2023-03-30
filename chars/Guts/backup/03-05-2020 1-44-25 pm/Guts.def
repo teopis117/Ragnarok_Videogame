@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Guts"
+displayname ="Guts"
+versiondate =00/00/2013
+mugenversion =1.1 
+author ="ILoche"
+pal.defaults =1
+
+[Files]
+sprite =Guts.sff
+anim =Guts.air
+sound =Guts.snd
+cmd =Guts.cmd
+cns =Guts.cns
+stcommon =common1.cns
+st =Guts.cns
+pal1=Palette.act
+st1=IA.cns
+st2=Specials.cns
+st3=Supers.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

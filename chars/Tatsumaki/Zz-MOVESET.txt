@@ -1,0 +1,26 @@
+
+A - Combo 1
+
+B - Combo 2
+
+C - Rocks
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Push!
+
+D,DB,B,a - Weight
+
+D,DF,F,b - Control
+
+D,DB,B,b - Fly Rocks (Use C to Rocks Attack)
+
+D,DF,F,c - Meteorite
+
+D,DB,B,c - Weight Rocks
+
+SUPER: 
+
+D,s - Meteoros

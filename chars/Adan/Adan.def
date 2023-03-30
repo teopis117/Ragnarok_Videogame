@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Adam"
+displayname ="Adam"
+versiondate =22/03/2018
+mugenversion =1.1
+author ="pedroponi"
+pal.defaults =1
+
+[Files]
+sprite =Goku_UI.sff
+anim =Goku_UI.air
+sound =Goku_UI.snd
+cmd =Goku_UI.cmd
+cns =Goku_UI.cns
+stcommon =common1.cns
+st =Goku_UI.cns
+pal1=4.act
+pal2=2.act
+st1=IA.cns
+st2=Especiales.cns
+st3=Supers.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

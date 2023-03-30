@@ -1,0 +1,28 @@
+;-------------------------------------------------------------------------------
+[Info]
+name = "Mordred"
+displayname = "Mordred"
+versiondate = ;27/10/2019
+mugenversion = 1.0
+author = "LautyCarp"
+pal.defaults = 1,2,3,4
+;-------------------------------------------------------------------------------
+[Files]
+sprite = Mordred.sff
+anim = Mordred.air
+sound = Mordred.snd
+cmd = Mordred.cmd
+cns = Mordred.cns
+stcommon = common1.cns
+st = Mordred.cns
+st1 = AI.cns
+st2 = Especiales.cns
+st3 = Super.cns
+pal1 = 1.act
+pal2 = Artoria.act
+pal3 = Blue.act
+pal4 = Alter.act
+;-------------------------------------------------------------------------------
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 

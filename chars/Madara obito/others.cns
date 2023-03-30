@@ -1,0 +1,52 @@
+[StateDef -3]
+
+[state -3]
+type = stopsnd
+trigger1 = stateno != 190
+channel = 1
+
+[state -3]
+type = stopsnd
+trigger1 = stateno != 6010
+channel = 2
+
+[state -3]
+type = removeexplod
+trigger1 = stateno != 6010
+id = 6010
+
+[state 0]
+type = lifeadd
+triggerall = life > 1
+triggerall = power >= 3000
+trigger1 = timemod = 12,0
+value = 1
+
+[state 0]
+type = playerpush
+triggerall = numhelper(6272) = 1
+triggerall = stateno != 6010
+triggerall = stateno != [5000,5035]
+triggerall = movetype != A
+trigger1 = 1
+value = 0
+
+[State 0]
+type = NotHitBy
+triggerall = numhelper(6272) = 1
+triggerall = stateno != 6010
+triggerall = stateno != [5000,5035]
+triggerall = movetype != A
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 0]
+type = Trans
+triggerall = numhelper(6272) = 1
+triggerall = stateno != 6010
+triggerall = stateno != [5000,5035]
+triggerall = movetype != A
+trigger1 = 1
+trans = addalpha
+alpha = 200,100

@@ -1,0 +1,26 @@
+
+A - Combo 1
+
+B - Combo 2
+
+C - Explosion
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Explosion!
+
+D,DB,B,a - Explosion! 2
+
+D,DF,F,b - Explosion Punch
+
+D,DB,B,b - Explosion Walk
+
+D,DF,F,c - Explosion Power
+
+D,DB,B,c - Bakugo Sense
+
+SUPER: 
+
+D,s - Tornado Explosion

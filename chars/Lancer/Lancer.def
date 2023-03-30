@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Lancer"
+displayname ="Lancer"
+versiondate =30/09/2020
+mugenversion =1.0
+author ="Mugen n5"
+pal.defaults = 1
+
+
+[Files]
+sprite =Lancer.sff
+anim =Lancer.air
+sound =Lancer.snd
+cmd =Lancer.cmd
+cns =Lancer.cns
+stcommon =common1.cns
+pal1=1.act
+st =Lancer.cns
+st1=IA.cns
+st2=Specials.cns
+st3=Supers.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

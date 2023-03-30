@@ -1,0 +1,26 @@
+
+A - Combo 1
+
+B - Combo 2
+
+C - Combo 3
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Invisible Air Release
+
+D,DB,B,a - Tornado Scatter
+
+D,DF,F,b - Golden Burst
+
+D,DB,B,b - Avalon Revenge
+
+D,DF,F,c - Golden Dissection
+
+D,DB,B,c - Excalibur Gale
+
+SUPER: 
+
+D,DF,F,D,DF,F,a+b - EXCALIBUR!

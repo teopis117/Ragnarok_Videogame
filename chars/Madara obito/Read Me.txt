@@ -1,0 +1,6 @@
+Name: Pein Rikudou 1.0
+Mugen version: 1.0
+Obito sprite sheet by Gekiosan
+
+sprite and sound effects:
+Shinrashi, Alexei Roschak, Mikel, MGSSJ2

@@ -1,0 +1,28 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Acnologia"
+displayname = "Acnologia"
+versiondate = 07/04/2019
+mugenversion = 1.0
+author = "Xenodar123"
+pal.defaults = 1
+
+[Files]
+sprite = Acnologia.sff
+anim = Acnologia.air
+sound = Acnologia.snd
+cmd = Acnologia.cmd
+cns = Acnologia.cns
+stcommon = common1.cns
+st = Acnologia.cns
+st1 = IA.cns
+st2 = Especiales.cns
+st3 = Supers.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

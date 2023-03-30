@@ -1,0 +1,7312 @@
+[data]
+life=1000
+power=3000
+attack=100
+defence=100
+fall.defence_up=50
+liedown.time=60
+airjuggle=15
+sparkno=-1
+guard.sparkno=-1
+ko.echo=0
+intpersistindex=0
+floatpersistindex=40
+
+[size]
+xscale=1
+yscale=1
+ground.back=10
+ground.front=10
+air.back=10
+air.front=10
+height=25
+attack.dist=80
+proj.attack.dist=14
+proj.doscale=0
+head.pos=3,-37
+mid.pos=1,-20
+
+[velocity]
+walk.fwd=1.5
+walk.back=-1.5
+run.fwd=5.5,0
+run.back=-3.5,-3.5
+jump.fwd=3,0
+jump.back=-3,0
+jump.neu=0,-5.5
+
+[movement]
+airjump.num=0
+airjump.height=35
+yaccel=.35
+stand.friction=.85
+crouch.friction=.82
+
+[statedef 170]
+type=s
+ctrl=0
+anim=170
+velset=0,0
+
+[state 0]
+type=varset
+trigger1=!time
+v=1
+value=random%2
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,0+var(1)
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,0+var(1)
+
+[state 0]
+type=playsnd
+trigger1=animelem=2
+value=s110,6
+
+[state 0]
+type=assertspecial
+trigger1=time < 100
+flag=roundnotover
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca
+time=1
+
+[statedef 180]
+type=s
+
+[state 0]
+type=changestate
+trigger1=time=0
+value=181
+
+[statedef 181]
+type=s
+ctrl=0
+anim=180
+velset=0,0
+
+[state 0]
+type=varset
+trigger1=!time
+v=1
+value=random%3
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,5+var(1)
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,5+var(1)
+
+[state 0]
+type=assertspecial
+trigger1=time < 400
+flag=roundnotover
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca
+time=1
+
+[statedef 190]
+type=s
+ctrl=0
+velset=0,0
+
+[state 0]
+type=changestate
+trigger1=1
+value=191
+ctrl=0
+
+[statedef 191]
+type=s
+ctrl=0
+anim=190
+velset=0,0
+sprpriority=2
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=intro
+
+[state 0]
+type=varset
+trigger1=!time
+v=1
+value=random%4
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,8+var(1)
+channel=2
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,8+var(1)
+channel=3
+
+[state 0]
+type=explod
+trigger1=animelem=2
+anim=1160
+id=1160
+pos=0,-25
+postype=p1
+facing=1
+vfacing=1
+bindtime=1
+removetime=-2
+scale=.5,.5
+sprpriority=10
+ontop=random%360
+ownpal=1
+remappal=3,4
+removeongethit=0
+ignorehitpause=1
+[state 0]
+type=explod
+trigger1=animelem=2
+anim=195
+id=195
+pos=0,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.525,.525
+angle=0
+ownpal=1
+remappal=3,4
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=changeanim
+trigger1=roundstate=0
+value=190
+
+[state 0]
+type=playsnd
+trigger1=animelem=2
+value=s110,5
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+
+[statedef 200]
+type=s
+movetype=a
+physics=s
+anim=200
+ctrl=0
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,19
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,19
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,19
+
+[state 0]
+type=helper
+trigger1=animelem=2
+stateno=420
+id=420
+pos=-15,-25
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+pausemovetime=9999
+
+[state 0]
+type=envshake
+trigger1=animelem=3
+time=5
+ampl=-2
+freq=20
+
+[state 0]
+type=explod
+trigger1=animelem=3
+anim=8120
+id=8120
+pos=5,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.15,.2
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=velset
+trigger1=animelem=3
+x=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=3
+value=s105,3
+
+[state 0]
+type=explod
+trigger1=animelem=3
+anim=8300
+id=8300
+pos=20,-30
+postype=p1
+facing=1
+bindtime=-1
+removetime=-2
+sprpriority=3
+scale=.3,.35
+angle=90
+ownpal=1
+remappal=3,1
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=hitdef
+trigger1=animelem=4
+attr=s,na
+damage=(floor(const(size.proj.attack.dist)*1.5)),(floor(const(size.proj.attack.dist)*0.5))
+guardflag=ma
+pausetime=2,15
+guard.pausetime=6,6
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,12
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-3
+air.velocity=-3,-1
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+getpower=50,25
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(6)>=0)
+trigger1=((!ailevel)&&(command="a"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=30)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)))
+value=201
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(6)>=0)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=3)||(var(58)=4)))
+value=300
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(6)>=0)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=5)||(var(58)=6)))
+value=400
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 201]
+type=s
+movetype=a
+physics=s
+anim=201
+ctrl=0
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,21
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,21
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,21
+
+[state 0]
+type=helper
+trigger1=animelem=1
+stateno=420
+id=420
+pos=5,-30
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+pausemovetime=9999
+
+[state 0]
+type=envshake
+trigger1=animelem=4
+time=5
+ampl=-2
+freq=20
+
+[state 0]
+type=explod
+trigger1=animelem=4
+anim=8120
+id=8120
+pos=5,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.15,.2
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=velset
+trigger1=animelem=4
+x=3
+
+[state 0]
+type=playsnd
+trigger1=animelem=4
+value=s105,3
+
+[state 0]
+type=explod
+trigger1=animelem=4
+anim=8302
+id=8302
+pos=15,-37
+postype=p1
+facing=1
+bindtime=-1
+removetime=-2
+sprpriority=3
+scale=.25,.27
+angle=0
+ownpal=1
+remappal=3,1
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=hitdef
+trigger1=animelem=4
+attr=s,na
+damage=(floor(const(size.proj.attack.dist)*1.5)),(floor(const(size.proj.attack.dist)*0.5))
+guardflag=ma
+pausetime=3,20
+guard.pausetime=6,6
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,12
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-2
+air.velocity=-2,-1
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+getpower=50,25
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-30
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(5)>=0)
+trigger1=((!ailevel)&&(command="a"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=30)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)))
+value=202
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(5)>=0)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=3)||(var(58)=4)))
+value=301
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(5)>=0)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=5)||(var(58)=6)))
+value=400
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 202]
+type=s
+movetype=a
+physics=s
+anim=202
+ctrl=0
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,36
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,36
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,36
+
+[state 0]
+type=helper
+trigger1=animelem=1
+stateno=420
+id=420
+pos=0,-25
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+pausemovetime=9999
+
+[state 0]
+type=helper
+trigger1=animelem=10
+stateno=8100
+id=8100
+postype=p1
+facing=1
+ownpal=1
+
+[state 0]
+type=velset
+trigger1=animelem=10
+x=4
+
+[state 0]
+type=playsnd
+trigger1=animelem=10
+value=s105,3
+
+[state 0]
+type=explod
+trigger1=animelem=11
+anim=8302
+id=8302
+pos=30,-33
+postype=p1
+facing=1
+bindtime=-1
+removetime=-2
+sprpriority=3
+scale=.3,.65
+angle=0
+ownpal=1
+remappal=3,1
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=hitdef
+trigger1=animelem=11
+attr=s,na
+damage=(floor(const(size.proj.attack.dist)*1.5)),(floor(const(size.proj.attack.dist)*0.5))
+guardflag=ma
+pausetime=10,30
+guard.pausetime=6,6
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,12
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-3
+air.velocity=-3,-1
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+getpower=50,25
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-30
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.17
+size.yscale=.17
+ignorehitpause=1
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(12)>=0)
+trigger1=((!ailevel)&&(command="a"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=30)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)))
+value=203
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(12)>=0)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=3)||(var(58)=4)))
+value=301
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(12)>=0)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=5)||(var(58)=6)))
+value=400
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 203]
+type=s
+movetype=a
+physics=s
+anim=203+var(11)
+ctrl=0
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,22
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,22
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,22
+
+[state 0]
+type=helper
+trigger1=animelem=1
+stateno=420
+id=420
+pos=0,-25
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+pausemovetime=9999
+
+[state 0]
+type=helper
+trigger1=animelem=3
+stateno=8100
+id=8100
+postype=p1
+facing=1
+ownpal=1
+
+[state 0]
+type=velset
+trigger1=animelem=3
+x=3
+
+[state 0]
+type=playsnd
+trigger1=animelem=3
+value=s105,5
+
+[state 0]
+type=explod
+trigger1=animelem=3
+anim=8300
+id=8300
+pos=8,-25
+postype=p1
+facing=-1
+bindtime=-1
+removetime=-2
+sprpriority=3
+scale=.25,.25
+angle=-130
+ownpal=1
+remappal=3,1
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=hitdef
+trigger1=animelem=3
+attr=s,na
+animtype=hard
+damage=(floor(const(size.proj.attack.dist)*2.0)),(floor(const(size.proj.attack.dist)*0.6))
+guardflag=ma
+pausetime=cond(var(2)>0,9,10),20
+guard.pausetime=20,10
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,13
+guardsound=s104,0
+ground.type=trip
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-4,0
+air.velocity=0,0
+envshake.time=8
+envshake.ampl=-6
+envshake.freq=30
+fall=1
+getpower=70,40
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8011
+id=8011
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.2
+size.yscale=.2
+ignorehitpause=1
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(4)>=3)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)||(var(58)=3)))
+value=302
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(4)>=0)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=3)||(var(58)=4)||(var(58)=6)))
+value=400
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 300]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=300
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,28
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,28
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,28
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s110,2
+
+[state 0]
+type=helper
+trigger1=time=3
+stateno=405
+id=405
+pos=0,-30
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=15)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)||(var(58)=3)))
+value=301
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=15)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=200)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=4)||(var(58)=5)||(var(58)=6)))
+value=401
+
+[state 0]
+type=changestate
+trigger1=time=40
+value=0
+ctrl=1
+
+[statedef 301]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=301
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,27
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,27
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,27
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s110,2
+
+[state 0]
+type=helper
+trigger1=time=3
+stateno=311
+id=311
+pos=-15,-100
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=6
+stateno=311
+id=311
+pos=0,-100
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=9
+stateno=311
+id=311
+pos=15,-100
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=12
+stateno=311
+id=311
+pos=30,-100
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=15)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=200)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)||(var(58)=3)))
+value=302
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=15)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=200)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=4)||(var(58)=5)||(var(58)=6)))
+value=402
+
+[state 0]
+type=changestate
+trigger1=time=40
+value=0
+ctrl=1
+
+[statedef 302]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=302
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,41
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,41
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,41
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s110,2
+
+[state 0]
+type=helper
+trigger1=time=10
+stateno=312
+id=312
+pos=(enemynear,p2bodydist x + 0),0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=13
+stateno=312
+id=312
+pos=(enemynear,p2bodydist x + 15),0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=16
+stateno=312
+id=312
+pos=(enemynear,p2bodydist x + 30),0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=19
+stateno=312
+id=312
+pos=(enemynear,p2bodydist x + 45),0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=16
+stateno=312
+id=312
+pos=(enemynear,p2bodydist x - 30),0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=13
+stateno=312
+id=312
+pos=(enemynear,p2bodydist x - 15),0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=10
+stateno=312
+id=312
+pos=(enemynear,p2bodydist x - 0),0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=30)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=150)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)||(var(58)=3)))
+value=303
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=30)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=150)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=4)||(var(58)=5)||(var(58)=6)))
+value=404
+
+[state 0]
+type=changestate
+trigger1=time=60
+value=0
+ctrl=1
+
+[statedef 303]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=303
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,31
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,31
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,31
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s110,2
+
+[state 0]
+type=helper
+trigger1=animelem=2
+stateno=315
+id=315
+pos=(enemynear,p2bodydist x + 15),-90
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=1
+size.yscale=1
+pausemovetime=9999
+
+[state 0]
+type=changestate
+trigger1=time=60
+value=0
+ctrl=1
+
+[statedef 311]
+type=a
+movetype=a
+physics=n
+ctrl=0
+anim=311
+sprpriority=2
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-60
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=320
+id=320
+pos=0,-5
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+pausemovetime=9999
+
+[state 0]
+type=velset
+trigger1=time<9
+x=.5
+y=.12
+
+[state 0]
+type=velset
+trigger1=time=10
+x=9
+y=16
+
+[state 0]
+type=hitdef
+trigger1=animelem=1
+attr=a,na
+damage=(floor(const(size.proj.attack.dist)*0.8)),(floor(const(size.proj.attack.dist)*0.3))
+hitflag=ma
+guardflag=ma
+pausetime=0,15
+guard.pausetime=2,2
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-5
+hitsound=s101,11
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-1,0
+air.velocity=-1,-1
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+getpower=30,15
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=movecontact
+
+[state 0]
+type=changestate
+trigger1=frontedgebodydist < 0
+trigger2=time=500
+trigger3=pos y >=-20
+value=1517
+
+[statedef 312]
+type=a
+movetype=a
+physics=n
+ctrl=0
+anim=312
+sprpriority=2
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=angledraw
+trigger1=1
+value=90
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=313
+id=313
+pos=0,15
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+pausemovetime=9999
+
+[state 0]
+type=velset
+trigger1=time<9
+x=0
+y=-.5
+
+[state 0]
+type=velset
+trigger1=time=10
+x=0
+y=-10
+
+[state 0]
+type=hitdef
+trigger1=animelem=1
+attr=a,na
+damage=(floor(const(size.proj.attack.dist)*0.5)),(floor(const(size.proj.attack.dist)*0.3))
+hitflag=mafd
+guardflag=mafd
+pausetime=0,6
+guard.pausetime=1,1
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,11
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=cond(p2bodydist x<=-10,-.5,.7),-5
+air.velocity=cond(p2bodydist x<=-10,-.5,.7),-5
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+getpower=30,15
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=time=30
+
+[statedef 313]
+type=a
+movetype=i
+physics=n
+anim=420
+sprpriority=3
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,15
+
+[state 0]
+type=angledraw
+trigger1=1
+value=0
+
+[state 0]
+type=changeanim
+trigger1=(anim=420)&&(time>25)
+value=421
+
+[state 0]
+type=destroyself
+trigger1=(anim=421)&&(!animtime)
+
+[statedef 315]
+type=s
+movetype=a
+physics=n
+juggle=2
+ctrl=0
+anim=315
+poweradd=0
+velset=0,0
+sprpriority=4
+
+[state 0]
+type=explod
+trigger1=!time
+anim=1160
+id=1160
+pos=0,-25
+postype=p1
+facing=1
+vfacing=1
+bindtime=1
+removetime=-2
+scale=.5,.5
+sprpriority=10
+ontop=0
+ownpal=1
+remappal=3,4
+removeongethit=0
+ignorehitpause=1
+
+[state 0]
+type=explod
+trigger1=!time
+anim=315
+id=315
+pos=0,0
+postype=p1
+facing=1
+bindtime=-1
+removetime=-2
+sprpriority=0
+scale=1,1
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,5
+
+[state 0]
+type=playsnd
+trigger1=animelem=2
+value=s110,1
+
+[state 0]
+type=explod
+trigger1=animelem=2
+anim=8100
+id=8100
+pos=-3,-30
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.4,.15
+angle=1
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=animelem=2
+anim=317
+id=317
+pos=0,-40
+postype=p1
+facing=1
+bindtime=-1
+removetime=-2
+sprpriority=3
+scale=.7,.7
+angle=0
+ownpal=1
+remappal=3,4
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=removeexplod
+trigger1=pos y >=0
+id=317
+
+[state 0]
+type=velset
+trigger1=animelem=2
+y=10
+
+[state 0]
+type=hitdef
+triggerall=!movecontact
+trigger1=1
+attr=s, na
+animtype=light
+hitflag=mafd
+damage=10
+guardflag=ma
+pausetime=0,0
+sparkno=-1
+guard.sparkno=s7000
+sparkxy=-8,-25
+hitsound=s101,14
+guardsound=s4,1
+ground.type=high
+ground.slidetime=12
+ground.hittime=15
+ground.velocity=0,10
+air.velocity=0,10
+sprpriority=3
+fall=1
+
+[state 0]
+type=helper
+trigger1=movehit=1 && numhelper(8011)=0
+id=8011
+stateno=8011
+pos=0,-25
+postype=p2
+facing=-1
+ownpal=1
+size.xscale=.3
+size.yscale=.3
+ignorehitpause=1
+
+[state 0]
+type=playsnd
+trigger1=time=20
+value=s110,7
+[state 0]
+type=playsnd
+trigger1=time=20
+value=s110,2
+
+[state 0]
+type=changestate
+trigger1=pos y >=0
+value=316
+ctrl=0
+
+[statedef 316]
+type=s
+movetype=a
+physics=s
+ctrl=0
+anim=316
+sprpriority=2
+
+[state 0]
+type=explod
+trigger1=!time
+anim=316
+id=316
+pos=0,0
+postype=p1
+facing=1
+bindtime=-1
+removetime=-2
+sprpriority=0
+scale=1,1
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+
+[state 0]
+type=velset
+trigger1=time=0
+y=0
+x=0
+
+[state 0]
+type=playerpush
+trigger1=1
+value=0
+ignorehitpause=1
+
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s110,7
+
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s103,5
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s103,6
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s103,7
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s110,8
+
+[state 0]
+type=posset
+trigger1=time=0
+y=0
+ignorehitpause=1
+
+[state 0]
+type=envshake
+trigger1=time=1
+time=35
+ampl=-4
+ignorehitpause=1
+
+[state 0]
+type=explod
+trigger1=!time
+anim=8245
+id=7020
+pos=0,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=0
+scale=.75,.75
+angle=0
+ownpal=1
+remappal=3,9
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=!time
+anim=7025
+id=7025
+pos=0,30
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.4,.4
+angle=0
+ownpal=1
+remappal=3,9
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=hitdef
+triggerall=!movecontact
+trigger1=1
+attr=s, na
+animtype=heavy
+damage=25
+guardflag=ma
+hitflag=mafd
+pausetime=5,10
+sparkno=-1
+guard.sparkno=s7000
+sparkxy=-8,-25
+hitsound=s103,4
+guardsound=s104,0
+ground.type=high
+ground.slidetime=12
+ground.hittime=15
+ground.velocity=0,0
+air.velocity=0,10
+fall=1
+fall.recover=0
+envshake.time=35
+
+[state 0]
+type=helper
+trigger1=movehit=1 && numhelper(8011)=0
+id=8011
+stateno=8011
+pos=0,-25
+postype=p2
+facing=-1
+ownpal=1
+size.xscale=.3
+size.yscale=.3
+ignorehitpause=1
+
+[state 0]
+type=explod
+trigger1=time=25
+anim=1160
+id=1160
+pos=0,-25
+postype=p1
+facing=1
+vfacing=1
+bindtime=1
+removetime=-2
+scale=.6,.6
+sprpriority=10
+ontop=0
+ownpal=1
+remappal=3,4
+removeongethit=0
+ignorehitpause=1
+
+[state 0]
+type=playsnd
+trigger1=time=25
+value=s110,5
+
+[state 0]
+type=destroyself
+trigger1=animtime=0
+
+[statedef 320]
+type=a
+movetype=i
+physics=n
+anim=420
+sprpriority=3
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,15
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-150
+
+[state 0]
+type=changeanim
+trigger1=(anim=420)&&(time>25)
+value=421
+
+[state 0]
+type=destroyself
+trigger1=(anim=421)&&(!animtime)
+
+[statedef 400]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=400
+sprpriority=2
+
+[state 0]
+type=helper
+trigger1=time=15 || time=35
+id=430
+stateno=430
+pos=0,0
+postype=p1
+ownpal=1
+size.xscale=.2
+size.yscale=.2
+
+[state 0]
+type=changestate
+triggerall=time >=10
+trigger1=ailevel=0 && command !="hold_c"
+trigger2=ailevel > 0 && p2bodydist x <=40&&(time>=15+(random%35))
+trigger3=time=50
+value=cond(time >=15,cond(time >=35,403,402),401)
+
+[statedef 401]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=402
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,37
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,37
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,37
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s110,2
+
+[state 0]
+type=helper
+trigger1=time=5
+stateno=405
+id=405
+pos=0,-40
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=helper
+trigger1=time=10
+stateno=405
+id=405
+pos=0,-20
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(2)>=10)
+trigger1=((!ailevel)&&(command="a"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=50)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)))
+value=201
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(2)>=10)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=200)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=3)||(var(58)=4)))
+value=302
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(animelemtime(2)>=10)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=200)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=5)||(var(58)=6)))
+value=402
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 402]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=401
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,42
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,42
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,42
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s110,2
+
+[state 0]
+type=helper
+trigger1=time=3
+stateno=405
+id=405
+pos=0,-45
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=helper
+trigger1=time=10
+stateno=405
+id=405
+pos=0,-30
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=helper
+trigger1=time=17
+stateno=405
+id=405
+pos=0,-15
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=helper
+trigger1=time=24
+stateno=405
+id=405
+pos=0,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=30)
+trigger1=((!ailevel)&&(command="a"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=50)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)))
+value=202
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=30)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=200)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=3)||(var(58)=4)))
+value=302
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=30)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=200)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=5)||(var(58)=6)))
+value=404
+
+[state 0]
+type=changestate
+trigger1=time=40
+value=0
+ctrl=1
+
+[statedef 403]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=401
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,2
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,2
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s110,2
+
+[state 0]
+type=helper
+trigger1=time=4
+stateno=405
+id=405
+pos=10,-45
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=7
+stateno=405
+id=405
+pos=0,-30
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=10
+stateno=405
+id=405
+pos=0,-15
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=13
+stateno=405
+id=405
+pos=10,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=16
+stateno=405
+id=405
+pos=20,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=19
+stateno=405
+id=405
+pos=30,-15
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=22
+stateno=405
+id=405
+pos=30,-30
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=25
+stateno=405
+id=405
+pos=20,-45
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=28
+stateno=405
+id=405
+pos=10,-45
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=31
+stateno=405
+id=405
+pos=0,-30
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=34
+stateno=405
+id=405
+pos=0,-15
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=37
+stateno=405
+id=405
+pos=10,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=40
+stateno=405
+id=405
+pos=20,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=43
+stateno=405
+id=405
+pos=30,-15
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=46
+stateno=405
+id=405
+pos=30,-30
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=49
+stateno=405
+id=405
+pos=20,-45
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=changestate
+trigger1=time=60
+value=0
+ctrl=1
+
+[statedef 404]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=301
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,43
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,43
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,43
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s110,2
+
+[state 0]
+type=helper
+trigger1=time=4
+stateno=311
+id=311
+pos=-15,-95
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=8
+stateno=311
+id=311
+pos=0,-105
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=12
+stateno=311
+id=311
+pos=15,-95
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=16
+stateno=311
+id=311
+pos=30,-105
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=20
+stateno=311
+id=311
+pos=45,-95
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=changestate
+triggerall=(roundstate=2)&&(time>=30)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120))))
+value=303
+
+[state 0]
+type=changestate
+trigger1=time=40
+value=0
+ctrl=1
+
+[statedef 405]
+type=a
+movetype=a
+physics=n
+ctrl=0
+anim=405
+sprpriority=2
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=420
+id=420
+pos=-20,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+pausemovetime=9999
+
+[state 0]
+type=velset
+trigger1=time<9
+x=.5
+y=0
+
+[state 0]
+type=velset
+trigger1=time=10
+x=15
+y=0
+
+[state 0]
+type=hitdef
+trigger1=animelem=1
+attr=a,na
+damage=(floor(const(size.proj.attack.dist)*0.7)),(floor(const(size.proj.attack.dist)*0.3))
+hitflag=ma
+guardflag=ma
+pausetime=0,10
+guard.pausetime=2,2
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,0
+hitsound=s101,11
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-1,0
+air.velocity=-1,-1
+envshake.time=7
+envshake.ampl=-4
+envshake.freq=25
+getpower=20,10
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=movecontact
+trigger2=frontedgebodydist < 0
+
+[statedef 406]
+type=a
+movetype=a
+physics=n
+ctrl=0
+anim=406
+sprpriority=2
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=angledraw
+trigger1=1
+value=1+time*31
+
+[state 0]
+type=velset
+trigger1=time=0
+x=-4
+y=-6
+
+[state 0]
+type=veladd
+trigger1=1
+y=0.5
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s110,6
+
+[state 0]
+type=destroyself
+trigger1=frontedgedist <=-40
+trigger2=time=40
+
+[statedef 410]
+type=a
+movetype=a
+physics=n
+ctrl=0
+anim=312
+sprpriority=2
+
+[state 0]
+type=angledraw
+trigger1=1
+value=90
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=420
+id=420
+pos=0,15
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+pausemovetime=9999
+
+[state 0]
+type=velset
+trigger1=time<9
+x=0
+y=.5
+
+[state 0]
+type=velset
+trigger1=time=10
+x=0
+y=10
+
+[state 0]
+type=hitdef
+trigger1=animelem=1
+attr=a,na
+damage=(floor(const(size.proj.attack.dist)*1.0)),(floor(const(size.proj.attack.dist)*0.3))
+hitflag=mafd
+guardflag=mafd
+pausetime=0,2
+guard.pausetime=1,1
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,11
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=cond(p2bodydist x<=0,-1,1),-5
+air.velocity=cond(p2bodydist x<=0,-1,1),-5
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+getpower=30,15
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=time=30
+
+[statedef 420]
+type=a
+movetype=i
+physics=n
+anim=420
+sprpriority=3
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,15
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-90
+
+[state 0]
+type=changeanim
+trigger1=(anim=420)&&(time>25)
+value=421
+
+[state 0]
+type=destroyself
+trigger1=(anim=421)&&(!animtime)
+
+[statedef 430]
+type=s
+movetype=i
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+anim=8050
+sprpriority=3
+
+[state 0]
+type=bindtoroot
+trigger1=1
+pos=-1,-20
+
+[state 0]
+type=envshake
+trigger1=time=0
+time=10
+
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s110,4
+
+[state 0]
+type=angledraw
+trigger1=1
+scale=1+time*.1,1+time*.1
+ignorehitpause=1
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=256-time*25,256
+ignorehitpause=1
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=(time=10)||(root,movetype=h)
+
+[statedef 500]
+type=s
+movetype=a
+physics=s
+ctrl=0
+anim=500
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=time=10
+value=s70,16
+channel=2
+[state 0]
+type=playsnd
+trigger1=time=10
+value=s70,16
+channel=3
+
+[State 0]
+type=stopsnd
+trigger1=stateno!=500
+channel=2
+[State 0]
+type=stopsnd
+trigger1=stateno!=500
+channel=3
+
+[state 0]
+type=null
+trigger1=(var(1):=4)
+
+[state 0]
+type=poweradd
+trigger1=time>=10
+value=12
+
+[state 0]
+type=envshake
+trigger1=(time>=10)&&(time%3=0)
+time=8
+ampl=-1
+
+[state 0]
+type=playsnd
+trigger1=time%90=0
+value=s500,0
+channel=1
+
+[state 0]
+type=helper
+trigger1=(time>=10)&&(time%10=0)
+id=505
+stateno=505
+pos=0,10
+postype=p1
+size.xscale=1
+size.yscale=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=(numexplod(510)=0)&&(time>=10)&&(time%10=0)
+anim=510
+id=510
+pos=0,0
+postype=p1
+bindtime=-1
+removetime=-1
+scale=.45,.45
+sprpriority=3
+ownpal=1
+trans=add
+remappal=3,var(1)
+removeongethit=1
+ignorehitpause=1
+[state 0]
+type=explod
+trigger1=(numexplod(511)=0)&&(time>=10)&&(time%10=0)
+anim=510
+id=511
+pos=0,0
+postype=p1
+bindtime=-1
+removetime=-1
+scale=.45,.45
+sprpriority=0
+ownpal=1
+trans=sub
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+
+[state 0]
+type=explod
+trigger1=(time>=10)&&(time%20=0)
+anim=6110
+id=6110
+pos=0,0
+postype=p1
+bindtime=1
+removetime=-2
+scale=.4,.4
+sprpriority=3
+ownpal=1
+trans=add
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+
+[state 0]
+type=explod
+trigger1=(time>=10)&&(time%12=0)
+anim=6120
+id=6120
+pos=10,-2
+vel=1,0
+facing=-1
+postype=p1
+bindtime=1
+removetime=-2
+scale=.2,.2
+sprpriority=1
+ownpal=1
+trans=add
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+
+[state 0]
+type=explod
+trigger1=(time>=10)&&(time%12=0)
+anim=6120
+id=6120
+pos=-10,2
+vel=-1,0
+facing=1
+postype=p1
+bindtime=1
+removetime=-2
+scale=.2,.2
+sprpriority=2
+ownpal=1
+trans=add
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+
+[state 0]
+type=changestate
+trigger1=((ailevel=0)&&(time>=16))&&(command="FF")
+value=60
+[state 0]
+type=changestate
+trigger1=((ailevel=0)&&(time>=16))&&(command="BB")
+value=70
+[state 0]
+type=changestate
+trigger1=((ailevel=0)&&(time>=16))&&(command="SU")
+value=80
+[state 0]
+type=changestate
+trigger1=((ailevel=0)&&(time>=16))&&((command!="hold_s")||(power>=powermax))
+value=501
+
+[statedef 501]
+type=s
+movetype=a
+physics=s
+ctrl=0
+anim=501
+sprpriority=2
+facep2=1
+
+[State 0]
+type=stopsnd
+trigger1=stateno!=500
+channel=1
+[State 0]
+type=stopsnd
+trigger1=stateno!=500
+channel=2
+[State 0]
+type=stopsnd
+trigger1=stateno!=500
+channel=3
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 505]
+type=a
+physics=n
+ctrl=0
+sprpriority=3
+
+[state 0]
+type=changeanim
+trigger1=1
+value=root,anim
+elem=root,animelemno(0)
+ignorehitpause=1
+
+[state 0]
+type=bindtoroot
+trigger1=1
+time=-1
+ignorehitpause=1
+
+[state 0]
+type=playerpush
+trigger1=1
+value=1
+ignorehitpause=1
+
+[state 0]
+type=turn
+trigger1=facing!=root,facing
+ignorehitpause=1
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca,na,sa,ha,np,sp,hp,nt,st,ht
+time=-1
+ignorehitpause=1
+
+[state 0]
+type=angledraw
+trigger1=1
+scale=1+(time/45.000),1+(time/45.000)
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=150-(time*10),256
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=destroyself
+trigger1=time=20
+
+[statedef 520]
+type=a
+movetype=i
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+anim=9999
+sprpriority=3
+
+[state 0]
+type=bindtoroot
+trigger1=1
+pos=0,-20
+
+[state 0]
+type=removeexplod
+trigger1=numexplod(510)=1
+id=510
+[state 0]
+type=removeexplod
+trigger1=numexplod(511)=1
+id=511
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s500,1
+
+[state 0]
+type=explod
+trigger1=!time
+anim=520
+id=520
+pos=0,0
+postype=p1
+bindtime=-1
+removetime=-2
+scale=.4,.4
+sprpriority=3
+ownpal=1
+trans=add
+remappal=3,(root,var(1))
+removeongethit=1
+ignorehitpause=1
+[state 0]
+type=explod
+trigger1=!time
+anim=520
+id=520
+pos=0,0
+postype=p1
+bindtime=-1
+removetime=-2
+scale=.4,.4
+sprpriority=0
+ownpal=1
+trans=sub
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=time>=20
+
+[statedef 600]
+type=a
+movetype=a
+physics=a
+anim=600
+ctrl=0
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,19
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,19
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,19
+
+[state 0]
+type=helper
+trigger1=animelem=1
+stateno=420
+id=420
+pos=0,-25
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+pausemovetime=9999
+
+[state 0]
+type=velset
+trigger1=time<5
+x=2
+y=-2
+
+[state 0]
+type=envshake
+trigger1=(animelem=4)&&(!movecontact)
+time=5
+ampl=-2
+freq=20
+
+[state 0]
+type=playsnd
+trigger1=animelem=4
+value=s105,4
+
+[state 0]
+type=explod
+trigger1=animelem=4
+anim=8300
+id=8300
+pos=15,-28
+postype=p1
+facing=-1
+bindtime=-1
+removetime=-2
+sprpriority=3
+scale=.22,.22
+angle=-35
+ownpal=1
+remappal=3,1
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=hitdef
+trigger1=animelem=4
+attr=a,na
+damage=(floor(const(size.proj.attack.dist)*1.5)),(floor(const(size.proj.attack.dist)*0.5))
+guardflag=ma
+pausetime=cond(var(2)>0,2,3),6
+guard.pausetime=6,3
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,10
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-1,-4
+air.velocity=-1,-3.2
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+getpower=50,25
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+
+[state 0]
+type=changestate
+triggerall=(var(6)<=16)&&(roundstate=2)&&(animelemtime(5)>=0)
+trigger1=((!ailevel)&&(command="a"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=30)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)))
+value=601
+[state 0]
+type=changestate
+triggerall=(var(6)<=16)&&(roundstate=2)&&(animelemtime(5)>=0)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=3)||(var(58)=4)))
+value=610
+[state 0]
+type=changestate
+triggerall=(var(6)<=16)&&(roundstate=2)&&(animelemtime(5)>=0)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=5)||(var(58)=6)))
+value=620
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=50
+ctrl=1
+
+[statedef 601]
+type=a
+movetype=a
+physics=a
+anim=601
+ctrl=0
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,22
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,22
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,22
+
+[state 0]
+type=velset
+trigger1=time<5
+x=2
+y=-2
+
+[state 0]
+type=velset
+trigger1=animelem=4
+x=2
+
+[state 0]
+type=envshake
+trigger1=(animelem=4)&&(!movecontact)
+time=5
+ampl=-2
+freq=20
+
+[state 0]
+type=playsnd
+trigger1=animelem=4
+value=s110,0
+
+[state 0]
+type=hitdef
+trigger1=animelem=4
+attr=a,na
+animtype=hard
+damage=(floor(const(size.proj.attack.dist)*2.0)),(floor(const(size.proj.attack.dist)*0.6))
+guardflag=ma
+pausetime=cond(var(2)>0,9,10),10
+guard.pausetime=20,10
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,7
+guardsound=s104,0
+ground.type=trip
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-4,4
+air.velocity=-4,4
+envshake.time=8
+envshake.ampl=-6
+envshake.freq=30
+fall=1
+getpower=70,40
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8006
+id=8006
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.2
+size.yscale=.2
+ignorehitpause=1
+
+[state 0]
+type=changestate
+triggerall=(var(6)<=16)&&(roundstate=2)&&(animelemtime(5)>=0)
+trigger1=((!ailevel)&&(command="b"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=1)||(var(58)=2)||(var(58)=3)))
+value=610
+[state 0]
+type=changestate
+triggerall=(var(6)<=16)&&(roundstate=2)&&(animelemtime(5)>=0)
+trigger1=((!ailevel)&&(command="c"))
+trigger2=((ailevel)&&((enemynear,p2bodydist x<=100)&&(enemynear,p2bodydist y=[-30,30])&&((enemynear,p2statetype!=l)||(enemynear,p2stateno!=5120)))&&((var(58)=4)||(var(58)=5)||(var(58)=6)))
+value=620
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=50
+ctrl=1
+
+[statedef 610]
+type=a
+movetype=a
+physics=a
+anim=610
+ctrl=0
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,37
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,37
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,37
+
+[state 0]
+type=velset
+trigger1=time<5
+x=-1
+y=-2
+
+[state 0]
+type=helper
+trigger1=time=8
+stateno=311
+id=311
+pos=-40,-60
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=12
+stateno=311
+id=311
+pos=-20,-60
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=50
+ctrl=1
+
+[statedef 620]
+type=a
+movetype=a
+physics=a
+anim=620
+ctrl=0
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,27
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,27
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,27
+
+[state 0]
+type=velset
+trigger1=time<20
+x=-.5
+y=-1
+
+[state 0]
+type=helper
+trigger1=time=8
+stateno=311
+id=311
+pos=-20,-70
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=12
+stateno=311
+id=311
+pos=-20,-55
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=16
+stateno=311
+id=311
+pos=20,-70
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+[state 0]
+type=helper
+trigger1=time=20
+stateno=311
+id=311
+pos=20,-55
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+pausemovetime=9999
+
+[state 0]
+type=changestate
+trigger1=time=50
+value=50
+ctrl=1
+
+[statedef 1000]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=1000
+poweradd=-1000
+sprpriority=2
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8050
+id=8050
+pos=0,0
+postype=p1
+ownpal=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=playsnd
+trigger1=animelem=3
+value=s0,44
+[state 0]
+type=playsnd
+trigger1=animelem=3
+value=s0,44
+[state 0]
+type=playsnd
+trigger1=animelem=3
+value=s0,44
+
+[state 0]
+type=helper
+triggerall=(time>=10)&&(time<=80)
+trigger1=time%6=0
+id=1001
+stateno=1001
+pos=80+(-random%100),-70+(-random%60)
+postype=p1
+ownpal=1
+size.xscale=.6
+size.yscale=.6
+
+[state 0]
+type=changeanim
+trigger1=numhelper(1001)>0
+value=anim
+elem=5
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 1001]
+type=s
+movetype=a
+physics=n
+juggle=2
+ctrl=0
+anim=1001
+sprpriority=4
+
+[state 0]
+type=helper
+trigger1=!time
+id=1020
+stateno=1020
+pos=-7,-14
+postype=p1
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-155
+ignorehitpause=1
+
+[state 0]
+type=afterimage
+trigger1=time=0
+time=-1
+framegap=1
+length=10
+paladd=0, 0, 0
+palmul=.90, .90, .90
+palcontrast=50, 50, 50
+trans=add
+
+[state 0]
+type=velset
+trigger1=time<14
+x=.5
+y=.8
+
+[state 0]
+type=velset
+trigger1=time=15
+x=5
+y=14
+
+[state 0]
+type=playsnd
+trigger1=time=15
+value=s110,2
+
+[state 0]
+type=hitdef
+trigger1=animelem=1
+attr=a,sp
+damage=(floor(const(size.proj.attack.dist)*1.4)),(floor(const(size.proj.attack.dist)*0.4))
+hitflag=ma
+guardflag=ma
+pausetime=0,10
+guard.pausetime=2,2
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,0
+hitsound=s101,11
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-1,0
+air.velocity=-1,-1
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+getpower=30,15
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+
+[state 0]
+type=changestate
+trigger1=frontedgebodydist < 0
+trigger2=time=500
+trigger3=pos y >=-10
+value=1002
+
+[statedef 1002]
+type=a
+movetype=i
+physics=n
+anim=1002
+sprpriority=4
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s101,22
+[state 0]
+type=playsnd
+trigger1=!time
+value=s101,22
+
+[state 0]
+type=velset
+trigger1=time=0
+x=0
+y=0
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-155
+ignorehitpause=1
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=changestate
+trigger1=time=20
+value=1025
+
+[statedef 1020]
+type=a
+movetype=i
+physics=n
+anim=420
+sprpriority=5
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,15
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-155
+
+[state 0]
+type=changeanim
+trigger1=(anim=420)&&(time>25)
+value=421
+
+[state 0]
+type=destroyself
+trigger1=(anim=421)&&(!animtime)
+
+[statedef 1025]
+type=s
+movetype=i
+physics=s
+juggle=2
+ctrl=0
+anim=9999
+velset=0,0
+sprpriority=6
+
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s110,3
+
+[state 0]
+type=envshake
+trigger1=time=0
+time=10
+
+[state 0]
+type=helper
+trigger1=time=0
+id=1026
+stateno=1026
+pos=0,0
+postype=p1
+ownpal=1
+size.xscale=.530
+size.yscale=.530
+
+[state 0]
+type=explod
+trigger1=!time
+anim=1025
+id=1025
+pos=0,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=6
+scale=.6,.6
+angle=-90
+ownpal=1
+remappal=3,4
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=destroyself
+trigger1=!animtime
+
+[statedef 1026]
+type=s
+movetype=a
+physics=s
+juggle=2
+ctrl=0
+anim=1026
+velset=0,0
+sprpriority=-1
+
+[state 0]
+type=hitdef
+trigger1=!movecontact
+attr=a,sp
+animtype=heavy
+damage=(floor(const(size.proj.attack.dist)*0.6)),(floor(const(size.proj.attack.dist)*0.3))
+hitflag=mafd
+guardflag=mafd
+pausetime=0,15
+guard.pausetime=2,2
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,0
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-2,-2
+air.velocity=-2,-2
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+fall=1
+palfx.time=40
+palfx.add=-200,-200,-200
+palfx.mul=256,256,256
+palfx.sinadd=50,50,50,50
+palfx.invertall=0
+palfx.color=256
+
+[state 0]
+type=destroyself
+trigger1=time=10
+
+[statedef 1100]
+type=s
+movetype=a
+physics=s
+juggle=7
+ctrl=0
+anim=1100
+velset=0,0
+poweradd=-1000
+sprpriority=2
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8050
+id=8050
+pos=0,0
+postype=p1
+ownpal=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,46
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,46
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,46
+
+[state 0]
+type=playsnd
+trigger1=animelem=7
+value=s0,47
+[state 0]
+type=playsnd
+trigger1=animelem=7
+value=s0,47
+[state 0]
+type=playsnd
+trigger1=animelem=7
+value=s0,47
+
+[state 0]
+type=playsnd
+trigger1=time=10
+value=s110,14
+[state 0]
+type=playsnd
+trigger1=time=10
+value=s110,14
+
+[state 0]
+type=explod
+trigger1=animelem=5
+anim=1160
+id=1160
+pos=2,-28
+postype=p1
+facing=1
+vfacing=1
+bindtime=1
+removetime=-2
+scale=0.8,0.8
+sprpriority=10
+ontop=0
+ownpal=1
+remappal=3,4
+removeongethit=0
+ignorehitpause=1
+
+[state 0]
+type=helper
+trigger1=animelem=5
+stateno=1140
+id=1140
+pos=6,-25
+postype=p1
+facing=-1
+ownpal=1
+size.xscale=1
+size.yscale=1
+ignorehitpause=1
+persistent=5
+pausemovetime=9999
+supermovetime=9999
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 1120]
+type=a
+movetype=i
+physics=n
+anim=1120
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=playsnd
+trigger1=timemod=9,0
+value=s110,13
+
+[state 0]
+type=turn
+trigger1=p2dist x < 0
+
+[state 0]
+type=bindtoparent
+trigger1=1
+time=1
+pos=0,0
+
+[state 0]
+type=sprpriority
+trigger1=animelem=6
+trigger2=animelem=7
+trigger3=animelem=8
+trigger4=animelem=9
+trigger5=animelem=10
+value=-30
+
+[state 0]
+type=sprpriority
+trigger1=animelem=1
+trigger2=animelem=2
+trigger3=animelem=3
+trigger4=animelem=4
+trigger5=animelem=11
+trigger6=animelem=12
+trigger7=animelem=13
+trigger8=animelem=5
+value=30
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=40+(time*10),256
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=angledraw
+trigger1=time < 10
+scale=0.1+time*.1,0.1+time*.1
+ignorehitpause=10
+
+[state 0]
+type=angledraw
+trigger1=time >=10
+scale=1,1
+ignorehitpause=10
+
+[state 0]
+type=changestate
+trigger1=time=300
+trigger2=numhelper(1170) > 1
+value=1125
+
+[statedef 1121]
+type=a
+movetype=i
+physics=n
+anim=1121
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=turn
+trigger1=p2dist x < 0
+
+[state 0]
+type=bindtoparent
+trigger1=1
+time=1
+pos=0,0
+
+[state 0]
+type=sprpriority
+trigger1=animelem=1
+trigger2=animelem=2
+trigger3=animelem=3
+trigger4=animelem=4
+trigger5=animelem=5
+value=-30
+
+[state 0]
+type=sprpriority
+trigger1=animelem=6
+trigger2=animelem=7
+trigger3=animelem=8
+trigger4=animelem=9
+trigger5=animelem=10
+trigger6=animelem=11
+trigger7=animelem=12
+trigger8=animelem=13
+value=30
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=40+(time*10),256
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=angledraw
+trigger1=time < 10
+scale=0.1+time*.1,0.1+time*.1
+ignorehitpause=10
+
+[state 0]
+type=angledraw
+trigger1=time >=10
+scale=1,1
+ignorehitpause=10
+
+[state 0]
+type=changestate
+trigger1=time=300
+trigger2=numhelper(1170) > 1
+value=1125
+
+[statedef 1122]
+type=a
+movetype=i
+physics=n
+anim=1122
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=turn
+trigger1=p2dist x < 0
+
+[state 0]
+type=bindtoparent
+trigger1=1
+time=1
+pos=0,0
+
+[state 0]
+type=sprpriority
+trigger1=animelem=1
+trigger2=animelem=2
+trigger3=animelem=3
+trigger4=animelem=12
+trigger5=animelem=13
+value=-30
+
+[state 0]
+type=sprpriority
+trigger1=animelem=4
+trigger2=animelem=5
+trigger3=animelem=6
+trigger4=animelem=7
+trigger5=animelem=8
+trigger6=animelem=9
+trigger7=animelem=10
+trigger8=animelem=11
+value=30
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=40+(time*10),256
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=angledraw
+trigger1=time < 10
+scale=0.1+time*.1,0.1+time*.1
+ignorehitpause=10
+
+[state 0]
+type=angledraw
+trigger1=time >=10
+scale=1,1
+ignorehitpause=10
+
+[state 0]
+type=changestate
+trigger1=time=300
+trigger2=numhelper(1170) > 1
+value=1125
+
+[statedef 1123]
+type=a
+movetype=i
+physics=n
+anim=1123
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=turn
+trigger1=p2dist x < 0
+
+[state 0]
+type=bindtoparent
+trigger1=1
+time=1
+pos=0,0
+
+[state 0]
+type=sprpriority
+trigger1=animelem=9
+trigger2=animelem=10
+trigger3=animelem=11
+trigger4=animelem=12
+trigger5=animelem=13
+value=-30
+
+[state 0]
+type=sprpriority
+trigger1=animelem=1
+trigger2=animelem=2
+trigger3=animelem=3
+trigger4=animelem=4
+trigger5=animelem=5
+trigger6=animelem=6
+trigger7=animelem=7
+trigger8=animelem=8
+value=30
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=40+(time*10),256
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=angledraw
+trigger1=time < 10
+scale=0.1+time*.1,0.1+time*.1
+ignorehitpause=10
+
+[state 0]
+type=angledraw
+trigger1=time >=10
+scale=1,1
+ignorehitpause=10
+
+[state 0]
+type=changestate
+trigger1=time=300
+trigger2=numhelper(1170) > 1
+value=1125
+
+[statedef 1125]
+type=s
+movetype=i
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+
+[state 0]
+type=playsnd
+trigger1=time=1
+value=s110,14
+
+[state 0]
+type=helper
+trigger1=!time
+id=1130
+stateno=1130 
+pos=0,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+supermovetime=0
+pausemovetime=0
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=226-(time*10),256
+
+[state 0]
+type=angledraw
+trigger1=time >=1
+scale=1-(time-1)*.1,1-(time-1)*.1
+ignorehitpause=10
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=destroyself
+trigger1=time=10
+
+[statedef 1130]
+type=a
+movetype=a
+physics=n
+anim=9999
+
+[state 0]
+type=explod
+trigger1=time=1
+anim=1160
+id=1160
+pos=2,0
+postype=p1
+facing=1
+vfacing=1
+bindtime=1
+removetime=-2
+scale=0.3,0.3
+sprpriority=10
+ontop=0
+ownpal=1
+removeongethit=0
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=time=10
+
+[statedef 1140]
+type=a
+movetype=a
+physics=n
+anim=1105
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca,na,sa,ha,np,sp,hp,nt,st,ht
+time=1
+
+[state 0]
+type=bindtoparent
+trigger1=1
+time=1
+pos=-3,-27
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=1120
+id=1120
+pos=0,0
+postype=p1
+facing=-1
+ownpal=1
+size.xscale=.3
+size.yscale=.3
+ignorehitpause=1
+persistent=5
+pausemovetime=999
+supermovetime=999
+[state 0]
+type=helper
+trigger1=!time
+stateno=1121
+id=1121
+pos=0,0
+postype=p1
+facing=-1
+ownpal=1
+size.xscale=.3
+size.yscale=.3
+ignorehitpause=1
+persistent=5
+pausemovetime=999
+supermovetime=999
+[state 0]
+type=helper
+trigger1=!time
+stateno=1122
+id=1122
+pos=0,0
+postype=p1
+facing=-1
+ownpal=1
+size.xscale=.3
+size.yscale=.3
+ignorehitpause=1
+persistent=5
+pausemovetime=999
+supermovetime=999
+[state 0]
+type=helper
+trigger1=!time
+stateno=1123
+id=1123
+pos=0,0
+postype=p1
+facing=-1
+ownpal=1
+size.xscale=.3
+size.yscale=.3
+ignorehitpause=1
+persistent=5
+pausemovetime=999
+supermovetime=999
+
+[state 0]
+type=hitdef
+trigger1=time%8=0
+attr=a,sp
+damage=(floor(const(size.proj.attack.dist)*0.3)),(floor(const(size.proj.attack.dist)*0.1))
+guardflag=ma
+pausetime=4,4
+guard.pausetime=5,10
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,0
+hitsound=s101,12
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=2
+air.velocity=2,-1
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+
+[state 0]
+type=helper
+trigger1=movehit=1
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=5
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+
+[state 0]
+type=destroyself
+trigger1=numhelper(1130) > 0
+
+[statedef 1200]
+type=s
+movetype=a
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+anim=1200
+poweradd=-1000
+sprpriority=2
+facep2=1
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8050
+id=8050
+pos=0,0
+postype=p1
+ownpal=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,31
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,31
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,31
+
+[state 0]
+type=playsnd
+trigger1=animelem=4
+value=s0,33
+[state 0]
+type=playsnd
+trigger1=animelem=4
+value=s0,33
+[state 0]
+type=playsnd
+trigger1=animelem=4
+value=s0,33
+
+[state 0]
+type=helper
+trigger1=animelem=1
+stateno=420
+id=420
+pos=-5,-29
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.6
+size.yscale=.6
+pausemovetime=9999
+
+[state 0]
+type=velset
+trigger1=animelem=4
+x=15
+[state 0]
+type=velset
+trigger1=animelem=5
+x=.2
+[state 0]
+type=velset
+trigger1=animelem=6
+x=0
+
+[state 0]
+type=explod
+trigger1=((animelemtime(4)>=0)&&(animelemtime(6)<=0))&&(time%3=0)
+anim=8100
+id=8100
+pos=0,(-35+random%30)
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=1
+scale=.25,.1
+angle=90
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+vel=-1,0
+
+[state 0]
+type=explod
+trigger1=((animelemtime(4)>=0)&&(animelemtime(6)<=0))&&(time%8=0)
+anim=8120
+id=8120
+pos=0,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.2,.25
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+vel=-1,0
+
+[state 0]
+type=playsnd
+trigger1=animelem=4
+value=s110,12
+
+[state 0]
+type=explod
+trigger1=animelem=4
+anim=1210
+id=1210
+pos=10,-30
+postype=p1
+facing=1
+bindtime=-1
+removetime=150
+sprpriority=3
+scale=.7,.3
+angle=0
+ownpal=1
+remappal=3,4
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=removeexplod
+trigger1=(animelem=6)||(movetype=h)
+id=1210
+
+[state 0]
+type=helper
+trigger1=animelem=6
+stateno=420
+id=420
+pos=18,-30
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.6
+size.yscale=.6
+pausemovetime=9999
+
+[state 0]
+type=explod
+trigger1=animelem=6
+anim=1211
+id=1211
+pos=10,-30
+postype=p1
+facing=1
+bindtime=-1
+removetime=-2
+sprpriority=3
+scale=.8,.3
+angle=0
+ownpal=1
+remappal=3,4
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=hitdef
+trigger1=(time%5=0)&&(animelemtime(6)<=0)
+attr=s,sa
+animtype=heavy
+damage=(floor(const(size.proj.attack.dist)*0.5)),(floor(const(size.proj.attack.dist)*0.2))
+hitflag=maf
+guardflag=maf
+pausetime=3,3
+guard.pausetime=2,2
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,13
+guardsound=s104,0
+ground.type=high
+ground.slidetime=40
+ground.hittime=10
+ground.velocity=cond(p2bodydist x<25,-2,2),0
+air.velocity=cond(p2bodydist x<25,-2,2),-1
+envshake.time=5
+envshake.ampl=-4
+envshake.freq=25
+
+[state 0]
+type=helper
+trigger1=(movehit)&&(animelemtime(6)<=0)
+stateno=8010
+id=8010
+pos=0,-15-(random%15)
+postype=p2
+ownpal=1
+persistent=7
+size.xscale=.17
+size.yscale=.17
+ignorehitpause=1
+
+[state 0]
+type=hitdef
+trigger1=time=140
+attr=s,sa
+animtype=hard
+damage=(floor(const(size.proj.attack.dist)*0.9)),(floor(const(size.proj.attack.dist)*0.3))
+guardflag=ma
+pausetime=5,20
+guard.pausetime=20,10
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,-25
+hitsound=s101,18
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-4,-1
+air.velocity=-2,-1
+envshake.time=8
+envshake.ampl=-6
+envshake.freq=30
+fall=1
+
+[state 0]
+type=targetstate
+trigger1=(movehit)&&(animelem=6)
+value=9050
+
+[state 0]
+type=helper
+trigger1=(movehit)&&(animelem=6)
+stateno=8011
+id=8011
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.25
+size.yscale=.25
+ignorehitpause=1
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 1300]
+type=s
+movetype=a
+physics=s
+juggle=2
+poweradd=-1000
+velset=0,0
+anim=1300
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8050
+id=8050
+pos=0,0
+postype=p1
+ownpal=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8510
+id=8510
+postype=p1
+pausemovetime=99999
+supermovetime=99999
+
+[state 0]
+type=pause
+trigger1=!time
+time=50
+movetime=50
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,55
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,55
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,55
+
+[state 0]
+type=playsnd
+trigger1=animelem=7
+value=s0,40
+[state 0]
+type=playsnd
+trigger1=animelem=7
+value=s0,40
+
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1316
+scale=.25,.25
+pos=-20,-30
+postype=p1
+sprpriority=1
+ownpal=1
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1316
+scale=.25,.25
+pos=0,-30
+postype=p1
+sprpriority=1
+ownpal=1
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1316
+scale=.2,.25
+pos=30,-30
+postype=p1
+sprpriority=1
+ownpal=1
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1316
+scale=.4,.25
+pos=20,-30
+postype=p1
+sprpriority=1
+ownpal=1
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1316
+scale=-.5,.5
+pos=90,-30
+postype=p1
+sprpriority=4
+ownpal=1
+
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1317
+scale=0.3,0.3
+pos=-110,-30
+postype=p1
+sprpriority=3
+ownpal=1
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1317
+scale=-.25,.25
+pos=40,-30
+postype=p1
+sprpriority=0
+ownpal=1
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1317
+scale=.4,.4
+pos=90,-30
+postype=p1
+sprpriority=3
+ownpal=1
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1317
+scale=-.25,.25
+pos=140,-30
+postype=p1
+sprpriority=0
+ownpal=1
+
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1319
+scale=-1,1
+pos=-40,-30
+postype=p1
+sprpriority=4
+ownpal=1
+[state 0]
+type=explod
+trigger1=animelem=8
+anim=1319
+scale=.3,.3
+pos=-30,-30
+postype=p1
+sprpriority=1
+ownpal=1
+
+[state 0]
+type=nothitby
+trigger1=time=0
+value=sca
+time=70
+
+[state 0]
+type=hitdef
+trigger1=time=25
+attr=s,sa
+animtype=hard
+damage=0,0
+hitflag=mafd
+guardflag=mafd
+pausetime=0,0
+sparkno=-1
+guard.sparkno=-1
+sparkxy=0,0
+hitsound=-1
+guardsound=s4,1
+ground.type=trip
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-.2,-4
+air.velocity=-.2,-4
+fall=1
+envshake.time=20
+envshake.ampl=-10
+id=1300
+p1stateno=1301
+p2stateno=1302
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 1301]
+type=s
+movetype=a
+physics=s
+juggle=2
+velset=0,0
+anim=1301
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,66
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,66
+
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,59
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,59
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,59
+
+[state 0]
+type=playsnd
+trigger1=animelem=25
+value=s0,60
+[state 0]
+type=playsnd
+trigger1=animelem=25
+value=s0,60
+
+[state 0]
+type=helper
+trigger1=time=1
+stateno=1303
+id=1303
+pos=0,0
+postype=p2
+ownpal=1
+keyctrl=0
+sprpriority=1
+
+[state 0]
+type=nothitby
+trigger1=time=0
+value=sca
+time=50
+
+[state 0]
+type=changestate
+trigger1=animtime=0
+value=0
+ctrl=1
+
+[statedef 1302]
+type=a
+movetype=h
+physics=n
+ctrl=0
+sprpriority=2
+velset=0,0
+
+[state 0]
+type=posset
+trigger1=time=0
+y=0
+
+[state 0]
+type=changeanim2
+trigger1=time=0
+value=5300
+
+[statedef 1303]
+type=s
+movetype=a
+physics=s
+juggle=2
+poweradd=0
+velset=0,0
+anim=1302
+ctrl=0
+sprpriority=2
+
+[state 0]
+type=bgpalfx
+trigger1=time=[0,300]
+time=1
+mul=100,100,100
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=unguardable
+ignorehitpause=1
+
+[state 0]
+type=hitdef
+triggerall=time<=260
+trigger1=timemod=8,0
+attr=s,sa
+damage=4,2
+animtype=heavy
+hitflag=mafd
+guardflag=mafd
+pausetime=0,5
+sparkno=-1
+guard.sparkno=-1
+sparkxy=0,0
+hitsound=s101,12
+guardsound=s104,0
+ground.type=high
+ground.cornerpush.veloff=0
+ground.slidetime=5
+ground.hittime=5
+ground.velocity=.7,1
+air.velocity=.7,1
+envshake.time=10
+envshake.ampl=-5
+envshake.freq=20
+getpower=0,0
+givepower=0,0
+kill=0
+fall=0
+id=1303
+
+[state 0]
+type=helper
+trigger1=(movehit)&&(time<260)
+stateno=8010
+id=8010
+pos=0,-20-(random%20)
+postype=p2
+ownpal=1
+persistent=7
+size.xscale=.15
+size.yscale=.15
+ignorehitpause=1
+
+[state 0]
+type=hitdef
+trigger1=time=270
+attr=s,sa
+animtype=hard
+damage=25,15
+hitflag=mafd
+guardflag=ma
+pausetime=0,10
+sparkno=-1
+guard.sparkno=-1
+sparkxy=0,0
+hitsound=s101,19
+guardsound=s104,0
+ground.type=trip
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-3,-4
+air.velocity=-3,-4
+envshake.time=20
+envshake.ampl=-5
+fall=1
+id=1303
+
+[state 0]
+type=helper
+trigger1=(movehit)&&(time=270)
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.25
+size.yscale=.25
+ignorehitpause=1
+
+[state 0]
+type=targetbind
+trigger1=1
+time=30
+id=1303
+pos=0, 0
+
+[state 0]
+type=explod
+trigger1=time=0
+anim=1315
+scale=.5,.6
+pos=0,0
+postype=p1
+sprpriority=0
+ownpal=1
+removetime=300
+remappal=3,0
+trans=sub
+[state 0]
+type=explod
+trigger1=time=0
+anim=1315
+scale=.5,.6
+pos=0,0
+postype=p1
+sprpriority=6
+ownpal=1
+removetime=300
+remappal=3,5
+[state 0]
+type=explod
+trigger1=time=0
+anim=1310
+scale=.5,.5
+pos=50,0
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=300
+[state 0]
+type=explod
+trigger1=time=0
+anim=1310
+scale=0.35,0.35
+pos=20,-10
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=300
+[state 0]
+type=explod
+trigger1=time=0
+anim=1310
+scale=0.35,0.35
+pos=-20,-10
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=300
+[state 0]
+type=explod
+trigger1=time=0
+anim=1310
+scale=0.35,0.35
+pos=-50,0
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=300
+
+[state 0]
+type=explod
+trigger1=time=10
+anim=1310
+scale=0.4,0.4
+pos=-40,-6
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=290
+[state 0]
+type=explod
+trigger1=time=10
+anim=1310
+scale=.5,.5
+pos=-7,-12
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=290
+
+[state 0]
+type=explod
+trigger1=time=20
+anim=1310
+scale=.5,.5
+pos=7,-12
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=280
+[state 0]
+type=explod
+trigger1=time=20
+anim=1310
+scale=0.45,0.45
+pos=-56,-4
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=280
+
+[state 0]
+type=explod
+trigger1=time=30
+anim=1310
+scale=0.4,0.4
+pos=40,-6
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=270
+
+[state 0]
+type=explod
+trigger1=time=40
+anim=1310
+scale=0.45,0.45
+pos=56,-4
+postype=p1
+sprpriority=-1
+ownpal=1
+removetime=260
+
+[state 0]
+type=explod
+trigger1=time=50
+anim=1310
+scale=.65,.65
+pos=27,10
+postype=p1
+sprpriority=5
+ownpal=1
+removetime=250
+[state 0]
+type=explod
+trigger1=time=50
+anim=1310
+scale=.65,.65
+pos=-27,10
+postype=p1
+sprpriority=5
+ownpal=1
+removetime=250
+[state 0]
+type=explod
+trigger1=time=50
+anim=1310
+scale=.65,.65
+pos=0,10
+postype=p1
+sprpriority=5
+ownpal=1
+removetime=250
+
+[state 0]
+type=explod
+trigger1=time=0
+anim=1311
+scale=-.5,.5
+pos=170,-10
+postype=p1
+sprpriority=-2
+ownpal=1
+removetime=300
+
+[state 0]
+type=explod
+trigger1=time=10
+anim=1312
+scale=-.5,.5
+pos=60,-10
+postype=p1
+sprpriority=6
+ownpal=1
+removetime=290
+
+[state 0]
+type=explod
+trigger1=time=4
+anim=1313
+scale=.4,.4
+pos=-130,-10
+postype=p1
+sprpriority=-2
+ownpal=1
+removetime=296
+
+[state 0]
+type=explod
+trigger1=time=13
+anim=1314
+scale=-.7,.7
+pos=-40,-10
+postype=p1
+sprpriority=6
+ownpal=1
+removetime=287
+
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,66
+channel=0
+
+[state 0]
+type=nothitby
+trigger1=time=0
+value=sca
+time=50
+
+[state 0]
+type=explod
+trigger1=time=280
+anim=1325
+id=1325
+postype=left
+pos=0,0
+ownpal=1
+sprpriority=99999
+ontop=1
+ignorehitpause=1
+bindtime=-1
+facing=1
+scale=1,1
+
+[state 0]
+type=destroyself
+trigger1=time=300
+
+[statedef 1305]
+type=s
+movetype=i
+physics=n
+juggle=1
+velset=0,0
+ctrl=1
+anim=1303
+sprpriority=2
+
+[state 0]
+type=playerpush
+trigger1=1
+value=1
+persistent=1
+ignorehitpause=0
+
+[state 0]
+type=destroyself
+trigger1=time=300
+
+[statedef 1310]
+type=s
+movetype=a
+physics=s
+juggle=1
+poweradd=0
+ctrl=0
+velset=0,0
+anim=1310
+sprpriority=-1
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=1312
+
+[statedef 1311]
+type=s
+movetype=a
+physics=s
+juggle=1
+poweradd=0
+ctrl=0
+velset=0,0
+anim=1310
+sprpriority=4
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=1313
+
+[statedef 1312]
+type=s
+movetype=a
+physics=s
+juggle=1
+poweradd=0
+ctrl=0
+velset=0,0
+anim=1311
+sprpriority=-1
+
+[state 0]
+type=destroyself
+trigger1=time=300
+
+[statedef 1313]
+type=s
+movetype=a
+physics=s
+juggle=1
+poweradd=0
+ctrl=0
+velset=0,0
+anim=1311
+sprpriority=4
+
+[state 0]
+type=destroyself
+trigger1=time=300
+
+[statedef 1400]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=1400
+poweradd=-1000
+sprpriority=2
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8050
+id=8050
+pos=0,0
+postype=p1
+ownpal=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8510
+id=8510
+postype=p1
+pausemovetime=99999
+supermovetime=99999
+
+[state 0]
+type=pause
+trigger1=!time
+time=35
+movetime=35
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,53
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,53
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,53
+
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,58
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,58
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,58
+
+[state 0]
+type=helper
+triggerall=(time>=15)&&(time<=200)
+trigger1=time%8=0
+stateno=1410
+id=1410
+pos=0+(-random%10),-10+(-random%40)
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+
+[state 0]
+type=helper
+triggerall=(time>=15)&&(time<=200)
+trigger1=time%12=0
+stateno=1411
+id=1411
+pos=40+(-random%10),-10+(-random%40)
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+
+[state 0]
+type=playsnd
+trigger1=(time=30)||(time=100)
+value=s101,23
+
+[state 0]
+type=changeanim
+trigger1=(time>=55)&&(numhelper(1410)>0)
+value=anim
+elem=5
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 1410]
+type=a
+movetype=a
+physics=n
+ctrl=0
+anim=1410
+sprpriority=2
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-2
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=420
+id=420
+pos=-20,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.6
+size.yscale=.6
+pausemovetime=9999
+
+[state 0]
+type=velset
+trigger1=time<19
+x=.5
+y=0
+
+[state 0]
+type=velset
+trigger1=time=20
+x=21
+y=0
+
+[state 0]
+type=hitdef
+trigger1=animelem=1
+attr=a,sp
+animtype=heavy
+damage=(floor(const(size.proj.attack.dist)*0.3)),(floor(const(size.proj.attack.dist)*0.15))
+hitflag=maf
+guardflag=maf
+pausetime=5,10
+guard.pausetime=5,5
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,0
+hitsound=s101,11
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-3,0
+air.velocity=-3,-1
+envshake.time=5
+envshake.ampl=-5
+envshake.freq=20
+fall=1
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.17
+size.yscale=.17
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=movecontact
+trigger2=moveguarded
+trigger3=frontedgebodydist < 0
+
+[statedef 1411]
+type=a
+movetype=a
+physics=n
+ctrl=0
+anim=1410
+sprpriority=0
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-2
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=1412
+id=1412
+pos=-20,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.6
+size.yscale=.6
+pausemovetime=9999
+
+[state 0]
+type=velset
+trigger1=time<19
+x=.5
+y=0
+
+[state 0]
+type=velset
+trigger1=time=20
+x=21
+y=0
+
+[state 0]
+type=hitdef
+trigger1=animelem=1
+attr=a,sp
+animtype=heavy
+damage=(floor(const(size.proj.attack.dist)*0.25)),(floor(const(size.proj.attack.dist)*0.15))
+hitflag=maf
+guardflag=maf
+pausetime=5,5
+guard.pausetime=5,5
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,0
+hitsound=s101,11
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-1.5,0
+air.velocity=-1.5,-1
+envshake.time=5
+envshake.ampl=-5
+envshake.freq=20
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.17
+size.yscale=.17
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=movecontact
+trigger2=moveguarded
+trigger3=frontedgebodydist < 0
+
+[statedef 1412]
+type=a
+movetype=i
+physics=n
+anim=420
+sprpriority=0
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,15
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-90
+
+[state 0]
+type=changeanim
+trigger1=(anim=420)&&(time>25)
+value=421
+
+[state 0]
+type=destroyself
+trigger1=(anim=421)&&(!animtime)
+
+
+[statedef 1500]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=1500
+poweradd=-1000
+sprpriority=2
+
+[state 0]
+type=velset
+triggerall=(pos y=0)
+trigger1=(time>5)&&(time<40)
+y=-1.5
+
+[state 0]
+type=velset
+trigger1=time>=40
+y=0
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8050
+id=8050
+pos=0,0
+postype=p1
+ownpal=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8510
+id=8510
+postype=p1
+pausemovetime=99999
+supermovetime=99999
+
+[state 0]
+type=pause
+trigger1=!time
+time=35
+movetime=35
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,52
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,52
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,52
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,52
+
+[state 0]
+type=helper
+triggerall=(time>=40)&&(time<=200)
+trigger1=time%7=0
+stateno=1510
+id=1510
+pos=-10+(-random%20),-10+(-random%60)
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+
+[state 0]
+type=helper
+triggerall=(time>=40)&&(time<=200)
+trigger1=time%8=0
+stateno=1510
+id=1510
+pos=30+(-random%20),-10+(-random%60)
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.7
+size.yscale=.3
+
+[state 0]
+type=playsnd
+trigger1=(time=50)||(time=100)
+value=s101,23
+
+[state 0]
+type=changeanim
+trigger1=(time>=55)&&(numhelper(1510)>0)
+value=anim
+elem=5
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=50
+ctrl=1
+
+[statedef 1510]
+type=a
+movetype=a
+physics=n
+ctrl=0
+anim=1510
+sprpriority=2
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-30
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=1520
+id=1520
+pos=-10,0
+postype=p1
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.6
+size.yscale=.6
+pausemovetime=9999
+
+[state 0]
+type=velset
+trigger1=time<19
+x=.5
+y=.3
+
+[state 0]
+type=velset
+trigger1=time=20
+x=18
+y=12
+
+[state 0]
+type=hitdef
+trigger1=animelem=2
+attr=a,sp
+animtype=heavy
+damage=(floor(const(size.proj.attack.dist)*0.4)),(floor(const(size.proj.attack.dist)*0.15))
+hitflag=mafd
+guardflag=mafd
+pausetime=0,10
+guard.pausetime=0,5
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=0,0
+hitsound=s101,11
+guardsound=s104,0
+ground.type=high
+ground.slidetime=5
+ground.hittime=10
+ground.velocity=-1,0
+air.velocity=-1,-1
+envshake.time=5
+envshake.ampl=-5
+envshake.freq=20
+fall=1
+
+[state 0]
+type=helper
+trigger1=movehit
+stateno=8010
+id=8010
+pos=0,-25
+postype=p2
+ownpal=1
+persistent=0
+size.xscale=.17
+size.yscale=.17
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=movecontact
+trigger2=moveguarded
+
+[state 0]
+type=changestate
+trigger1=frontedgebodydist < 0
+trigger2=time=500
+trigger3=pos y >=-10
+value=1515
+
+[statedef 1515]
+type=a
+movetype=i
+physics=n
+anim=1510
+sprpriority=4
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-30
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s101,22
+[state 0]
+type=playsnd
+trigger1=!time
+value=s101,22
+
+[state 0]
+type=velset
+trigger1=time=0
+x=0
+y=0
+
+[state 0]
+type=changestate
+trigger1=time=20
+value=1516
+
+[statedef 1516]
+type=s
+movetype=i
+physics=s
+juggle=2
+ctrl=0
+anim=9999
+velset=0,0
+sprpriority=6
+
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s110,3
+
+[state 0]
+type=envshake
+trigger1=time=0
+time=10
+
+[state 0]
+type=helper
+trigger1=time=0
+id=1026
+stateno=1026
+pos=0,0
+postype=p1
+ownpal=1
+size.xscale=.5
+size.yscale=.5
+
+[state 0]
+type=explod
+trigger1=!time
+anim=1025
+id=1025
+pos=0,-5
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=6
+scale=.5,.5
+angle=-75
+ownpal=1
+;remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=destroyself
+trigger1=!animtime
+
+[statedef 1517]
+type=a
+movetype=i
+physics=n
+anim=1510
+sprpriority=4
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-60
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s101,22
+[state 0]
+type=playsnd
+trigger1=!time
+value=s101,22
+
+[state 0]
+type=velset
+trigger1=time=0
+x=0
+y=0
+
+[state 0]
+type=changestate
+trigger1=time=20
+value=1516
+
+[statedef 1520]
+type=s
+movetype=a
+physics=n
+anim=420
+sprpriority=3
+
+[state 0]
+type=remappal
+trigger1=!time
+source=3,0
+dest=3,4
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,15
+
+[state 0]
+type=angledraw
+trigger1=1
+value=-105
+
+[state 0]
+type=changeanim
+trigger1=(anim=420)&&(time>25)
+value=421
+
+[state 0]
+type=destroyself
+trigger1=(anim=421)&&(!animtime)
+
+[statedef 4000]
+type=s
+movetype=a
+physics=s
+juggle=1
+velset=0,0
+ctrl=0
+anim=4000
+poweradd=-1000
+sprpriority=2
+
+[state 0]
+type=helper
+trigger1=!time
+stateno=8500
+id=8500
+pos=0,0
+ownpal=1
+postype=p1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=pause
+trigger1=!time
+time=80
+movetime=80
+
+[state 0]
+type=pause
+trigger1=((time>70)&&(time<250))&&(time%4=0)
+time=2
+movetime=2
+
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,67
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,67
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,67
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,67
+[state 0]
+type=playsnd
+trigger1=animelem=1
+value=s0,67
+
+[state 0]
+type=playsnd
+trigger1=animelem=8
+value=s0,56
+[state 0]
+type=playsnd
+trigger1=animelem=8
+value=s0,56
+[state 0]
+type=playsnd
+trigger1=animelem=8
+value=s0,56
+[state 0]
+type=playsnd
+trigger1=animelem=8
+value=s0,56
+
+[state 0]
+type=envshake
+triggerall=time>=70
+trigger1=time%12=0
+time=5
+ampl=-6
+freq=15
+
+[state 0]
+type=explod
+triggerall=time>=70
+trigger1=time%10=0
+anim=8120
+id=8120
+pos=-10,2
+vel=-1,0
+ownpal=1
+facing=1
+scale=.3,.3
+sprpriority=5
+bindtime=1
+removetime=-2
+supermovetime=99999999
+pausemovetime=99999999
+postype=p1
+
+[state 0]
+type=explod
+triggerall=time>=70
+trigger1=time%10=0
+anim=8120
+id=8120
+pos=10,-2
+vel=1,0
+ownpal=1
+facing=-1
+scale=.3,.3
+sprpriority=-1
+bindtime=1
+removetime=-2
+supermovetime=99999999
+pausemovetime=99999999
+postype=p1
+
+[state 0]
+type=helper
+triggerall=time>=70
+trigger1=timemod=10,0
+id=8060
+stateno=8060
+pos=0,10
+postype=p1
+size.xscale=1.1
+size.yscale=1.1
+supermovetime=99999999
+pausemovetime=99999999
+
+[state 0]
+type=explod
+trigger1=animelem=5
+anim=4010
+id=4010
+pos=-5,-80
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=0
+scale=.3,.3
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=animelem=5
+anim=4010
+id=4010
+pos=-5,-80
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.3,.3
+angle=0
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=(animelemtime(8)>=0)
+anim=4009
+id=4009
+pos=-10,-37
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=0
+scale=.5,.7
+angle=60
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=(animelemtime(8)>=0)
+anim=4009
+id=4009
+pos=-10,-37
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.5,.7
+angle=60
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=time=80
+anim=3301
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=0
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=time=80
+anim=3301
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=3
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=time=90
+anim=3302
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=0
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=time=90
+anim=3302
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=3
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=time=100
+anim=3303
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=0
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=time=100
+anim=3303
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=3
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=time=110
+anim=3304
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=0
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=time=110
+anim=3304
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=3
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=time=120
+anim=3305
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=0
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=time=120
+anim=3305
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=3
+scale=.5,.4
+angle=20
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=time=110
+anim=3304
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=0
+scale=.6,.5
+angle=20
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=time=110
+anim=3304
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=3
+scale=.6,.5
+angle=20
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=time=120
+anim=3305
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=0
+scale=.6,.5
+angle=20
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=time=120
+anim=3305
+id=1502
+pos=-20,-43
+postype=p1
+facing=1
+bindtime=-1
+removetime=200
+sprpriority=3
+scale=.6,.5
+angle=20
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=removeexplod
+trigger1=movetype=h
+id=1502
+
+[state 0]
+type=helper
+trigger1=time=80
+id=4030
+facing=1
+stateno=4030
+postype=p1
+ownpal=1
+size.xscale=.03
+size.yscale=.03
+pausemovetime=99999
+supermovetime=99999
+
+[state 0]
+type=explod
+trigger1=(time=[80,250])&&(time%20=0)
+anim=8050
+id=8050
+pos=-25,-45
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.2,.1
+angle=random%360
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=hitdef
+trigger1=(time>=100)&&(time%4=0)
+affectteam=b
+animtype=hard
+attr=s,sa
+hitflag=mafd
+damage=3,2
+guardflag=m
+pausetime=1,2
+sparkno=-1
+guard.sparkno=s8000
+sparkxy=-random%30, -10-random%30
+hitsound=s101,21
+guardsound=s104,0
+ground.type=low
+ground.slidetime=18
+ground.hittime=18
+ground.velocity=cond(enemynear,p2bodydist x<75,-2,2),-1
+air.velocity=cond(enemynear,p2bodydist x<75,-2,1),-.5
+ground.cornerpush.veloff=0
+air.cornerpush.veloff=0
+down.cornerpush.veloff=0
+guard.cornerpush.veloff=0
+airguard.cornerpush.veloff=0
+kill=0
+;fall=1
+fall.recover=0
+getpower=0,0
+id=stateno
+
+[state 0]
+type=explod
+triggerall=(gametime % 2)=0
+triggerall=animelemtime(7)>=0
+trigger1=movecontact=1
+anim=7012
+id=7011
+postype=p2
+pos=-10+random%20,-10-random%25
+facing=1
+vfacing=cond(random<=500,-1,1)
+sprpriority=0
+removetime=-2
+bindtime=1
+ontop=1
+ownpal=1
+scale=.3,.3
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+angle=0+random%180
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=playsnd
+trigger1=time=190
+value=s0,68
+[state 0]
+type=playsnd
+trigger1=time=190
+value=s0,68
+[state 0]
+type=playsnd
+trigger1=time=190
+value=s0,68
+[state 0]
+type=playsnd
+trigger1=time=190
+value=s0,68
+[state 0]
+type=playsnd
+trigger1=time=190
+value=s0,68
+[state 0]
+type=playsnd
+trigger1=time=190
+value=s0,68
+
+[state 0]
+type=changestate
+trigger1=time>=240
+value=4005
+
+[statedef 4005]
+type=s
+movetype=a
+physics=s
+juggle=2
+ctrl=0
+anim=4005
+velset=0,0
+poweradd=-2500
+sprpriority=2
+facep2=1
+
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,57
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,57
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,57
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,57
+
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,60
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,60
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,60
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,60
+[state 0]
+type=playsnd
+trigger1=animelem=5
+value=s0,60
+
+[state 0]
+type=removeexplod
+trigger1=animelem=5
+id=1502
+
+[state 0]
+type=envshake
+trigger1=time%8=0
+time=5
+ampl=-5
+freq=25
+
+[state 0]
+type=explod
+trigger1=(time<250)&&(time%20=0)
+anim=3312
+id=3312
+pos=-5,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=0
+scale=.7,.7
+angle=0
+ownpal=1
+remappal=3,0
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+trans=sub
+[state 0]
+type=explod
+trigger1=(time<250)&&(time%20=0)
+anim=3312
+id=3312
+pos=-5,0
+postype=p1
+facing=1
+bindtime=1
+removetime=-2
+sprpriority=3
+scale=.7,.7
+angle=0
+ownpal=1
+remappal=3,3
+removeongethit=1
+ignorehitpause=1
+supermovetime=999
+pausemovetime=999
+
+[state 0]
+type=explod
+trigger1=(time<260)&&(timemod=2,0)
+anim=8100
+id=8100
+pos=(10-random%20),(-5-random%40)
+vel=-1,0
+facing=1
+vfacing=1
+bindtime=1
+removetime=-2
+scale=.2,.1
+sprpriority=3
+ownpal=1
+removeongethit=1
+ignorehitpause=1
+trans=sub
+postype=p1
+angle=90
+pausemovetime=99999
+supermovetime=99999
+
+[state 0]
+type=explod
+trigger1=(time<260)&&(timemod=6,0)
+anim=8120
+id=8120
+pos=-5,0
+vel=-2,0
+ownpal=1
+facing=1
+scale=.35,.4
+sprpriority=5
+bindtime=1
+removetime=-2
+removeongethit=1
+postype=p1
+pausemovetime=99999
+supermovetime=99999
+
+[state 0]
+type=changeanim
+trigger1=timemod=20,0&&numhelper(4050)>0
+trigger2=numhelper(4060)>0
+value=anim
+elem=5
+
+[state 0]
+type=helper
+trigger1=time=13
+id=4050
+stateno=4050
+pos=0,0
+postype=p1
+ownpal=1
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=4006
+ctrl=1
+
+[statedef 4006]
+type=s
+movetype=i
+physics=s
+anim=4006
+ctrl=0
+sprpriority=2
+velset=0,0
+
+[state 0]
+type=changestate
+trigger1=!animtime
+value=0
+ctrl=1
+
+[statedef 4030]
+type=a
+movetype=a
+physics=n
+juggle=1
+anim=9999
+sprpriority=3
+
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s110,16
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s110,16
+[state 0]
+type=playsnd
+trigger1=time=0
+value=s110,16
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,17
+volumescale=200
+channel=7
+
+[state 0]
+type=stopsnd
+trigger1=root,stateno!=4000
+trigger2=root,stateno=4005
+channel=7
+
+[state 0]
+type=destroyself
+trigger1=root,stateno!=4000
+trigger2=root,stateno=4005
+trigger3=root,movetype=h
+
+[statedef 4050]
+type=a
+movetype=a
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+anim=4050
+sprpriority=3
+
+[state 0]
+type=helper
+trigger1=!time
+id=4054
+stateno=4054
+pos=0,0
+postype=p1
+ownpal=1
+size.xscale=1.3
+size.yscale=1
+ignorehitpause=1
+
+[state 0]
+type=helper
+trigger1=!time
+id=4055
+stateno=4055
+pos=0,0
+postype=p1
+ownpal=1
+size.xscale=1.3
+size.yscale=1
+ignorehitpause=1
+
+[state 0]
+type=playsnd
+triggerall=time<=170
+trigger1=timemod=20,0
+value=s110,9
+volumescale=100
+
+[state 0]
+type=envshake
+triggerall=time<=120
+trigger1=timemod=15,0
+time=8
+
+[state 0]
+type=bindtoroot
+trigger1=1
+pos=42,-27
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=hitdef
+trigger1=time%5=0
+attr=a,sp
+animtype=heavy
+damage=8,4
+hitflag=mafd
+guardflag=ma
+pausetime=0,3
+sparkno=-1
+guard.sparkno=-1
+sparkxy=0,0
+hitsound=s101,21
+guardsound=s101,22+(random%2)
+ground.type=high
+ground.slidetime=12
+ground.hittime=15
+ground.velocity=-3,-.25
+air.velocity=-3,-.25
+fall=0
+kill=0
+numhits=6
+getpower=0,0
+sprpriority=3
+envshake.time=10
+envshake.ampl=-8
+envshake.freq=50
+
+[state 0]
+type=explod
+triggerall=(gametime % 1)=0
+trigger1=movecontact=1
+anim=7012
+id=7011
+postype=p2
+pos=-10+random%20,-10-random%25
+facing=1
+vfacing=cond(random<=500,-1,1)
+sprpriority=0
+supermove=1
+removetime=-2
+bindtime=1
+ontop=1
+ownpal=1
+scale=.6,.6
+remappal=3,3
+removeongethit=1
+supermovetime=999
+ignorehitpause=1
+angle=0+random%180
+
+[state 0]
+type=destroyself
+trigger1=root,movetype=h
+
+[state 0]
+type=changestate
+trigger1=time>=220
+value=4056
+
+[statedef 4054]
+type=a
+movetype=i
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+anim=4055
+sprpriority=4
+
+[state 0]
+type=bindtoroot
+trigger1=1
+pos=60,-35
+
+[state 0]
+type=palfx
+trigger1=1
+time=999999
+add=0,-140,-140
+mul=512,512,512
+invertall=0
+color=256
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=256,256
+ignorehitpause=1
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=root,movetype=h
+
+[state 0]
+type=changestate
+trigger1=time>=220
+value=460
+
+[statedef 4055]
+type=a
+movetype=i
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+anim=4055
+sprpriority=-1
+
+[state 0]
+type=bindtoroot
+trigger1=1
+pos=60,-35
+
+[state 0]
+type=trans
+trigger1=1
+trans=sub
+ignorehitpause=1
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=root,movetype=h
+
+[state 0]
+type=destroyself
+trigger1=time>=220
+
+[statedef 4056]
+type=a
+movetype=a
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+sprpriority=10
+
+[state 0]
+type=statetypeset
+trigger1=time=2
+statetype=a
+movetype=i
+physics=n
+
+[state 0]
+type=hitdef
+triggerall=!movecontact
+trigger1=1
+attr=a,st
+animtype=light
+damage=0
+hitflag=mafd
+guardflag=ma
+pausetime=0,0
+sparkno=-1
+guard.sparkno=-1
+sparkxy=-8,-15
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=12
+ground.hittime=15
+ground.velocity=0
+air.velocity=0,0
+fall=0
+getpower=0,0
+numhits=0
+kill=0
+envshake.time=20
+
+[state 0]
+type=helper
+trigger1=movehit=1
+id=4060
+stateno=4060
+pos=0,0
+postype=p2
+facing=1
+keyctrl=0
+ownpal=1
+size.xscale=.6
+size.yscale=.6
+
+[state 0]
+type=destroyself
+trigger1=time=10
+
+[statedef 4060]
+type=s
+movetype=a
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+anim=4060
+sprpriority=4
+
+[state 0]
+type=helper
+trigger1=time=2
+id=4070
+stateno=4070
+pos=0,0
+postype=p1
+ownpal=1
+size.xscale=.7
+size.yscale=.6
+
+[state 0]
+type=helper
+trigger1=time=2
+id=4075
+stateno=4075
+pos=0,0
+postype=p1
+ownpal=1
+size.xscale=.7
+size.yscale=.6
+ignorehitpause=1
+
+[state 0]
+type=palfx
+trigger1=1
+time=999999
+add=-50,-140,-150
+mul=512,512,512
+invertall=0
+color=256
+
+[state 0]
+type=trans
+trigger1=1
+trans=add
+ignorehitpause=1
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=unguardable
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,10
+
+[state 0]
+type=playsnd
+trigger1=!time
+value=s110,11
+
+[state 0]
+type=explod
+trigger1=!time
+anim=1525
+id=1525
+pos=0,0
+postype=left
+facing=1
+vfacing=1
+bindtime=-1
+removetime=-2
+scale=999,999
+sprpriority=9
+ontop=1
+ownpal=1
+removeongethit=0
+ignorehitpause=1
+supermovetime=99999
+pausemovetime=99999
+
+[state 0]
+type=posset
+trigger1=1
+y=0
+
+[state 0]
+type=statetypeset
+trigger1=time=10
+statetype=a
+movetype=i
+physics=n
+
+[state 0]
+type=envshake
+trigger1=!time
+time=80
+ampl=-4
+
+[state 0]
+type=hitdef
+triggerall=!movecontact
+trigger1=1
+attr=s,sa
+animtype=hard
+damage=100
+hitflag=mafd
+guardflag=ma
+pausetime=0,10
+sparkno=-1
+guard.sparkno=s7000
+sparkxy=-8,-25
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=12
+ground.hittime=15
+ground.velocity=5,-4
+air.velocity=5,-4
+fall=1
+fall.recover=0
+numhits=0
+getpower=0,0
+sprpriority=3
+palfx.time=30
+palfx.add=-200,-200,-200
+palfx.mul=256,256,256
+palfx.sinadd=50,50,50,50
+palfx.invertall=0
+palfx.color=256
+
+[state 0]
+type=targetstate
+triggerall=p2life=0
+trigger1=movecontact
+value=4090
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=!animtime
+
+[statedef 4070]
+type=a
+movetype=i
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+anim=4070
+sprpriority=2
+
+[state 0]
+type=palfx
+trigger1=1
+time=999999
+add=0,-140,-140
+mul=512,512,512
+invertall=0
+color=256
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=180,256
+ignorehitpause=1
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=!animtime
+
+[statedef 4075]
+type=a
+movetype=i
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+anim=4070
+sprpriority=-1
+
+[state 0]
+type=trans
+trigger1=1
+trans=sub
+ignorehitpause=1
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=!animtime
+
+[statedef 460]
+type=a
+movetype=i
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+sprpriority=3
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=varset
+trigger1=!time
+v=2
+value=0
+
+[state 0]
+type=varadd
+trigger1=time>2
+v=2
+value=25
+
+[state 0]
+type=trans
+trigger1=1
+trans=addalpha
+alpha=256-var(2),256
+ignorehitpause=1
+
+[state 0]
+type=assertspecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[state 0]
+type=hitdef
+trigger1=!movecontact
+attr=a,sp
+animtype=heavy
+damage=2,1
+hitflag=mafd
+guardflag=ma
+pausetime=0,10
+sparkno=-1
+guard.sparkno=s7000
+sparkxy=-8,-25
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=12
+ground.hittime=15
+ground.velocity=-6,-8
+air.velocity=-6,-8
+numhits=0
+fall=1
+fall.recover=0
+numhits=2
+getpower=0,0
+sprpriority=3
+palfx.time=30
+palfx.add=-200,-200,-200
+palfx.mul=256,256,256
+palfx.sinadd=50,50,50,50
+palfx.invertall=0
+palfx.color=256
+
+[state 0]
+type=varset
+trigger1=!time
+fv=1
+value=0
+
+[state 0]
+type=varadd
+trigger1=time>1
+fv=1
+value=.1
+
+[state 0]
+type=angledraw
+trigger1=1
+scale=1,1-fvar(1)
+ignorehitpause=1
+
+[state 0]
+type=destroyself
+trigger1=time=20
+
+[statedef 4090]
+type=s
+movetype=h
+physics=n
+juggle=1
+velset=0,0
+ctrl=0
+sprpriority=-1
+facep2=1
+
+[state 0]
+type=posset
+trigger1=!time
+y=0
+
+[state 0]
+type=changeanim
+trigger1=!time
+value=5110
+elem=1
+
+[state 0]
+type=playerpush
+trigger1=1
+value=0
+ignorehitpause=1
+
+[state 0]
+type=nothitby
+trigger1=1
+value=sca,na,sa,ha,np,sp,hp,nt,st,ht
+time=1
+
+[state 0]
+type=selfstate
+triggerall=life>0
+trigger1=time>=150
+value=5120
+
+[state 0]
+type=changestate
+trigger1=life=0
+value=5150
+
+[State 0]
+type=stopsnd
+trigger1=stateno!=500
+channel=2
+[State 0]
+type=stopsnd
+trigger1=stateno!=500
+channel=3
